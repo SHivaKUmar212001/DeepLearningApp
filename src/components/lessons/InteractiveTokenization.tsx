@@ -51,15 +51,15 @@ export function InteractiveTokenization() {
   
   // Colors for visual distinction
   const colors = [
-    "bg-indigo-500", "bg-emerald-500", "bg-rose-500", 
+    "bg-violet-500", "bg-emerald-500", "bg-[#111128]0", 
     "bg-amber-500", "bg-cyan-500", "bg-purple-500"
   ];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Subword Tokenization</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Subword Tokenization</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Vocab Size: ~30,000
         </div>
       </div>
@@ -68,17 +68,17 @@ export function InteractiveTokenization() {
         
         {/* Input */}
         <div className="flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Raw Text Input</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Raw Text Input</h3>
             
             <textarea 
-              className="w-full h-32 bg-rose-50 border border-rose-300 text-rose-950 p-3 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none resize-none"
+              className="w-full h-32 bg-[#111128] border border-white/[0.1] text-white/90 p-3 rounded-lg focus:ring-2 focus:ring-violet-500 focus:outline-none resize-none"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type a sentence here..."
             />
             
-            <p className="text-xs text-rose-700 leading-relaxed">
+            <p className="text-xs text-white/40 leading-relaxed">
               Neural networks cannot read letters or words. They only understand numbers. 
               Notice how words like &quot;jumped&quot; are split into a root (&quot;jump&quot;) and a suffix (&quot;##ed&quot;).
             </p>
@@ -86,15 +86,15 @@ export function InteractiveTokenization() {
         </div>
 
         {/* Output */}
-        <div className="flex flex-col items-center justify-start bg-rose-50 rounded-xl border border-rose-200 p-6 min-h-[300px]">
+        <div className="flex flex-col items-center justify-start bg-[#111128] rounded-xl border border-white/[0.08] p-6 min-h-[300px]">
           
           <div className="w-full">
-            <h3 className="text-xs font-mono text-rose-700 uppercase tracking-wider font-bold mb-4">Token Sequence (1D Tensor)</h3>
+            <h3 className="text-xs font-mono text-white/40 uppercase tracking-wider font-bold mb-4">Token Sequence (1D Tensor)</h3>
             
             <div className="flex flex-wrap gap-2 content-start">
               <AnimatePresence>
                 {tokens.length === 0 && (
-                  <div className="text-rose-600 italic text-sm">Awaiting input...</div>
+                  <div className="text-white/35 italic text-sm">Awaiting input...</div>
                 )}
                 
                 {tokens.map((token, i) => {
@@ -108,12 +108,12 @@ export function InteractiveTokenization() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.5 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                      className={`flex flex-col rounded overflow-hidden border border-rose-300 shadow-md ${isSubword ? 'ml-[-4px] rounded-l-none' : ''}`}
+                      className={`flex flex-col rounded overflow-hidden border border-white/[0.1] shadow-[0_0_20px_-8px_rgba(139,92,246,0.2)] ${isSubword ? 'ml-[-4px] rounded-l-none' : ''}`}
                     >
-                      <div className={`px-3 py-1.5 text-rose-950 font-medium text-sm text-center ${colorClass}`}>
+                      <div className={`px-3 py-1.5 text-white/90 font-medium text-sm text-center ${colorClass}`}>
                         {token.text}
                       </div>
-                      <div className="bg-rose-100 px-2 py-1 text-xs font-mono text-rose-600 text-center border-t border-rose-300">
+                      <div className="bg-white/[0.04] px-2 py-1 text-xs font-mono text-white/35 text-center border-t border-white/[0.1]">
                         {token.id}
                       </div>
                     </motion.div>
@@ -123,9 +123,9 @@ export function InteractiveTokenization() {
             </div>
             
             {tokens.length > 0 && (
-              <div className="mt-8 pt-4 border-t border-rose-200">
-                <h3 className="text-xs font-mono text-rose-700 uppercase tracking-wider font-bold mb-2">Final Output Array</h3>
-                <div className="font-mono text-emerald-600 text-sm break-all bg-emerald-900/20 p-3 rounded border border-emerald-500/20">
+              <div className="mt-8 pt-4 border-t border-white/[0.08]">
+                <h3 className="text-xs font-mono text-white/40 uppercase tracking-wider font-bold mb-2">Final Output Array</h3>
+                <div className="font-mono text-emerald-400 text-sm break-all bg-emerald-900/20 p-3 rounded border border-emerald-500/20">
                   [{tokens.map(t => t.id).join(", ")}]
                 </div>
               </div>

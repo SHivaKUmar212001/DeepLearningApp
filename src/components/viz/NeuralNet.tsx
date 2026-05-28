@@ -89,7 +89,7 @@ export function NeuralNet({
   };
 
   return (
-    <div className={cn("relative aspect-video w-full overflow-hidden rounded-lg border border-rose-200 bg-rose-50/80", className)}>
+    <div className={cn("relative aspect-video w-full overflow-hidden rounded-lg border border-white/[0.08] bg-[#111128]/80", className)}>
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full" aria-label="Neural Network Diagram">
         {/* Edges */}
         {edges.map((edge) => {

@@ -53,10 +53,10 @@ export function InteractiveRLBasics() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">The Reinforcement Learning Loop</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">The Reinforcement Learning Loop</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Agent-Environment Interaction
         </div>
       </div>
@@ -65,50 +65,50 @@ export function InteractiveRLBasics() {
         
         {/* Controls / Score */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
             
-            <div className="flex justify-between items-center bg-rose-50 p-4 rounded border border-rose-200">
+            <div className="flex justify-between items-center bg-[#111128] p-4 rounded border border-white/[0.08]">
               <div className="flex flex-col">
-                <span className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Total Score</span>
-                <span className={`font-mono text-2xl font-bold ${score < 0 ? 'text-rose-700' : 'text-emerald-600'}`}>
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Total Score</span>
+                <span className={`font-mono text-2xl font-bold ${score < 0 ? 'text-white/40' : 'text-emerald-400'}`}>
                   {score}
                 </span>
               </div>
               
               <div className="flex flex-col items-end">
-                <span className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Last Reward</span>
-                <span className="font-mono text-xl font-bold text-rose-950">
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Last Reward</span>
+                <span className="font-mono text-xl font-bold text-white/90">
                   {lastReward !== null ? (lastReward > 0 ? `+${lastReward}` : lastReward) : "-"}
                 </span>
               </div>
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="text-[10px] font-bold text-indigo-700 uppercase tracking-widest">Action Space</span>
+              <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Action Space</span>
               <div className="grid grid-cols-3 gap-2 w-48">
                 <div />
                 <button 
                   onClick={() => handleMove(0, -1)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-rose-950 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
                 </button>
                 <div />
                 <button 
                   onClick={() => handleMove(-1, 0)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-rose-950 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 </button>
                 <button 
                   onClick={() => handleMove(0, 1)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-rose-950 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
                 </button>
                 <button 
                   onClick={() => handleMove(1, 0)}
-                  className="bg-indigo-600 hover:bg-indigo-500 text-rose-950 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
@@ -117,7 +117,7 @@ export function InteractiveRLBasics() {
 
             <button 
               onClick={handleReset}
-              className="mt-2 text-xs text-rose-700 hover:text-rose-950 transition-colors underline"
+              className="mt-2 text-xs text-white/40 hover:text-white/90 transition-colors underline"
             >
               Reset Environment
             </button>
@@ -126,18 +126,18 @@ export function InteractiveRLBasics() {
         </div>
 
         {/* Visualizer (Grid World) */}
-        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[350px] relative">
+        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[350px] relative">
           
-          <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest absolute top-6">Environment (Grid World)</h3>
+          <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest absolute top-6">Environment (Grid World)</h3>
           
-          <div className="relative w-64 h-64 bg-rose-100 border-2 border-rose-300 rounded-lg shadow-inner overflow-hidden grid grid-cols-3 grid-rows-3 mt-6">
+          <div className="relative w-64 h-64 bg-white/[0.04] border-2 border-white/[0.1] rounded-lg shadow-inner overflow-hidden grid grid-cols-3 grid-rows-3 mt-6">
             
             {/* Grid Cells */}
             {Array.from({ length: 9 }).map((_, i) => {
               const x = i % 3;
               const y = Math.floor(i / 3);
               return (
-                <div key={i} className="border border-rose-200 flex items-center justify-center">
+                <div key={i} className="border border-white/[0.08] flex items-center justify-center">
                   <span className="text-[10px] text-gray-700 font-mono opacity-50">[{x},{y}]</span>
                 </div>
               );
@@ -159,7 +159,7 @@ export function InteractiveRLBasics() {
               animate={{ left: `${pos.x * 33.33}%`, top: `${pos.y * 33.33}%` }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="w-12 h-12 bg-indigo-500 rounded-full border-4 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-rose-950 text-xl">
+              <div className="w-12 h-12 bg-violet-500 rounded-full border-4 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 text-xl">
                 🤖
               </div>
             </motion.div>
@@ -167,7 +167,7 @@ export function InteractiveRLBasics() {
           </div>
 
           {/* Loop Annotations */}
-          <div className="mt-8 text-xs text-rose-600 max-w-sm text-center">
+          <div className="mt-8 text-xs text-white/35 max-w-sm text-center">
             You are the <strong>Agent</strong>. You take an <strong>Action</strong> (move). 
             The <strong>Environment</strong> updates your <strong>State</strong> (coordinates) and returns a <strong>Reward</strong> (-1 per step, -10 for fire, +10 for battery).
           </div>

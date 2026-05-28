@@ -95,17 +95,17 @@ export function InteractiveRegularization() {
   }, [capacity, lambda, dataPoints]);
 
   return (
-    <div className="my-8 p-6 bg-white border border-rose-200 rounded-xl shadow-xl flex flex-col gap-8">
+    <div className="my-8 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] flex flex-col gap-8">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Interactive Regularization</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Interactive Regularization</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Controls */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
-            <h3 className="text-sm font-medium text-rose-800">Model Configuration</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
+            <h3 className="text-sm font-medium text-white/60">Model Configuration</h3>
             
             <Slider 
               label="Model Capacity (Neurons)" 
@@ -119,25 +119,25 @@ export function InteractiveRegularization() {
               value={lambda} onChange={setLambda} 
             />
             
-            <div className="bg-rose-50 border border-rose-200 rounded p-3 text-xs font-mono text-rose-600 mt-2">
+            <div className="bg-[#111128] border border-white/[0.08] rounded p-3 text-xs font-mono text-white/35 mt-2">
               <div className="flex justify-between mb-1">
                 <span>Mean Squared Error:</span>
-                <span className="text-amber-600">{finalLoss.toFixed(4)}</span>
+                <span className="text-amber-400">{finalLoss.toFixed(4)}</span>
               </div>
               <div className="flex justify-between">
                 <span>Weights Size (||w||²):</span>
-                <span className="text-indigo-700">{weightNorm.toFixed(2)}</span>
+                <span className="text-violet-400">{weightNorm.toFixed(2)}</span>
               </div>
             </div>
 
-            <p className="text-xs text-rose-700 leading-relaxed mt-2">
+            <p className="text-xs text-white/40 leading-relaxed mt-2">
               <strong>Experiment:</strong> Set capacity to 30 and λ to 0. Watch the model overfit and aggressively zigzag to hit every noisy point perfectly. Then, slowly increase λ to force the model to keep its weights small, resulting in a smooth, generalized curve!
             </p>
           </div>
         </div>
 
         {/* Plot */}
-        <div className="lg:col-span-8 bg-rose-50 rounded-xl border border-rose-200 p-4 relative overflow-hidden flex items-center justify-center min-h-[300px]">
+        <div className="lg:col-span-8 bg-[#111128] rounded-xl border border-white/[0.08] p-4 relative overflow-hidden flex items-center justify-center min-h-[300px]">
           
           <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible preserve-3d" style={{ transform: "scaleY(-1)" }}>
             

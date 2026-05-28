@@ -99,10 +99,10 @@ export function InteractiveQLearning() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Q-Learning</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Q-Learning</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Value-Based RL
         </div>
       </div>
@@ -110,7 +110,7 @@ export function InteractiveQLearning() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Controls */}
-        <div className="lg:col-span-12 flex justify-between items-center bg-rose-100 p-4 rounded-lg border border-rose-200">
+        <div className="lg:col-span-12 flex justify-between items-center bg-white/[0.04] p-4 rounded-lg border border-white/[0.08]">
           <PlayControl 
             isPlaying={isPlaying}
             onPlayPause={() => setIsPlaying(!isPlaying)}
@@ -119,25 +119,25 @@ export function InteractiveQLearning() {
           
           <div className="flex gap-8">
             <div className="flex flex-col items-end">
-              <span className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Episode</span>
-              <span className="font-mono font-bold text-rose-950 text-lg">{episode}</span>
+              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Episode</span>
+              <span className="font-mono font-bold text-white/90 text-lg">{episode}</span>
             </div>
           </div>
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-12 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[400px]">
+        <div className="lg:col-span-12 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[400px]">
           
           <div className="w-full flex flex-col md:flex-row items-start justify-center gap-12 max-w-4xl">
             
             {/* Environment */}
             <div className="flex flex-col gap-6 flex-1">
-              <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest text-center">Environment (1D Grid)</h3>
+              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest text-center">Environment (1D Grid)</h3>
               
-              <div className="flex bg-rose-100 border-2 border-rose-300 rounded-lg overflow-hidden h-24">
+              <div className="flex bg-white/[0.04] border-2 border-white/[0.1] rounded-lg overflow-hidden h-24">
                 {Array.from({ length: numStates }).map((_, i) => (
-                  <div key={i} className={`flex-1 border-r border-rose-300 last:border-r-0 flex items-center justify-center relative ${i === numStates - 1 ? 'bg-emerald-50' : ''}`}>
-                    <span className="absolute top-2 text-[10px] text-rose-600 font-mono">S{i}</span>
+                  <div key={i} className={`flex-1 border-r border-white/[0.1] last:border-r-0 flex items-center justify-center relative ${i === numStates - 1 ? 'bg-emerald-50' : ''}`}>
+                    <span className="absolute top-2 text-[10px] text-white/35 font-mono">S{i}</span>
                     
                     {i === numStates - 1 && (
                       <span className="text-2xl filter drop-shadow-[0_0_8px_rgba(52,211,153,0.8)]">🔋</span>
@@ -146,7 +146,7 @@ export function InteractiveQLearning() {
                     {agentState === i && (
                       <motion.div 
                         layoutId="agent"
-                        className="w-10 h-10 bg-indigo-500 rounded-full border-2 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-rose-950 z-10"
+                        className="w-10 h-10 bg-violet-500 rounded-full border-2 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 z-10"
                       >
                         🤖
                       </motion.div>
@@ -156,10 +156,10 @@ export function InteractiveQLearning() {
               </div>
 
               <div className="flex flex-col items-center gap-2 mt-4">
-                <span className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Last Action</span>
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Last Action</span>
                 <div className="flex gap-4">
-                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "L" ? 'bg-indigo-600 text-rose-950' : 'bg-rose-200 text-rose-700'}`}>LEFT</div>
-                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "R" ? 'bg-indigo-600 text-rose-950' : 'bg-rose-200 text-rose-700'}`}>RIGHT</div>
+                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "L" ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>LEFT</div>
+                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "R" ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>RIGHT</div>
                 </div>
               </div>
             </div>
@@ -168,23 +168,23 @@ export function InteractiveQLearning() {
             <div className="flex flex-col gap-6 flex-1">
               <h3 className="text-[10px] font-bold text-cyan-500 uppercase tracking-widest text-center">The Q-Table</h3>
               
-              <div className="bg-rose-100 border border-rose-300 rounded-lg overflow-hidden">
+              <div className="bg-white/[0.04] border border-white/[0.1] rounded-lg overflow-hidden">
                 <table className="w-full text-center">
                   <thead>
-                    <tr className="bg-rose-50 border-b border-rose-300">
-                      <th className="py-2 text-[10px] uppercase text-rose-700 font-mono">State</th>
-                      <th className="py-2 text-[10px] uppercase text-rose-700 font-mono">Q(L)</th>
-                      <th className="py-2 text-[10px] uppercase text-rose-700 font-mono">Q(R)</th>
+                    <tr className="bg-[#111128] border-b border-white/[0.1]">
+                      <th className="py-2 text-[10px] uppercase text-white/40 font-mono">State</th>
+                      <th className="py-2 text-[10px] uppercase text-white/40 font-mono">Q(L)</th>
+                      <th className="py-2 text-[10px] uppercase text-white/40 font-mono">Q(R)</th>
                     </tr>
                   </thead>
                   <tbody>
                     {qTable.map((row, i) => (
-                      <tr key={i} className={`border-b border-rose-200 last:border-0 ${agentState === i ? 'bg-indigo-50' : ''}`}>
-                        <td className={`py-2 font-mono text-sm ${agentState === i ? 'text-indigo-700 font-bold' : 'text-rose-600'}`}>S{i}</td>
-                        <td className={`py-2 font-mono text-sm ${row.L > 0 ? 'text-emerald-600 font-bold' : row.L < 0 ? 'text-rose-600' : 'text-rose-600'}`}>
+                      <tr key={i} className={`border-b border-white/[0.08] last:border-0 ${agentState === i ? 'bg-indigo-50' : ''}`}>
+                        <td className={`py-2 font-mono text-sm ${agentState === i ? 'text-violet-400 font-bold' : 'text-white/35'}`}>S{i}</td>
+                        <td className={`py-2 font-mono text-sm ${row.L > 0 ? 'text-emerald-400 font-bold' : row.L < 0 ? 'text-white/35' : 'text-white/35'}`}>
                           {row.L.toFixed(2)}
                         </td>
-                        <td className={`py-2 font-mono text-sm ${row.R > 0 ? 'text-emerald-600 font-bold' : row.R < 0 ? 'text-rose-600' : 'text-rose-600'}`}>
+                        <td className={`py-2 font-mono text-sm ${row.R > 0 ? 'text-emerald-400 font-bold' : row.R < 0 ? 'text-white/35' : 'text-white/35'}`}>
                           {row.R.toFixed(2)}
                         </td>
                       </tr>
@@ -196,7 +196,7 @@ export function InteractiveQLearning() {
 
           </div>
 
-          <div className="mt-12 w-full max-w-4xl p-4 bg-rose-100/50 border border-rose-200 rounded-lg text-sm text-rose-600 leading-relaxed text-center">
+          <div className="mt-12 w-full max-w-4xl p-4 bg-[#0d0d20]/50 border border-white/[0.08] rounded-lg text-sm text-white/35 leading-relaxed text-center">
             When the Agent hits the battery, the Q-Value for S3-&gt;RIGHT becomes highly positive. 
             In the next episode, when the Agent is in S2, the Bellman Equation allows it to &quot;look ahead&quot; and see that S3 is valuable, so the Q-Value for S2-&gt;RIGHT increases. Over time, the reward propagates backwards to S0!
           </div>

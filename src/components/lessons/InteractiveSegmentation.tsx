@@ -16,74 +16,74 @@ export function InteractiveSegmentation() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Semantic Segmentation</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Semantic Segmentation</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Controls */}
         <div className="flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600 mb-2">Class Masks</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400 mb-2">Class Masks</h3>
             
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => toggleMask('sky')}
-                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.sky ? 'bg-blue-900/40 border-blue-500/50 text-blue-300' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.sky ? 'bg-blue-900/40 border-blue-500/50 text-blue-300' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded bg-blue-500 opacity-60" />
                   <span className="font-medium text-sm">Sky (Class 0)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.sky ? 'bg-blue-500 border-blue-400' : 'border-rose-400'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.sky ? 'bg-blue-500 border-blue-400' : 'border-violet-500/30'}`} />
               </button>
 
               <button 
                 onClick={() => toggleMask('tree')}
-                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.tree ? 'bg-green-900/40 border-green-500/50 text-green-300' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.tree ? 'bg-green-900/40 border-green-500/50 text-green-300' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded bg-green-500 opacity-60" />
                   <span className="font-medium text-sm">Tree (Class 1)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.tree ? 'bg-green-500 border-green-400' : 'border-rose-400'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.tree ? 'bg-green-500 border-green-400' : 'border-violet-500/30'}`} />
               </button>
 
               <button 
                 onClick={() => toggleMask('road')}
-                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.road ? 'bg-rose-300/60 border-gray-500/50 text-rose-800' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.road ? 'bg-[#111128]/60 border-gray-500/50 text-white/60' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded bg-gray-500 opacity-60" />
                   <span className="font-medium text-sm">Road (Class 2)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.road ? 'bg-gray-500 border-gray-400' : 'border-rose-400'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.road ? 'bg-gray-500 border-gray-400' : 'border-violet-500/30'}`} />
               </button>
 
               <button 
                 onClick={() => toggleMask('car')}
-                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.car ? 'bg-red-900/40 border-red-500/50 text-red-300' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                className={`flex items-center justify-between px-4 py-3 rounded border transition-colors ${masks.car ? 'bg-red-900/40 border-red-500/50 text-red-300' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="flex items-center gap-3">
                   <div className="w-4 h-4 rounded bg-red-500 opacity-60" />
                   <span className="font-medium text-sm">Car (Class 3)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.car ? 'bg-red-500 border-red-400' : 'border-rose-400'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.car ? 'bg-red-500 border-red-400' : 'border-violet-500/30'}`} />
               </button>
             </div>
             
-            <p className="text-xs text-rose-700 mt-2 leading-relaxed">
+            <p className="text-xs text-white/40 mt-2 leading-relaxed">
               In segmentation, the output is not a single vector, but a full-resolution 2D matrix where every pixel holds an integer ID corresponding to a class.
             </p>
           </div>
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-2 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6 overflow-hidden">
+        <div className="lg:col-span-2 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 overflow-hidden">
           
-          <div className="relative w-full max-w-[400px] aspect-video bg-sky-200 rounded-lg overflow-hidden shadow-2xl border border-rose-300">
+          <div className="relative w-full max-w-[400px] aspect-video bg-sky-200 rounded-lg overflow-hidden shadow-[0_0_40px_-10px_rgba(139,92,246,0.2)] border border-white/[0.1]">
             
             {/* Raw Image Layers (The "Real World") */}
             {/* Sky is bg-sky-200 */}
@@ -106,10 +106,10 @@ export function InteractiveSegmentation() {
             <div className="absolute bottom-[20%] left-[70%] w-12 h-1 bg-yellow-400" />
 
             {/* Car */}
-            <div className="absolute bottom-[15%] left-[45%] w-24 h-10 bg-rose-600 rounded-t-xl" />
+            <div className="absolute bottom-[15%] left-[45%] w-24 h-10 bg-violet-600 rounded-t-xl" />
             <div className="absolute bottom-[22%] left-[50%] w-14 h-8 bg-sky-100 rounded-t-lg" />
-            <div className="absolute bottom-[12%] left-[48%] w-4 h-4 bg-rose-100 rounded-full" />
-            <div className="absolute bottom-[12%] left-[62%] w-4 h-4 bg-rose-100 rounded-full" />
+            <div className="absolute bottom-[12%] left-[48%] w-4 h-4 bg-white/[0.04] rounded-full" />
+            <div className="absolute bottom-[12%] left-[62%] w-4 h-4 bg-white/[0.04] rounded-full" />
 
 
             {/* SEMANTIC MASKS OVERLAY */}

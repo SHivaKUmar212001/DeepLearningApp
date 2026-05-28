@@ -74,10 +74,10 @@ export function InteractiveFuture() {
   ];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">The Frontier of Deep Learning</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">The Frontier of Deep Learning</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Active Research
         </div>
       </div>
@@ -85,7 +85,7 @@ export function InteractiveFuture() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Visualizer (Tech Tree) */}
-        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-4 min-h-[450px] relative overflow-hidden">
+        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-4 min-h-[450px] relative overflow-hidden">
           
           {/* SVG Connections */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
@@ -107,11 +107,11 @@ export function InteractiveFuture() {
                 key={t.id}
                 onClick={() => setActiveTopic(t.id)}
                 className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex items-center justify-center transition-all duration-300 z-10 
-                  ${isActive ? `bg-gradient-to-br ${t.color} border-white scale-110 shadow-[0_0_30px_rgba(255,255,255,0.3)]` : 'bg-rose-100 border-rose-300 hover:border-gray-500'}`}
+                  ${isActive ? `bg-gradient-to-br ${t.color} border-white scale-110 shadow-[0_0_30px_rgba(255,255,255,0.3)]` : 'bg-white/[0.04] border-white/[0.1] hover:border-gray-500'}`}
                 style={{ left: `${t.x}%`, top: `${t.y}%` }}
               >
-                <span className="text-2xl filter drop-shadow-md">{t.icon}</span>
-                <span className={`absolute -bottom-8 w-32 text-center text-[10px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-rose-950' : 'text-rose-700'}`}>
+                <span className="text-2xl filter drop-shadow-[0_0_20px_-8px_rgba(139,92,246,0.2)]">{t.icon}</span>
+                <span className={`absolute -bottom-8 w-32 text-center text-[10px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-white/90' : 'text-white/40'}`}>
                   {t.title}
                 </span>
               </button>
@@ -122,7 +122,7 @@ export function InteractiveFuture() {
 
         {/* Info Card */}
         <div className="lg:col-span-5 flex flex-col gap-6 h-full">
-          <div className="flex-1 bg-rose-100 rounded-lg border border-rose-200 overflow-hidden relative">
+          <div className="flex-1 bg-white/[0.04] rounded-lg border border-white/[0.08] overflow-hidden relative">
             <AnimatePresence mode="wait">
               {topics.map((t) => {
                 if (t.id !== activeTopic) return null;
@@ -138,9 +138,9 @@ export function InteractiveFuture() {
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${t.color} flex items-center justify-center text-3xl mb-6 shadow-lg`}>
                       {t.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-rose-950 mb-4 leading-tight">{t.title}</h3>
+                    <h3 className="text-2xl font-bold text-white/90 mb-4 leading-tight">{t.title}</h3>
                     <div className="h-1 w-12 bg-gradient-to-r from-gray-700 to-transparent mb-6 rounded-full" />
-                    <p className="text-rose-600 leading-relaxed text-sm md:text-base">
+                    <p className="text-white/35 leading-relaxed text-sm md:text-base">
                       {t.desc}
                     </p>
                   </motion.div>

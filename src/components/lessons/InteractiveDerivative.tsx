@@ -60,22 +60,22 @@ export function InteractiveDerivative() {
   const tangentY2 = slope * (tangentX2 - xVal) + yVal;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Interactive Derivative</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Interactive Derivative</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Controls */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
-            <h3 className="text-sm font-medium text-cyan-600">Function Controls</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
+            <h3 className="text-sm font-medium text-cyan-400">Function Controls</h3>
             
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold uppercase tracking-wider text-rose-700">Function Type</label>
+              <label className="text-xs font-semibold uppercase tracking-wider text-white/40">Function Type</label>
               <select 
-                className="bg-rose-200 border border-rose-300 text-rose-950 text-sm rounded focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2"
+                className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-violet-500 focus:border-violet-500 block w-full p-2"
                 value={funcType}
                 onChange={(e) => setFuncType(e.target.value as "quadratic" | "cubic" | "sin")}
               >
@@ -92,29 +92,29 @@ export function InteractiveDerivative() {
             />
           </div>
 
-          <div className="bg-rose-50 rounded-xl border border-rose-200 p-5 font-mono text-sm flex flex-col gap-4">
-            <div className="text-center text-rose-600 font-bold mb-2">
+          <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-5 font-mono text-sm flex flex-col gap-4">
+            <div className="text-center text-white/35 font-bold mb-2">
               {currentFunc.label}
             </div>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div className="flex flex-col">
-                <span className="text-rose-700 mb-1">Position f(x)</span>
-                <span className="text-xl text-cyan-600 font-bold">{yVal.toFixed(2)}</span>
+                <span className="text-white/40 mb-1">Position f(x)</span>
+                <span className="text-xl text-cyan-400 font-bold">{yVal.toFixed(2)}</span>
               </div>
-              <div className="flex flex-col border-l border-rose-200">
-                <span className="text-rose-700 mb-1">Slope f&apos;(x)</span>
-                <span className="text-xl text-amber-600 font-bold">{slope.toFixed(2)}</span>
+              <div className="flex flex-col border-l border-white/[0.08]">
+                <span className="text-white/40 mb-1">Slope f&apos;(x)</span>
+                <span className="text-xl text-amber-400 font-bold">{slope.toFixed(2)}</span>
               </div>
             </div>
           </div>
           
-          <p className="text-xs text-rose-700 leading-relaxed">
+          <p className="text-xs text-white/40 leading-relaxed">
             <strong>Observation:</strong> Notice how the slope (derivative) is exactly zero at the bottom of the &quot;valley&quot; or top of the &quot;hill&quot;. This is how optimization algorithms find the minimum loss!
           </p>
         </div>
 
         {/* Plot */}
-        <div className="lg:col-span-7 bg-rose-50 rounded-xl border border-rose-200 p-2 relative overflow-hidden flex items-center justify-center aspect-square font-mono">
+        <div className="lg:col-span-7 bg-[#111128] rounded-xl border border-white/[0.08] p-2 relative overflow-hidden flex items-center justify-center aspect-square font-mono">
           <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full">
             
             {/* Grid */}

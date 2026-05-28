@@ -32,9 +32,9 @@ export class ErrorBoundary extends Component<Props, State> {
         return this.props.fallback;
       }
       return (
-        <div className="p-6 bg-rose-50 border border-rose-200 rounded-xl text-center">
-          <h2 className="text-rose-900 font-bold mb-2">Something went wrong</h2>
-          <p className="text-sm text-rose-700">
+        <div className="p-6 bg-[#111128] border border-white/[0.08] rounded-xl text-center">
+          <h2 className="text-white/80 font-bold mb-2">Something went wrong</h2>
+          <p className="text-sm text-white/40">
             This visualizer could not be loaded. It may require WebGL support which is not available in your browser.
           </p>
         </div>

@@ -120,7 +120,7 @@ export default function LossSurface3D({ className }: { className?: string }) {
   const current = useOptimizerStore((state) => state.history[state.currentStepIndex]);
 
   return (
-    <div className={cn("w-full aspect-video bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative", className)}>
+    <div className={cn("w-full aspect-video bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative", className)}>
       
       {/* Textual accessibility fallback */}
       <div className="sr-only" aria-live="polite">

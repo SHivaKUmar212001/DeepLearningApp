@@ -297,7 +297,7 @@ function MindmapCanvas() {
             setActiveModuleId(null);
             sessionStorage.removeItem('activeMindmapModule');
           }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-white text-rose-950 rounded-full shadow-lg border border-rose-200 font-bold hover:bg-rose-50 transition-colors flex items-center gap-2 z-50"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 px-6 py-3 bg-[#0d0d20] text-white/90 rounded-full shadow-lg border border-white/[0.08] font-bold hover:bg-[#111128] transition-colors flex items-center gap-2 z-50"
         >
           <ArrowLeft size={18} />
           Back to Modules

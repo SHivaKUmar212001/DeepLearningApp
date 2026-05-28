@@ -40,10 +40,10 @@ export function InteractivePositional() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Positional Encoding</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Positional Encoding</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Sine/Cosine Waves
         </div>
       </div>
@@ -52,8 +52,8 @@ export function InteractivePositional() {
         
         {/* Controls */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Matrix Dimensions</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Matrix Dimensions</h3>
             
             <div className="flex flex-col gap-6">
               <Slider 
@@ -71,7 +71,7 @@ export function InteractivePositional() {
               />
             </div>
             
-            <div className="mt-4 bg-rose-50 p-3 rounded border border-rose-200 text-xs text-rose-600 leading-relaxed space-y-2">
+            <div className="mt-4 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed space-y-2">
               <p>Self-Attention processes all words at the exact same time. It has no concept of order.</p>
               <p>To fix this, we generate this wave matrix and <strong>add</strong> it directly to the word embeddings before feeding them into the network.</p>
             </div>
@@ -79,21 +79,21 @@ export function InteractivePositional() {
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6 overflow-hidden">
+        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 overflow-hidden">
           
           <div className="w-full flex flex-col items-center">
-            <h3 className="text-[10px] font-bold text-rose-700 mb-2 uppercase tracking-widest">{"Dimension $i \\rightarrow$"}</h3>
+            <h3 className="text-[10px] font-bold text-white/40 mb-2 uppercase tracking-widest">{"Dimension $i \\rightarrow$"}</h3>
             
             <div className="flex gap-2">
               {/* Row axis label */}
               <div className="flex flex-col items-end justify-center mr-2">
-                <span className="text-[10px] font-bold text-rose-700 uppercase tracking-widest origin-center -rotate-90 whitespace-nowrap">
+                <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest origin-center -rotate-90 whitespace-nowrap">
                   {"Position $pos \\rightarrow$"}
                 </span>
               </div>
               
               {/* The Matrix */}
-              <div className="flex flex-col gap-[1px] bg-rose-200 p-[1px] border border-rose-300 max-h-[400px] overflow-y-auto w-full max-w-[500px]">
+              <div className="flex flex-col gap-[1px] bg-white/[0.06] p-[1px] border border-white/[0.1] max-h-[400px] overflow-y-auto w-full max-w-[500px]">
                 {matrix.map((row, pos) => (
                   <div key={pos} className="flex gap-[1px] h-3 w-full group">
                     {/* Tooltip anchor for the whole row */}
@@ -104,12 +104,12 @@ export function InteractivePositional() {
                         style={{ backgroundColor: getColor(val) }}
                       >
                         {/* Hover Tooltip */}
-                        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/cell:opacity-100 bg-rose-100 text-rose-950 text-xs p-2 rounded border border-rose-300 pointer-events-none z-50 whitespace-nowrap hidden md:block transition-opacity">
-                          <div className="font-mono font-bold mb-1 border-b border-rose-300 pb-1">
+                        <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/cell:opacity-100 bg-white/[0.04] text-white/90 text-xs p-2 rounded border border-white/[0.1] pointer-events-none z-50 whitespace-nowrap hidden md:block transition-opacity">
+                          <div className="font-mono font-bold mb-1 border-b border-white/[0.1] pb-1">
                             {`$PE_{pos=${pos}, i=${i}}$`}
                           </div>
                           <div>Value: <span className={val > 0 ? 'text-red-400' : 'text-blue-400'}>{val.toFixed(4)}</span></div>
-                          <div className="text-rose-700 mt-1">
+                          <div className="text-white/40 mt-1">
                             {i % 2 === 0 ? "sin" : "cos"}({pos} / {Math.pow(10000, (2 * Math.floor(i / 2)) / dModel).toFixed(1)})
                           </div>
                         </div>
@@ -121,7 +121,7 @@ export function InteractivePositional() {
             </div>
 
             {/* Legend */}
-            <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-mono text-rose-700">
+            <div className="mt-8 flex items-center justify-center gap-2 text-[10px] font-mono text-white/40">
               <span>-1</span>
               <div className="w-32 h-2 bg-gradient-to-r from-blue-600 via-black to-red-600 rounded" />
               <span>+1</span>

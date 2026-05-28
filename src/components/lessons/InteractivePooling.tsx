@@ -72,10 +72,10 @@ export function InteractivePooling() {
     : Math.floor(windowValues.reduce((a, b) => a + b, 0) / windowValues.length);
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Pooling Operations</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Pooling Operations</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Step {step + 1} / {totalSteps}
         </div>
       </div>
@@ -84,12 +84,12 @@ export function InteractivePooling() {
         
         {/* Controls */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
-            <h3 className="text-sm font-medium text-cyan-600">Pool Type</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
+            <h3 className="text-sm font-medium text-cyan-400">Pool Type</h3>
             
             <div className="flex flex-col gap-2">
               <select 
-                className="bg-rose-200 border border-rose-300 text-rose-950 text-sm rounded focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2"
+                className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-violet-500 focus:border-violet-500 block w-full p-2"
                 value={poolType}
                 onChange={(e) => setPoolType(e.target.value as "max" | "avg")}
               >
@@ -98,10 +98,10 @@ export function InteractivePooling() {
               </select>
             </div>
 
-            <div className="bg-rose-50 p-4 rounded-lg border border-rose-200 font-mono text-sm flex flex-col gap-3 min-h-[140px] justify-center">
-              <div className="text-rose-700 text-xs uppercase tracking-wider mb-2 border-b border-rose-200 pb-2">Calculation</div>
+            <div className="bg-[#111128] p-4 rounded-lg border border-white/[0.08] font-mono text-sm flex flex-col gap-3 min-h-[140px] justify-center">
+              <div className="text-white/40 text-xs uppercase tracking-wider mb-2 border-b border-white/[0.08] pb-2">Calculation</div>
               
-              <div className="flex justify-between items-center text-rose-600">
+              <div className="flex justify-between items-center text-white/35">
                 <span>Window:</span>
                 <span>[{windowValues.join(", ")}]</span>
               </div>
@@ -113,8 +113,8 @@ export function InteractivePooling() {
                   animate={{ opacity: 1, x: 0 }}
                   className="flex justify-between items-center"
                 >
-                  <span className="text-cyan-600 font-bold">{poolType === "max" ? "Max:" : "Average:"}</span>
-                  <span className="text-cyan-600 font-bold text-lg">{currentResult}</span>
+                  <span className="text-cyan-400 font-bold">{poolType === "max" ? "Max:" : "Average:"}</span>
+                  <span className="text-cyan-400 font-bold text-lg">{currentResult}</span>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -126,12 +126,12 @@ export function InteractivePooling() {
         </div>
 
         {/* Visualizers */}
-        <div className="lg:col-span-8 flex flex-col md:flex-row items-center justify-center gap-12 bg-rose-50 rounded-xl border border-rose-200 p-6">
+        <div className="lg:col-span-8 flex flex-col md:flex-row items-center justify-center gap-12 bg-[#111128] rounded-xl border border-white/[0.08] p-6">
           
           {/* Input Grid */}
           <div className="flex flex-col items-center">
-            <h3 className="text-rose-600 font-semibold mb-4 text-sm">Input Feature Map (4x4)</h3>
-            <div className="relative p-2 bg-rose-100 border border-rose-200 rounded-lg">
+            <h3 className="text-white/35 font-semibold mb-4 text-sm">Input Feature Map (4x4)</h3>
+            <div className="relative p-2 bg-white/[0.04] border border-white/[0.08] rounded-lg">
               <div className="grid grid-cols-4 gap-1">
                 {input.map((row, y) => row.map((val, x) => {
                   const inWindow = x >= winX && x < winX + poolSize && y >= winY && y < winY + poolSize;
@@ -141,7 +141,7 @@ export function InteractivePooling() {
                     <div 
                       key={`${y}-${x}`} 
                       className={`w-12 h-12 flex items-center justify-center font-mono rounded transition-colors duration-300
-                        ${inWindow ? (isMax ? 'bg-cyan-500/80 text-rose-950 font-bold shadow-[0_0_10px_rgba(6,182,212,0.5)]' : 'bg-indigo-100 text-indigo-200') : 'bg-rose-200 text-rose-700 border border-rose-300'}
+                        ${inWindow ? (isMax ? 'bg-cyan-500/80 text-white/90 font-bold shadow-[0_0_10px_rgba(6,182,212,0.5)]' : 'bg-indigo-100 text-indigo-200') : 'bg-white/[0.06] text-white/40 border border-white/[0.1]'}
                       `}
                     >
                       {val}
@@ -166,15 +166,15 @@ export function InteractivePooling() {
           </div>
 
           {/* Arrow */}
-          <div className="hidden md:flex flex-col items-center text-rose-600">
+          <div className="hidden md:flex flex-col items-center text-white/35">
             <span className="text-xs uppercase tracking-wider mb-1">Pool</span>
             →
           </div>
 
           {/* Output Grid */}
           <div className="flex flex-col items-center">
-            <h3 className="text-cyan-600 font-semibold mb-4 text-sm">Pooled Map (2x2)</h3>
-            <div className="p-2 bg-rose-100 border border-rose-200 rounded-lg">
+            <h3 className="text-cyan-400 font-semibold mb-4 text-sm">Pooled Map (2x2)</h3>
+            <div className="p-2 bg-white/[0.04] border border-white/[0.08] rounded-lg">
               <div className="grid grid-cols-2 gap-1">
                 {Array.from({ length: 4 }).map((_, i) => {
                   let val = 0;
@@ -193,7 +193,7 @@ export function InteractivePooling() {
                       key={i} 
                       className={`w-16 h-16 flex items-center justify-center font-mono text-lg rounded transition-all duration-300
                         ${isCurrent ? 'bg-cyan-500 text-black font-bold scale-110 shadow-[0_0_20px_rgba(6,182,212,0.6)] z-10' : 
-                          isComputed ? 'bg-cyan-900/30 border border-cyan-500/30 text-cyan-300' : 'bg-rose-200 border border-rose-300 text-transparent'}`}
+                          isComputed ? 'bg-cyan-900/30 border border-cyan-500/30 text-cyan-300' : 'bg-white/[0.06] border border-white/[0.1] text-transparent'}`}
                     >
                       {isComputed ? val : ''}
                     </div>

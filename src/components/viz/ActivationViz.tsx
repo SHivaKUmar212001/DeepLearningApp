@@ -54,7 +54,7 @@ export function ActivationViz({ type, zValue, className }: ActivationVizProps) {
   const yGrid = [-1.5, -1, -0.5, 0, 0.5, 1, 1.5];
 
   return (
-    <div className={cn("w-full aspect-square bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative font-mono", className)}>
+    <div className={cn("w-full aspect-square bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative font-mono", className)}>
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full">
         
         {/* Grid */}
@@ -96,15 +96,15 @@ export function ActivationViz({ type, zValue, className }: ActivationVizProps) {
       </svg>
       
       {/* Readout */}
-      <div className="absolute top-4 right-4 bg-rose-100/90 p-3 rounded border border-rose-300 font-mono shadow-xl backdrop-blur-md text-sm">
+      <div className="absolute top-4 right-4 bg-violet-500/10 p-3 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md text-sm">
         <div className="flex gap-4">
           <div className="flex flex-col">
-            <span className="text-rose-700">Input (z)</span>
-            <span className="text-amber-600 font-bold">{zValue.toFixed(2)}</span>
+            <span className="text-white/40">Input (z)</span>
+            <span className="text-amber-400 font-bold">{zValue.toFixed(2)}</span>
           </div>
           <div className="flex flex-col">
-            <span className="text-rose-700">Output (a)</span>
-            <span className="text-emerald-600 font-bold">{aValue.toFixed(2)}</span>
+            <span className="text-white/40">Output (a)</span>
+            <span className="text-emerald-400 font-bold">{aValue.toFixed(2)}</span>
           </div>
         </div>
       </div>

@@ -32,10 +32,10 @@ export function InteractiveRNN() {
   }, [isPlaying, sequence.length]);
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl overflow-hidden">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] overflow-hidden">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Recurrent Neural Network (RNN)</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Recurrent Neural Network (RNN)</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Unrolled across time $t$
         </div>
       </div>
@@ -44,8 +44,8 @@ export function InteractiveRNN() {
         
         {/* Controls */}
         <div className="lg:col-span-3 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Time Sequence</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Time Sequence</h3>
             
             <PlayControl 
               isPlaying={isPlaying}
@@ -63,24 +63,24 @@ export function InteractiveRNN() {
               }}
             />
             
-            <div className="mt-2 bg-rose-50 p-3 rounded border border-rose-200 text-xs text-rose-600 leading-relaxed">
+            <div className="mt-2 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed">
               Notice how the Hidden State $h_t$ is passed forward in time. This is how the network remembers that the subject of the sentence was a &quot;cat&quot; when it predicts the next word after &quot;sat&quot;.
             </div>
           </div>
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-9 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6 md:p-10 overflow-x-auto min-h-[300px]">
+        <div className="lg:col-span-9 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 md:p-10 overflow-x-auto min-h-[300px]">
           
           <div className="flex items-center gap-4 md:gap-8 relative min-w-[600px]">
             
             {/* Initial Hidden State $h_0$ */}
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-rose-200 border-2 border-dashed border-rose-400 text-rose-700 font-mono text-xs shrink-0 relative">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.06] border-2 border-dashed border-violet-500/30 text-white/40 font-mono text-xs shrink-0 relative">
               $h_0$
               {step > 0 && (
                 <motion.div 
                   initial={{ width: 0 }} animate={{ width: "2rem" }} transition={{ duration: 0.5 }}
-                  className="absolute left-full top-1/2 -translate-y-1/2 h-0.5 bg-indigo-500 z-0 origin-left" 
+                  className="absolute left-full top-1/2 -translate-y-1/2 h-0.5 bg-violet-500 z-0 origin-left" 
                 />
               )}
             </div>
@@ -94,48 +94,48 @@ export function InteractiveRNN() {
                 <div key={i} className="flex flex-col items-center relative flex-1">
                   
                   {/* Time label */}
-                  <div className={`text-[10px] font-mono font-bold mb-4 uppercase tracking-wider ${isActive ? 'text-indigo-700' : 'text-rose-600'}`}>
+                  <div className={`text-[10px] font-mono font-bold mb-4 uppercase tracking-wider ${isActive ? 'text-violet-400' : 'text-white/35'}`}>
                     Time $t_{i+1}$
                   </div>
 
                   {/* Prediction Output */}
                   <div className={`mb-6 p-2 rounded text-xs font-mono border text-center transition-all duration-500 min-w-[80px]
-                    ${isActive ? 'bg-emerald-900/40 border-emerald-500/50 text-emerald-300' : 'bg-rose-50 border-rose-200 text-rose-600 opacity-50'}`}
+                    ${isActive ? 'bg-emerald-900/40 border-emerald-500/50 text-emerald-300' : 'bg-[#111128] border-white/[0.08] text-white/35 opacity-50'}`}
                   >
                     Output $y_{i+1}$
                     <div className="mt-1 font-bold">{isActive ? item.output : "..."}</div>
                   </div>
 
                   {/* Up Arrow */}
-                  <div className={`w-0.5 h-6 transition-colors duration-500 ${isActive ? 'bg-emerald-500' : 'bg-rose-200'}`} />
+                  <div className={`w-0.5 h-6 transition-colors duration-500 ${isActive ? 'bg-emerald-500' : 'bg-white/[0.06]'}`} />
 
                   {/* RNN Cell */}
-                  <div className={`relative w-20 h-20 rounded-xl border-2 flex items-center justify-center text-sm font-bold shadow-xl transition-all duration-500 z-10
-                    ${isActive ? 'bg-indigo-600 border-indigo-400 text-rose-950' : 'bg-rose-100 border-rose-300 text-rose-600'}`}
+                  <div className={`relative w-20 h-20 rounded-xl border-2 flex items-center justify-center text-sm font-bold shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] transition-all duration-500 z-10
+                    ${isActive ? 'bg-violet-600 border-indigo-400 text-white/90' : 'bg-white/[0.04] border-white/[0.1] text-white/35'}`}
                   >
                     RNN
                     {/* Activity pulse */}
                     {isCurrent && (
                       <motion.div 
                         initial={{ scale: 1, opacity: 0.8 }} animate={{ scale: 1.5, opacity: 0 }} transition={{ duration: 1, repeat: Infinity }}
-                        className="absolute inset-0 rounded-xl bg-indigo-500"
+                        className="absolute inset-0 rounded-xl bg-violet-500"
                       />
                     )}
                   </div>
 
                   {/* Horizontal flow line to next cell */}
                   {i < sequence.length - 1 && (
-                    <div className="absolute top-[calc(50%+1.5rem)] left-[calc(50%+2.5rem)] w-[calc(100%-3rem)] h-0.5 bg-rose-200 z-0">
+                    <div className="absolute top-[calc(50%+1.5rem)] left-[calc(50%+2.5rem)] w-[calc(100%-3rem)] h-0.5 bg-white/[0.06] z-0">
                       {step > i + 1 && (
                         <motion.div 
                           initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 0.5 }}
-                          className="h-full bg-indigo-500 origin-left"
+                          className="h-full bg-violet-500 origin-left"
                         />
                       )}
                       {/* Arrow head */}
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
-                      <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-indigo-700 opacity-100' : 'opacity-0'}`}>
+                      <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
                         $h_{i+1}$
                       </div>
                     </div>
@@ -143,30 +143,30 @@ export function InteractiveRNN() {
 
                   {/* Final arrow output (if last item) */}
                   {i === sequence.length - 1 && (
-                    <div className="absolute top-[calc(50%+1.5rem)] left-[calc(50%+2.5rem)] w-12 h-0.5 bg-rose-200 z-0">
+                    <div className="absolute top-[calc(50%+1.5rem)] left-[calc(50%+2.5rem)] w-12 h-0.5 bg-white/[0.06] z-0">
                       {step > i + 1 && (
                         <motion.div 
                           initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 0.5 }}
-                          className="h-full bg-indigo-500 origin-left"
+                          className="h-full bg-violet-500 origin-left"
                         />
                       )}
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
-                      <div className={`absolute -top-6 left-4 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-indigo-700 opacity-100' : 'opacity-0'}`}>
+                      <div className={`absolute -top-6 left-4 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
                         $h_{i+1}$
                       </div>
                     </div>
                   )}
 
                   {/* Down Arrow */}
-                  <div className={`w-0.5 h-6 transition-colors duration-500 ${isActive ? 'bg-cyan-500' : 'bg-rose-200'}`} />
+                  <div className={`w-0.5 h-6 transition-colors duration-500 ${isActive ? 'bg-cyan-500' : 'bg-white/[0.06]'}`} />
 
                   {/* Word Input */}
                   <div className={`mt-6 p-3 rounded-lg border text-center transition-all duration-500 min-w-[90px]
-                    ${isActive ? 'bg-cyan-900/30 border-cyan-500/50' : 'bg-rose-50 border-rose-200 opacity-50'}`}
+                    ${isActive ? 'bg-cyan-900/30 border-cyan-500/50' : 'bg-[#111128] border-white/[0.08] opacity-50'}`}
                   >
-                    <div className={`font-bold text-lg ${isActive ? 'text-rose-950' : 'text-rose-700'}`}>{item.word}</div>
-                    <div className={`text-[10px] font-mono mt-1 ${isActive ? 'text-cyan-600' : 'text-gray-700'}`}>
+                    <div className={`font-bold text-lg ${isActive ? 'text-white/90' : 'text-white/40'}`}>{item.word}</div>
+                    <div className={`text-[10px] font-mono mt-1 ${isActive ? 'text-cyan-400' : 'text-gray-700'}`}>
                       {item.embedding}
                     </div>
                   </div>

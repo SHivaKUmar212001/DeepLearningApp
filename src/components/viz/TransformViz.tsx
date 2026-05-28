@@ -40,7 +40,7 @@ export function TransformViz({ matrix, className }: TransformVizProps) {
   // Instead of full string interpolation, we can animate the endpoints of the lines!
 
   return (
-    <div className={cn("w-full aspect-square bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative font-mono", className)}>
+    <div className={cn("w-full aspect-square bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative font-mono", className)}>
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full">
         <defs>
           <marker id="arrow-i" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
@@ -118,8 +118,8 @@ export function TransformViz({ matrix, className }: TransformVizProps) {
       </svg>
       
       {/* Readout */}
-      <div className="absolute top-4 left-4 bg-rose-100/80 p-3 rounded border border-rose-300 text-sm backdrop-blur-sm shadow-xl">
-        <div className="flex flex-col gap-2 font-mono text-center text-lg bg-black px-4 py-2 rounded-lg border border-rose-200 text-rose-200">
+      <div className="absolute top-4 left-4 bg-[#0d0d20]/80 p-3 rounded border border-white/[0.1] text-sm backdrop-blur-sm shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+        <div className="flex flex-col gap-2 font-mono text-center text-lg bg-black px-4 py-2 rounded-lg border border-white/[0.08] text-white/15">
           <div className="flex gap-4"><span>{matrix.a.toFixed(2)}</span><span>{matrix.b.toFixed(2)}</span></div>
           <div className="flex gap-4"><span>{matrix.c.toFixed(2)}</span><span>{matrix.d.toFixed(2)}</span></div>
         </div>

@@ -120,7 +120,7 @@ export function TrainingChart({ width = 600, height = 300, className }: Training
   }, [data, width, height]);
 
   return (
-    <div className={cn("w-full flex justify-center bg-rose-50 rounded-xl border border-rose-200 p-4", className)}>
+    <div className={cn("w-full flex justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-4", className)}>
       <svg ref={svgRef} width={width} height={height} className="max-w-full h-auto" aria-label="Loss training curve" />
     </div>
   );

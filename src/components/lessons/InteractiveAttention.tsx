@@ -20,10 +20,10 @@ export function InteractiveAttention() {
   ];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">The Attention Mechanism</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">The Attention Mechanism</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Dynamic Context Routing
         </div>
       </div>
@@ -32,25 +32,25 @@ export function InteractiveAttention() {
         
         {/* Controls */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Decoding Step</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Decoding Step</h3>
             
             <div className="flex flex-col gap-3">
               {targetWords.map((word, i) => (
                 <button 
                   key={i}
                   onClick={() => setActiveTarget(i)}
-                  className={`p-3 rounded border text-left transition-colors flex justify-between items-center ${activeTarget === i ? 'bg-indigo-900/40 border-indigo-500/50 text-indigo-600' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                  className={`p-3 rounded border text-left transition-colors flex justify-between items-center ${activeTarget === i ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
                 >
                   <div className="font-bold text-lg">{"Target: " + word}</div>
                   {activeTarget === i && (
-                    <div className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+                    <div className="w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
                   )}
                 </button>
               ))}
             </div>
             
-            <div className="mt-2 bg-rose-50 p-3 rounded border border-rose-200 text-xs text-rose-600 leading-relaxed">
+            <div className="mt-2 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed">
               When translating from English to French, adjectives often come <em>after</em> the noun. <br/><br/>
               Notice how the network dynamically shifts its focus when decoding <strong>&quot;verte&quot;</strong>. It doesn&apos;t look at the word directly aligned with it (&quot;apple&quot;); it looks backwards at &quot;green&quot;!
             </div>
@@ -58,7 +58,7 @@ export function InteractiveAttention() {
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[400px]">
+        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[400px]">
           
           <div className="w-full max-w-lg relative flex flex-col items-center gap-24">
             
@@ -70,15 +70,15 @@ export function InteractiveAttention() {
                   const weight = attentionWeights[activeTarget][i];
                   return (
                     <div key={`src-${i}`} className="flex flex-col items-center relative z-10 w-20">
-                      <div className={`p-2 rounded-lg font-bold text-center w-full transition-all duration-300 ${weight > 0.5 ? 'bg-emerald-900/80 text-emerald-300 border-2 border-emerald-500' : 'bg-rose-100 text-rose-700 border border-rose-200'}`}>
+                      <div className={`p-2 rounded-lg font-bold text-center w-full transition-all duration-300 ${weight > 0.5 ? 'bg-emerald-900/80 text-emerald-300 border-2 border-emerald-500' : 'bg-white/[0.04] text-white/40 border border-white/[0.08]'}`}>
                         {word}
                       </div>
-                      <div className="mt-2 text-[10px] font-mono font-bold text-rose-700">
+                      <div className="mt-2 text-[10px] font-mono font-bold text-white/40">
                         {`$h_${i+1}$`}
                       </div>
                       
                       {/* Attention Score Pill */}
-                      <div className={`absolute -bottom-8 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold transition-all duration-300 ${weight > 0.5 ? 'bg-indigo-500 text-rose-950' : 'bg-rose-200 text-rose-700'}`}>
+                      <div className={`absolute -bottom-8 px-2 py-0.5 rounded-full text-[10px] font-mono font-bold transition-all duration-300 ${weight > 0.5 ? 'bg-violet-500 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>
                         {(weight * 100).toFixed(0)}%
                       </div>
                     </div>
@@ -117,14 +117,14 @@ export function InteractiveAttention() {
 
             {/* Target Sentence (Decoder) */}
             <div className="w-full mt-4">
-              <h3 className="text-[10px] font-bold text-rose-700 mb-4 uppercase tracking-widest text-center">Target (French)</h3>
+              <h3 className="text-[10px] font-bold text-white/40 mb-4 uppercase tracking-widest text-center">Target (French)</h3>
               <div className="flex justify-between w-full">
                 {targetWords.map((word, i) => (
                   <div key={`tgt-${i}`} className="flex flex-col items-center relative z-10 w-20">
-                    <div className="mb-2 text-[10px] font-mono font-bold text-rose-700">
+                    <div className="mb-2 text-[10px] font-mono font-bold text-white/40">
                       {`$s_${i+1}$`}
                     </div>
-                    <div className={`p-2 rounded-lg font-bold text-center w-full transition-all duration-300 ${activeTarget === i ? 'bg-rose-900/80 text-rose-300 border-2 border-rose-500 scale-110 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'bg-rose-100 text-rose-700 border border-rose-200'}`}>
+                    <div className={`p-2 rounded-lg font-bold text-center w-full transition-all duration-300 ${activeTarget === i ? 'bg-[#0a0a18]/80 text-white/20 border-2 border-violet-500/40 scale-110 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'bg-white/[0.04] text-white/40 border border-white/[0.08]'}`}>
                       {word}
                     </div>
                   </div>

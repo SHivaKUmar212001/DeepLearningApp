@@ -192,17 +192,17 @@ export function InteractivePlayground() {
   const res = 20;
 
   return (
-    <div className="my-8 p-6 bg-white border border-rose-200 rounded-xl shadow-xl flex flex-col gap-8">
+    <div className="my-8 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] flex flex-col gap-8">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Mini-Playground: Train an MLP</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Mini-Playground: Train an MLP</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
         {/* Controls */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
-            <h3 className="text-sm font-medium text-cyan-600">Network & Hyperparameters</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
+            <h3 className="text-sm font-medium text-cyan-400">Network & Hyperparameters</h3>
             
             <Slider 
               label="Hidden Neurons (Per Layer)" 
@@ -231,27 +231,27 @@ export function InteractivePlayground() {
             </div>
           </div>
 
-          <div className="bg-rose-50 rounded-xl border border-rose-200 p-5 font-mono text-sm">
-            <h3 className="text-xs uppercase text-rose-700 font-semibold mb-3 tracking-wider">Training Stats</h3>
+          <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-5 font-mono text-sm">
+            <h3 className="text-xs uppercase text-white/40 font-semibold mb-3 tracking-wider">Training Stats</h3>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div className="flex flex-col">
-                <span className="text-rose-700 mb-1">Epoch</span>
-                <span className="text-xl text-cyan-600 font-bold">{epoch}</span>
+                <span className="text-white/40 mb-1">Epoch</span>
+                <span className="text-xl text-cyan-400 font-bold">{epoch}</span>
               </div>
-              <div className="flex flex-col border-l border-rose-200">
-                <span className="text-rose-700 mb-1">Loss</span>
-                <span className="text-xl text-amber-600 font-bold">{loss.toFixed(4)}</span>
+              <div className="flex flex-col border-l border-white/[0.08]">
+                <span className="text-white/40 mb-1">Loss</span>
+                <span className="text-xl text-amber-400 font-bold">{loss.toFixed(4)}</span>
               </div>
             </div>
           </div>
           
-          <p className="text-xs text-rose-700 leading-relaxed">
+          <p className="text-xs text-white/40 leading-relaxed">
             <strong>The Task:</strong> Separate the inner blue points from the outer orange points. A simple line cannot do this! Press play and watch the network warp its decision boundary to solve the problem.
           </p>
         </div>
 
         {/* 2D Plot */}
-        <div className="lg:col-span-7 bg-rose-50 rounded-xl border border-rose-200 p-2 relative overflow-hidden flex items-center justify-center aspect-square">
+        <div className="lg:col-span-7 bg-[#111128] rounded-xl border border-white/[0.08] p-2 relative overflow-hidden flex items-center justify-center aspect-square">
           <svg viewBox="0 0 100 100" className="w-full h-full preserve-3d" style={{ transform: "scaleY(-1)" }}>
             {/* Background Grid for Decision Boundary */}
             <g>

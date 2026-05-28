@@ -25,10 +25,10 @@ export function InteractiveTransformer() {
   const activeInfo = activeBlock ? blockDescriptions[activeBlock] : { title: "Hover over a block", desc: "Explore the architecture of the original Transformer from 'Attention Is All You Need'." };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">The Transformer Architecture</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">The Transformer Architecture</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Attention Is All You Need (2017)
         </div>
       </div>
@@ -37,8 +37,8 @@ export function InteractiveTransformer() {
         
         {/* Info Panel */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4 sticky top-24 min-h-[200px]">
-            <h3 className="text-sm font-medium text-cyan-600">Architecture Explorer</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4 sticky top-24 min-h-[200px]">
+            <h3 className="text-sm font-medium text-cyan-400">Architecture Explorer</h3>
             
             <AnimatePresence mode="wait">
               <motion.div 
@@ -49,8 +49,8 @@ export function InteractiveTransformer() {
                 transition={{ duration: 0.2 }}
                 className="flex flex-col gap-2"
               >
-                <div className="font-bold text-lg text-rose-950">{activeInfo.title}</div>
-                <div className="text-sm text-rose-600 leading-relaxed">{activeInfo.desc}</div>
+                <div className="font-bold text-lg text-white/90">{activeInfo.title}</div>
+                <div className="text-sm text-white/35 leading-relaxed">{activeInfo.desc}</div>
               </motion.div>
             </AnimatePresence>
 
@@ -58,22 +58,22 @@ export function InteractiveTransformer() {
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[600px] overflow-x-auto">
+        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[600px] overflow-x-auto">
           
           <div className="flex flex-col md:flex-row gap-16 items-end min-w-[600px]">
             
             {/* ================= ENCODER ================= */}
             <div className="flex flex-col items-center w-48 relative">
-              <h3 className="text-sm font-bold text-indigo-700 mb-4 tracking-widest absolute -top-10">ENCODER</h3>
+              <h3 className="text-sm font-bold text-violet-400 mb-4 tracking-widest absolute -top-10">ENCODER</h3>
               
               <div 
-                className="w-full bg-rose-100/50 border-2 border-indigo-900 rounded-xl p-4 flex flex-col gap-2 pb-6 relative z-10"
+                className="w-full bg-[#0d0d20]/50 border-2 border-violet-500/30 rounded-xl p-4 flex flex-col gap-2 pb-6 relative z-10"
               >
-                <div className="absolute top-2 right-2 text-[10px] font-mono text-rose-600">Nx</div>
+                <div className="absolute top-2 right-2 text-[10px] font-mono text-white/35">Nx</div>
                 
                 {/* Multi-Head Attention */}
                 <div 
-                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all ${activeBlock === 'multihead' ? 'bg-indigo-600 border-indigo-400 text-rose-950 shadow-[0_0_15px_rgba(79,70,229,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-indigo-500'}`}
+                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all ${activeBlock === 'multihead' ? 'bg-violet-600 border-indigo-400 text-white/90 shadow-[0_0_15px_rgba(79,70,229,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-indigo-500'}`}
                   onMouseEnter={() => setActiveBlock('multihead')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Multi-Head<br/>Attention
@@ -81,7 +81,7 @@ export function InteractiveTransformer() {
                 
                 {/* Add & Norm */}
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-rose-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-emerald-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-white/90 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-emerald-500'}`}
                   onMouseEnter={() => setActiveBlock('addnorm')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Add & Norm
@@ -89,7 +89,7 @@ export function InteractiveTransformer() {
 
                 {/* Feed Forward */}
                 <div 
-                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all mt-4 ${activeBlock === 'ffn' ? 'bg-cyan-600 border-cyan-400 text-rose-950 shadow-[0_0_15px_rgba(6,182,212,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-cyan-500'}`}
+                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all mt-4 ${activeBlock === 'ffn' ? 'bg-cyan-600 border-cyan-400 text-white/90 shadow-[0_0_15px_rgba(6,182,212,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-cyan-500'}`}
                   onMouseEnter={() => setActiveBlock('ffn')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Feed<br/>Forward
@@ -97,7 +97,7 @@ export function InteractiveTransformer() {
 
                 {/* Add & Norm */}
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-rose-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-emerald-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-white/90 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-emerald-500'}`}
                   onMouseEnter={() => setActiveBlock('addnorm')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Add & Norm
@@ -105,31 +105,31 @@ export function InteractiveTransformer() {
               </div>
 
               {/* Input Pipeline */}
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full border-2 border-rose-400 flex items-center justify-center text-[10px] bg-rose-200 text-rose-600">+</div>
+                <div className="w-4 h-4 rounded-full border-2 border-violet-500/30 flex items-center justify-center text-[10px] bg-white/[0.06] text-white/35">+</div>
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-32 ${activeBlock === 'positional' ? 'bg-amber-600 border-amber-400 text-rose-950 shadow-[0_0_15px_rgba(217,119,6,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-amber-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-32 ${activeBlock === 'positional' ? 'bg-amber-600 border-amber-400 text-white/90 shadow-[0_0_15px_rgba(217,119,6,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-amber-500'}`}
                   onMouseEnter={() => setActiveBlock('positional')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Positional Encoding
                 </div>
               </div>
               
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div 
-                className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all w-full ${activeBlock === 'embedding' ? 'bg-rose-600 border-rose-400 text-rose-950 shadow-[0_0_15px_rgba(225,29,72,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-rose-500'}`}
+                className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all w-full ${activeBlock === 'embedding' ? 'bg-violet-600 border-violet-500/30 text-white/90 shadow-[0_0_15px_rgba(225,29,72,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-violet-500/40'}`}
                 onMouseEnter={() => setActiveBlock('embedding')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Input Embedding
               </div>
               
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div 
-                className={`p-2 rounded text-center text-xs font-bold cursor-pointer w-full text-rose-700 hover:text-rose-950 transition-colors ${activeBlock === 'inputs' ? 'text-rose-950' : ''}`}
+                className={`p-2 rounded text-center text-xs font-bold cursor-pointer w-full text-white/40 hover:text-white/90 transition-colors ${activeBlock === 'inputs' ? 'text-white/90' : ''}`}
                 onMouseEnter={() => setActiveBlock('inputs')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Inputs
@@ -138,30 +138,30 @@ export function InteractiveTransformer() {
 
             {/* ================= DECODER ================= */}
             <div className="flex flex-col items-center w-48 relative">
-              <h3 className="text-sm font-bold text-emerald-600 mb-4 tracking-widest absolute -top-40">DECODER</h3>
+              <h3 className="text-sm font-bold text-emerald-400 mb-4 tracking-widest absolute -top-40">DECODER</h3>
               
               <div 
-                className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-full mb-4 ${activeBlock === 'softmax' ? 'bg-purple-600 border-purple-400 text-rose-950 shadow-[0_0_15px_rgba(147,51,234,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-purple-500'}`}
+                className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-full mb-4 ${activeBlock === 'softmax' ? 'bg-purple-600 border-purple-400 text-white/90 shadow-[0_0_15px_rgba(147,51,234,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-purple-500'}`}
                 onMouseEnter={() => setActiveBlock('softmax')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Softmax
               </div>
 
               <div 
-                className={`p-2 rounded-lg border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-full mb-4 ${activeBlock === 'linear' ? 'bg-fuchsia-600 border-fuchsia-400 text-rose-950 shadow-[0_0_15px_rgba(192,38,211,0.5)]' : 'bg-white border-rose-300 text-rose-600 hover:border-fuchsia-500'}`}
+                className={`p-2 rounded-lg border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-full mb-4 ${activeBlock === 'linear' ? 'bg-fuchsia-600 border-fuchsia-400 text-white/90 shadow-[0_0_15px_rgba(192,38,211,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/35 hover:border-fuchsia-500'}`}
                 onMouseEnter={() => setActiveBlock('linear')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Linear
               </div>
 
               <div 
-                className="w-full bg-rose-100/50 border-2 border-emerald-900 rounded-xl p-4 flex flex-col gap-2 pb-6 relative z-10"
+                className="w-full bg-[#0d0d20]/50 border-2 border-emerald-500/30 rounded-xl p-4 flex flex-col gap-2 pb-6 relative z-10"
               >
-                <div className="absolute top-2 right-2 text-[10px] font-mono text-rose-600">Nx</div>
+                <div className="absolute top-2 right-2 text-[10px] font-mono text-white/35">Nx</div>
                 
                 {/* Cross Attention */}
                 <div 
-                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all relative ${activeBlock === 'cross' ? 'bg-orange-600 border-orange-400 text-rose-950 shadow-[0_0_15px_rgba(234,88,12,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-orange-500'}`}
+                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all relative ${activeBlock === 'cross' ? 'bg-orange-600 border-orange-400 text-white/90 shadow-[0_0_15px_rgba(234,88,12,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-orange-500'}`}
                   onMouseEnter={() => setActiveBlock('cross')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Multi-Head<br/>Attention
@@ -173,7 +173,7 @@ export function InteractiveTransformer() {
 
                 {/* Add & Norm */}
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-rose-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-emerald-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-white/90 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-emerald-500'}`}
                   onMouseEnter={() => setActiveBlock('addnorm')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Add & Norm
@@ -181,7 +181,7 @@ export function InteractiveTransformer() {
                 
                 {/* Masked Multi-Head Attention */}
                 <div 
-                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all mt-4 ${activeBlock === 'masked' ? 'bg-pink-600 border-pink-400 text-rose-950 shadow-[0_0_15px_rgba(219,39,119,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-pink-500'}`}
+                  className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all mt-4 ${activeBlock === 'masked' ? 'bg-pink-600 border-pink-400 text-white/90 shadow-[0_0_15px_rgba(219,39,119,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-pink-500'}`}
                   onMouseEnter={() => setActiveBlock('masked')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Masked<br/>Multi-Head<br/>Attention
@@ -189,7 +189,7 @@ export function InteractiveTransformer() {
                 
                 {/* Add & Norm */}
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-rose-950 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-emerald-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all ${activeBlock === 'addnorm' ? 'bg-emerald-600 border-emerald-400 text-white/90 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-emerald-500'}`}
                   onMouseEnter={() => setActiveBlock('addnorm')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Add & Norm
@@ -197,31 +197,31 @@ export function InteractiveTransformer() {
               </div>
 
               {/* Input Pipeline */}
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full border-2 border-rose-400 flex items-center justify-center text-[10px] bg-rose-200 text-rose-600">+</div>
+                <div className="w-4 h-4 rounded-full border-2 border-violet-500/30 flex items-center justify-center text-[10px] bg-white/[0.06] text-white/35">+</div>
                 <div 
-                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-32 ${activeBlock === 'positional' ? 'bg-amber-600 border-amber-400 text-rose-950 shadow-[0_0_15px_rgba(217,119,6,0.5)]' : 'bg-rose-200 border-rose-400 text-rose-600 hover:border-amber-500'}`}
+                  className={`p-2 rounded border-2 text-center text-[10px] font-bold cursor-pointer transition-all w-32 ${activeBlock === 'positional' ? 'bg-amber-600 border-amber-400 text-white/90 shadow-[0_0_15px_rgba(217,119,6,0.5)]' : 'bg-white/[0.06] border-violet-500/30 text-white/35 hover:border-amber-500'}`}
                   onMouseEnter={() => setActiveBlock('positional')} onMouseLeave={() => setActiveBlock(null)}
                 >
                   Positional Encoding
                 </div>
               </div>
               
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div 
-                className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all w-full ${activeBlock === 'embedding' ? 'bg-rose-600 border-rose-400 text-rose-950 shadow-[0_0_15px_rgba(225,29,72,0.5)]' : 'bg-white border-rose-300 text-rose-800 hover:border-rose-500'}`}
+                className={`p-3 rounded-lg border-2 text-center text-xs font-bold cursor-pointer transition-all w-full ${activeBlock === 'embedding' ? 'bg-violet-600 border-violet-500/30 text-white/90 shadow-[0_0_15px_rgba(225,29,72,0.5)]' : 'bg-[#0d0d20] border-white/[0.1] text-white/60 hover:border-violet-500/40'}`}
                 onMouseEnter={() => setActiveBlock('embedding')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Output Embedding
               </div>
               
-              <div className="w-0.5 h-6 bg-rose-300" />
+              <div className="w-0.5 h-6 bg-white/[0.08]" />
               
               <div 
-                className={`p-2 rounded text-center text-xs font-bold cursor-pointer w-full text-rose-700 hover:text-rose-950 transition-colors ${activeBlock === 'outputs' ? 'text-rose-950' : ''}`}
+                className={`p-2 rounded text-center text-xs font-bold cursor-pointer w-full text-white/40 hover:text-white/90 transition-colors ${activeBlock === 'outputs' ? 'text-white/90' : ''}`}
                 onMouseEnter={() => setActiveBlock('outputs')} onMouseLeave={() => setActiveBlock(null)}
               >
                 Outputs (Shifted right)

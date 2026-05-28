@@ -40,10 +40,10 @@ export function InteractiveGPT() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Auto-Regressive Generation</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Auto-Regressive Generation</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Decoder-Only Architecture
         </div>
       </div>
@@ -52,13 +52,13 @@ export function InteractiveGPT() {
         
         {/* Controls & Context */}
         <div className="lg:col-span-6 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600 flex justify-between">
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400 flex justify-between">
               <span>Context Window (Input)</span>
-              <span className="text-rose-700 font-mono text-xs">{tokens.length} tokens</span>
+              <span className="text-white/40 font-mono text-xs">{tokens.length} tokens</span>
             </h3>
             
-            <div className="flex flex-wrap gap-2 min-h-[100px] content-start bg-rose-50 p-4 rounded border border-rose-200">
+            <div className="flex flex-wrap gap-2 min-h-[100px] content-start bg-[#111128] p-4 rounded border border-white/[0.08]">
               <AnimatePresence>
                 {tokens.map((token, i) => {
                   const isPrompt = i < 3;
@@ -67,8 +67,8 @@ export function InteractiveGPT() {
                       key={`${i}-${token}`}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className={`px-3 py-1.5 rounded font-mono text-sm font-bold shadow-md
-                        ${isPrompt ? 'bg-indigo-100 text-indigo-600 border border-indigo-500/50' : 'bg-emerald-100 text-emerald-300 border border-emerald-500/50'}`}
+                      className={`px-3 py-1.5 rounded font-mono text-sm font-bold shadow-[0_0_20px_-8px_rgba(139,92,246,0.2)]
+                        ${isPrompt ? 'bg-indigo-100 text-violet-400 border border-indigo-500/50' : 'bg-emerald-100 text-emerald-300 border border-emerald-500/50'}`}
                     >
                       {token}
                     </motion.div>
@@ -81,14 +81,14 @@ export function InteractiveGPT() {
               <button 
                 onClick={handleGenerate}
                 disabled={isFinished || isGenerating}
-                className="flex-1 py-3 bg-indigo-600 hover:bg-indigo-500 disabled:bg-rose-200 disabled:text-rose-600 text-rose-950 font-bold rounded-lg transition-colors shadow-lg shadow-indigo-900/20"
+                className="flex-1 py-3 bg-violet-600 hover:bg-violet-500 disabled:bg-white/[0.06] disabled:text-white/35 text-white/90 font-bold rounded-lg transition-colors shadow-lg shadow-indigo-900/20"
               >
                 {isGenerating ? "Predicting..." : isFinished ? "Generation Complete" : "Generate Next Token"}
               </button>
               
               <button 
                 onClick={handleReset}
-                className="px-6 py-3 bg-rose-200 hover:bg-rose-300 text-rose-800 font-bold rounded-lg transition-colors border border-rose-300"
+                className="px-6 py-3 bg-white/[0.06] hover:bg-white/[0.08] text-white/60 font-bold rounded-lg transition-colors border border-white/[0.1]"
               >
                 Reset
               </button>
@@ -97,14 +97,14 @@ export function InteractiveGPT() {
         </div>
 
         {/* Visualizer (Probabilities) */}
-        <div className="lg:col-span-6 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6">
+        <div className="lg:col-span-6 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6">
           
           <div className="w-full">
-            <h3 className="text-[10px] font-bold text-rose-700 mb-6 uppercase tracking-widest text-center">Output Probabilities (Softmax)</h3>
+            <h3 className="text-[10px] font-bold text-white/40 mb-6 uppercase tracking-widest text-center">Output Probabilities (Softmax)</h3>
 
             <div className="flex flex-col gap-4 min-h-[200px] justify-center">
               {isFinished ? (
-                <div className="text-center font-bold text-rose-700 uppercase tracking-widest">
+                <div className="text-center font-bold text-white/40 uppercase tracking-widest">
                   End of Sequence Reached
                 </div>
               ) : currentProbs ? (
@@ -119,18 +119,18 @@ export function InteractiveGPT() {
                   >
                     {currentProbs.map((item, i) => (
                       <div key={i} className="flex items-center gap-4 w-full group">
-                        <div className="w-20 text-right font-mono font-bold text-sm text-rose-800 group-hover:text-rose-950 transition-colors">
+                        <div className="w-20 text-right font-mono font-bold text-sm text-white/60 group-hover:text-white/90 transition-colors">
                           {item.w}
                         </div>
-                        <div className="flex-1 h-6 bg-rose-100 rounded-full overflow-hidden border border-rose-200">
+                        <div className="flex-1 h-6 bg-white/[0.04] rounded-full overflow-hidden border border-white/[0.08]">
                           <motion.div 
-                            className={`h-full ${i === 0 ? 'bg-emerald-500' : i === 1 ? 'bg-indigo-500' : 'bg-rose-500'}`}
+                            className={`h-full ${i === 0 ? 'bg-emerald-500' : i === 1 ? 'bg-violet-500' : 'bg-[#111128]0'}`}
                             initial={{ width: 0 }}
                             animate={{ width: `${item.p}%` }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                           />
                         </div>
-                        <div className="w-12 text-right font-mono text-xs text-rose-700">
+                        <div className="w-12 text-right font-mono text-xs text-white/40">
                           {item.p.toFixed(1)}%
                         </div>
                       </div>
@@ -140,7 +140,7 @@ export function InteractiveGPT() {
               ) : null}
             </div>
 
-            <div className="mt-8 pt-6 border-t border-rose-200 text-xs text-rose-600 text-center leading-relaxed">
+            <div className="mt-8 pt-6 border-t border-white/[0.08] text-xs text-white/35 text-center leading-relaxed">
               The model takes the entire context window, calculates probabilities for the next word, and samples the highest one. It then <strong>appends</strong> that word to the context window and loops!
             </div>
             

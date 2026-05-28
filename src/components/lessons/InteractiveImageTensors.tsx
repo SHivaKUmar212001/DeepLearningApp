@@ -24,42 +24,42 @@ export function InteractiveImageTensors() {
   }
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Images as Tensors</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Images as Tensors</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Controls and Readout */}
         <div className="flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200">
-            <h3 className="text-sm font-medium text-cyan-600 mb-4">View Mode</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08]">
+            <h3 className="text-sm font-medium text-cyan-400 mb-4">View Mode</h3>
             <div className="flex gap-4">
               <button
-                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${!isExpanded ? "bg-indigo-600 text-rose-950" : "bg-rose-200 text-rose-600 hover:bg-rose-300"}`}
+                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${!isExpanded ? "bg-violet-600 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
                 onClick={() => setIsExpanded(false)}
               >
                 2D Image View
               </button>
               <button
-                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${isExpanded ? "bg-indigo-600 text-rose-950" : "bg-rose-200 text-rose-600 hover:bg-rose-300"}`}
+                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${isExpanded ? "bg-violet-600 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
                 onClick={() => setIsExpanded(true)}
               >
                 3D Tensor View
               </button>
             </div>
-            <p className="text-xs text-rose-700 mt-4 leading-relaxed">
-              An image is not just a flat grid of colors. It is a 3D Tensor of shape <strong className="text-rose-800">Height × Width × Channels</strong>. 
+            <p className="text-xs text-white/40 mt-4 leading-relaxed">
+              An image is not just a flat grid of colors. It is a 3D Tensor of shape <strong className="text-white/60">Height × Width × Channels</strong>. 
               Usually, there are 3 channels: Red, Green, and Blue.
             </p>
           </div>
 
-          <div className="bg-rose-50 rounded-xl border border-rose-200 p-5 font-mono text-sm min-h-[140px] flex flex-col justify-center">
+          <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-5 font-mono text-sm min-h-[140px] flex flex-col justify-center">
             {hoveredPixel ? (
               <div className="flex flex-col gap-3">
-                <div className="text-rose-600">
-                  <span className="text-rose-700">Coordinate:</span> image[{hoveredPixel.y}][{hoveredPixel.x}]
+                <div className="text-white/35">
+                  <span className="text-white/40">Coordinate:</span> image[{hoveredPixel.y}][{hoveredPixel.x}]
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded shadow-inner" style={{ backgroundColor: `rgb(${hoveredPixel.color[0]}, ${hoveredPixel.color[1]}, ${hoveredPixel.color[2]})` }} />
@@ -71,7 +71,7 @@ export function InteractiveImageTensors() {
                 </div>
               </div>
             ) : (
-              <div className="text-rose-600 text-center italic">
+              <div className="text-white/35 text-center italic">
                 Hover over a pixel to inspect its tensor values.
               </div>
             )}
@@ -79,12 +79,12 @@ export function InteractiveImageTensors() {
         </div>
 
         {/* Visualizer */}
-        <div className="bg-rose-50 rounded-xl border border-rose-200 p-2 relative overflow-hidden flex items-center justify-center min-h-[300px]">
+        <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-2 relative overflow-hidden flex items-center justify-center min-h-[300px]">
           
           <div className="relative" style={{ width: 240, height: 240 }}>
             {/* Base Image (Composite) */}
             <motion.div 
-              className="absolute inset-0 grid border border-rose-200 bg-black shadow-2xl"
+              className="absolute inset-0 grid border border-white/[0.08] bg-black shadow-[0_0_40px_-10px_rgba(139,92,246,0.2)]"
               style={{ gridTemplateColumns: `repeat(${size}, 1fr)`, gridTemplateRows: `repeat(${size}, 1fr)` }}
               animate={{
                 x: isExpanded ? -80 : 0,

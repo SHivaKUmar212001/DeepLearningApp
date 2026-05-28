@@ -46,11 +46,11 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
 
   return (
     <div className={cn("flex flex-col items-center gap-2", className)}>
-      {label && <div className="text-sm font-medium text-rose-600 mb-1">{label}</div>}
+      {label && <div className="text-sm font-medium text-white/35 mb-1">{label}</div>}
       
-      <div className="relative flex rounded-lg border border-rose-200 bg-white p-1.5 shadow-lg sm:p-3">
+      <div className="relative flex rounded-lg border border-white/[0.08] bg-[#0d0d20] p-1.5 shadow-lg sm:p-3">
         {/* Left bracket */}
-        <div className="mr-1 w-1.5 rounded-l border-b-2 border-l-2 border-t-2 border-rose-800/70 sm:mr-2 sm:w-2" />
+        <div className="mr-1 w-1.5 rounded-l border-b-2 border-l-2 border-t-2 border-violet-400/40 sm:mr-2 sm:w-2" />
         
         <motion.div 
           layout
@@ -86,7 +86,7 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
                   >
                     <motion.span 
                       layout="position"
-                      className="font-mono text-[10px] font-semibold text-rose-950 drop-shadow-sm sm:text-sm"
+                      className="font-mono text-[10px] font-semibold text-white/90 drop-shadow-[0_0_10px_-5px_rgba(139,92,246,0.1)] sm:text-sm"
                     >
                       {val.toFixed(2)}
                     </motion.span>
@@ -96,7 +96,7 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
                       <motion.div 
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded border border-rose-300 bg-rose-50 px-2 py-1 text-xs font-semibold text-rose-950 shadow-sm"
+                        className="pointer-events-none absolute -top-8 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded border border-white/[0.1] bg-[#111128] px-2 py-1 text-xs font-semibold text-white/90 shadow-[0_0_10px_-5px_rgba(139,92,246,0.1)]"
                       >
                         {val}
                       </motion.div>
@@ -109,7 +109,7 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
         </motion.div>
         
         {/* Right bracket */}
-        <div className="ml-1 w-1.5 rounded-r border-b-2 border-r-2 border-t-2 border-rose-800/70 sm:ml-2 sm:w-2" />
+        <div className="ml-1 w-1.5 rounded-r border-b-2 border-r-2 border-t-2 border-violet-400/40 sm:ml-2 sm:w-2" />
       </div>
     </div>
   );

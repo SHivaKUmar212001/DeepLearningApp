@@ -76,7 +76,7 @@ export function VectorViz({
   );
 
   return (
-    <div className={cn("w-full aspect-square bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative font-mono", className)}>
+    <div className={cn("w-full aspect-square bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative font-mono", className)}>
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full">
         {defs}
         
@@ -177,27 +177,27 @@ export function VectorViz({
       </svg>
       
       {/* Labels */}
-      <div className="absolute top-4 left-4 bg-rose-100/80 p-3 rounded border border-rose-300 text-sm backdrop-blur-sm">
+      <div className="absolute top-4 left-4 bg-[#0d0d20]/80 p-3 rounded border border-white/[0.1] text-sm backdrop-blur-sm">
         <div className="flex items-center gap-2 mb-1">
           <span className="w-3 h-3 rounded-full bg-cyan-500 inline-block" />
-          <span className="text-rose-800">v₁ = [{v1.x.toFixed(1)}, {v1.y.toFixed(1)}]</span>
+          <span className="text-white/60">v₁ = [{v1.x.toFixed(1)}, {v1.y.toFixed(1)}]</span>
         </div>
         {v2 && (
           <div className="flex items-center gap-2 mb-1">
             <span className="w-3 h-3 rounded-full bg-amber-500 inline-block" />
-            <span className="text-rose-800">v₂ = [{v2.x.toFixed(1)}, {v2.y.toFixed(1)}]</span>
+            <span className="text-white/60">v₂ = [{v2.x.toFixed(1)}, {v2.y.toFixed(1)}]</span>
           </div>
         )}
         {showAddition && vAdd && (
-          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-rose-300">
+          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-white/[0.1]">
             <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
-            <span className="text-rose-800">v₁ + v₂ = [{vAdd.x.toFixed(1)}, {vAdd.y.toFixed(1)}]</span>
+            <span className="text-white/60">v₁ + v₂ = [{vAdd.x.toFixed(1)}, {vAdd.y.toFixed(1)}]</span>
           </div>
         )}
         {showProjection && v2 && proj && (
-          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-rose-300">
+          <div className="flex items-center gap-2 mt-2 pt-2 border-t border-white/[0.1]">
             <span className="w-3 h-3 rounded-full bg-red-500 inline-block" />
-            <span className="text-rose-800">proj(v₁) = [{proj.x.toFixed(1)}, {proj.y.toFixed(1)}]</span>
+            <span className="text-white/60">proj(v₁) = [{proj.x.toFixed(1)}, {proj.y.toFixed(1)}]</span>
           </div>
         )}
       </div>

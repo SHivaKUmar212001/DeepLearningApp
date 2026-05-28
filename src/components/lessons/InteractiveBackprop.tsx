@@ -39,16 +39,16 @@ export function InteractiveBackprop() {
   const fY = 235;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Interactive Computation Graph</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Interactive Computation Graph</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="flex flex-col gap-6">
           
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200">
-            <h3 className="text-sm font-medium text-cyan-600 mb-4">Inputs</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08]">
+            <h3 className="text-sm font-medium text-cyan-400 mb-4">Inputs</h3>
             <div className="flex flex-col gap-4">
               <Slider label="Input x" min={-5} max={5} step={0.1} value={x} onChange={setX} />
               <Slider label="Input y" min={-5} max={5} step={0.1} value={y} onChange={setY} />
@@ -56,23 +56,23 @@ export function InteractiveBackprop() {
             </div>
           </div>
 
-          <div className="bg-rose-50 rounded-xl border border-rose-200 p-5 font-mono text-sm">
-            <h3 className="text-xs uppercase text-rose-700 font-semibold mb-3 tracking-wider">The Chain Rule</h3>
-            <div className="flex flex-col gap-2 text-rose-600">
+          <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-5 font-mono text-sm">
+            <h3 className="text-xs uppercase text-white/40 font-semibold mb-3 tracking-wider">The Chain Rule</h3>
+            <div className="flex flex-col gap-2 text-white/35">
               <div>f(x, y, z) = (x + y) * z</div>
               <div>q = x + y</div>
-              <div className="w-full h-px bg-rose-200 my-2"></div>
-              <div className="text-rose-600">∂f/∂z = q = {df_dz.toFixed(2)}</div>
-              <div className="text-rose-600">∂f/∂q = z = {df_dq.toFixed(2)}</div>
-              <div className="text-rose-600">∂f/∂x = (∂f/∂q) * (∂q/∂x) = {df_dq.toFixed(2)} * 1 = {df_dx.toFixed(2)}</div>
-              <div className="text-rose-600">∂f/∂y = (∂f/∂q) * (∂q/∂y) = {df_dq.toFixed(2)} * 1 = {df_dy.toFixed(2)}</div>
+              <div className="w-full h-px bg-white/[0.06] my-2"></div>
+              <div className="text-white/35">∂f/∂z = q = {df_dz.toFixed(2)}</div>
+              <div className="text-white/35">∂f/∂q = z = {df_dq.toFixed(2)}</div>
+              <div className="text-white/35">∂f/∂x = (∂f/∂q) * (∂q/∂x) = {df_dq.toFixed(2)} * 1 = {df_dx.toFixed(2)}</div>
+              <div className="text-white/35">∂f/∂y = (∂f/∂q) * (∂q/∂y) = {df_dq.toFixed(2)} * 1 = {df_dy.toFixed(2)}</div>
             </div>
           </div>
 
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="w-full aspect-video bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative font-mono select-none">
+          <div className="w-full aspect-video bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative font-mono select-none">
             
             {/* SVG Graph */}
             <svg viewBox="0 0 600 400" className="w-full h-full">
@@ -130,20 +130,20 @@ export function InteractiveBackprop() {
             </svg>
 
             {/* Legend */}
-            <div className="absolute bottom-4 right-4 bg-rose-100/80 p-2 rounded border border-rose-300 text-xs">
+            <div className="absolute bottom-4 right-4 bg-[#0d0d20]/80 p-2 rounded border border-white/[0.1] text-xs">
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-emerald-600 font-bold">1.23</span>
-                <span className="text-rose-800">Forward Pass (Value)</span>
+                <span className="text-emerald-400 font-bold">1.23</span>
+                <span className="text-white/60">Forward Pass (Value)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-rose-700 font-bold">1.23</span>
-                <span className="text-rose-800">Backward Pass (Gradient)</span>
+                <span className="text-white/40 font-bold">1.23</span>
+                <span className="text-white/60">Backward Pass (Gradient)</span>
               </div>
             </div>
 
           </div>
           
-          <div className="text-sm text-indigo-700 bg-indigo-500/10 border border-indigo-500/20 px-4 py-3 rounded-lg">
+          <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-3 rounded-lg">
             <strong>Observation:</strong> Notice the `+` node. It takes the gradient it receives from the right (-4.00) and simply distributes it equally to both `x` and `y` on the left. A plus node is a &quot;gradient distributor&quot;.
           </div>
         </div>

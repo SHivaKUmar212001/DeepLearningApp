@@ -67,10 +67,10 @@ export function InteractiveConvolution() {
   }
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">The Convolution Operation</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">The Convolution Operation</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Step {step + 1} / 9
         </div>
       </div>
@@ -83,15 +83,15 @@ export function InteractiveConvolution() {
         
         {/* Input Matrix */}
         <div className="flex flex-col items-center">
-          <h3 className="text-rose-600 font-semibold mb-4">Input Image (5x5)</h3>
-          <div className="relative bg-rose-50 p-2 rounded-lg border border-rose-200">
+          <h3 className="text-white/35 font-semibold mb-4">Input Image (5x5)</h3>
+          <div className="relative bg-[#111128] p-2 rounded-lg border border-white/[0.08]">
             <div className="grid grid-cols-5 gap-1">
               {input.map((row, y) => row.map((val, x) => {
                 const inWindow = x >= winX && x < winX + kernelSize && y >= winY && y < winY + kernelSize;
                 return (
                   <div 
                     key={`${y}-${x}`} 
-                    className={`w-10 h-10 flex items-center justify-center font-mono rounded border transition-colors duration-300 ${inWindow ? 'bg-indigo-900/40 border-indigo-500/50 text-indigo-600' : 'bg-rose-200 border-rose-300 text-rose-700'}`}
+                    className={`w-10 h-10 flex items-center justify-center font-mono rounded border transition-colors duration-300 ${inWindow ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-white/[0.06] border-white/[0.1] text-white/40'}`}
                   >
                     {val}
                   </div>
@@ -117,21 +117,21 @@ export function InteractiveConvolution() {
         {/* Kernel & Math */}
         <div className="flex flex-col items-center justify-center gap-6">
           <div className="flex flex-col items-center">
-            <h3 className="text-amber-600 font-semibold mb-4">Kernel (3x3)</h3>
-            <div className="grid grid-cols-3 gap-1 bg-rose-50 p-2 rounded-lg border border-rose-200 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+            <h3 className="text-amber-400 font-semibold mb-4">Kernel (3x3)</h3>
+            <div className="grid grid-cols-3 gap-1 bg-[#111128] p-2 rounded-lg border border-white/[0.08] shadow-[0_0_15px_rgba(245,158,11,0.1)]">
               {kernel.map((row, y) => row.map((val, x) => (
-                <div key={`${y}-${x}`} className="w-10 h-10 flex items-center justify-center bg-amber-900/20 text-amber-600 font-mono rounded border border-amber-500/30">
+                <div key={`${y}-${x}`} className="w-10 h-10 flex items-center justify-center bg-amber-900/20 text-amber-400 font-mono rounded border border-amber-500/30">
                   {val}
                 </div>
               )))}
             </div>
           </div>
 
-          <div className="flex items-center text-rose-700 font-mono text-xs gap-2">
+          <div className="flex items-center text-white/40 font-mono text-xs gap-2">
             <span>Dot Product Calculation</span>
           </div>
           
-          <div className="bg-rose-100 px-4 py-3 rounded border border-rose-200 font-mono text-center w-full max-w-[200px]">
+          <div className="bg-white/[0.04] px-4 py-3 rounded border border-white/[0.08] font-mono text-center w-full max-w-[200px]">
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={step}
@@ -139,7 +139,7 @@ export function InteractiveConvolution() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.2 }}
-                className="text-cyan-600 font-bold text-lg"
+                className="text-cyan-400 font-bold text-lg"
               >
                 Sum = {sum}
               </motion.div>
@@ -149,8 +149,8 @@ export function InteractiveConvolution() {
 
         {/* Output Feature Map */}
         <div className="flex flex-col items-center">
-          <h3 className="text-cyan-600 font-semibold mb-4">Output Feature Map (3x3)</h3>
-          <div className="bg-rose-50 p-2 rounded-lg border border-rose-200">
+          <h3 className="text-cyan-400 font-semibold mb-4">Output Feature Map (3x3)</h3>
+          <div className="bg-[#111128] p-2 rounded-lg border border-white/[0.08]">
             <div className="grid grid-cols-3 gap-1">
               {Array.from({ length: 9 }).map((_, i) => {
                 const ox = i % 3;
@@ -172,7 +172,7 @@ export function InteractiveConvolution() {
                 return (
                   <div 
                     key={i} 
-                    className={`w-12 h-12 flex items-center justify-center font-mono font-bold text-lg rounded border transition-all duration-300 ${isCurrent ? 'bg-cyan-500 text-black border-cyan-400 scale-110 shadow-[0_0_20px_rgba(6,182,212,0.5)] z-10' : isComputed ? 'bg-cyan-900/30 border-cyan-500/30 text-cyan-300' : 'bg-rose-200 border-rose-300 text-transparent'}`}
+                    className={`w-12 h-12 flex items-center justify-center font-mono font-bold text-lg rounded border transition-all duration-300 ${isCurrent ? 'bg-cyan-500 text-black border-cyan-400 scale-110 shadow-[0_0_20px_rgba(6,182,212,0.5)] z-10' : isComputed ? 'bg-cyan-900/30 border-cyan-500/30 text-cyan-300' : 'bg-white/[0.06] border-white/[0.1] text-transparent'}`}
                   >
                     {isComputed ? val : ''}
                   </div>
@@ -180,7 +180,7 @@ export function InteractiveConvolution() {
               })}
             </div>
           </div>
-          <p className="text-xs text-rose-700 text-center mt-6 max-w-[80%]">
+          <p className="text-xs text-white/40 text-center mt-6 max-w-[80%]">
             The kernel slides over every possible 3x3 patch of the input, computing the dot product to produce a single pixel in the output feature map.
           </p>
         </div>

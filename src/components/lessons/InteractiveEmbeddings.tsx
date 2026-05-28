@@ -19,10 +19,10 @@ export function InteractiveEmbeddings() {
   ];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Latent Semantic Space</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Latent Semantic Space</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Dimensions: 2 (Simulated)
         </div>
       </div>
@@ -31,13 +31,13 @@ export function InteractiveEmbeddings() {
         
         {/* Controls */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Vector Math Operations</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Vector Math Operations</h3>
             
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => setActiveMath("royalty")}
-                className={`p-3 rounded border text-left transition-colors ${activeMath === "royalty" ? 'bg-indigo-900/40 border-indigo-500/50 text-indigo-600' : 'bg-rose-50 border-rose-200 text-rose-600 hover:border-rose-300'}`}
+                className={`p-3 rounded border text-left transition-colors ${activeMath === "royalty" ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/35 hover:border-white/[0.1]'}`}
               >
                 <div className="font-mono text-sm font-bold mb-1">King - Man + Woman</div>
                 <div className="text-xs opacity-80">Demonstrates the &quot;Royalty&quot; and &quot;Gender&quot; directional vectors.</div>
@@ -45,7 +45,7 @@ export function InteractiveEmbeddings() {
 
               <button 
                 onClick={() => setActiveMath("fruit")}
-                className={`p-3 rounded border text-left transition-colors ${activeMath === "fruit" ? 'bg-orange-900/40 border-orange-500/50 text-orange-300' : 'bg-rose-50 border-rose-200 text-rose-600 hover:border-rose-300'}`}
+                className={`p-3 rounded border text-left transition-colors ${activeMath === "fruit" ? 'bg-orange-900/40 border-orange-500/50 text-orange-300' : 'bg-[#111128] border-white/[0.08] text-white/35 hover:border-white/[0.1]'}`}
               >
                 <div className="font-mono text-sm font-bold mb-1">Clustering</div>
                 <div className="text-xs opacity-80">Notice how Apple and Orange are plotted closely together.</div>
@@ -53,28 +53,28 @@ export function InteractiveEmbeddings() {
 
               <button 
                 onClick={() => setActiveMath("none")}
-                className={`p-2 rounded border text-center transition-colors ${activeMath === "none" ? 'bg-rose-200 border-rose-400 text-rose-800' : 'bg-rose-50 border-rose-200 text-rose-700 hover:border-rose-300'}`}
+                className={`p-2 rounded border text-center transition-colors ${activeMath === "none" ? 'bg-white/[0.06] border-violet-500/30 text-white/60' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="text-xs font-bold uppercase tracking-wider">Reset</div>
               </button>
             </div>
             
-            <div className="mt-2 bg-rose-50 p-3 rounded border border-rose-200 text-xs text-rose-600 leading-relaxed">
+            <div className="mt-2 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed">
               Hover over a point to see its underlying dense vector representation. In real models like GPT, these vectors have 4,000+ dimensions instead of just 2!
             </div>
           </div>
         </div>
 
         {/* Visualizer (Scatter Plot) */}
-        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6 min-h-[400px]">
+        <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 min-h-[400px]">
           
-          <div className="relative w-full max-w-[500px] aspect-square border-l-2 border-b-2 border-rose-300">
+          <div className="relative w-full max-w-[500px] aspect-square border-l-2 border-b-2 border-white/[0.1]">
             {/* Grid lines */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#4b5563 1px, transparent 1px), linear-gradient(90deg, #4b5563 1px, transparent 1px)', backgroundSize: '10% 10%' }} />
 
             {/* Axes Labels */}
-            <div className="absolute -bottom-6 right-0 text-xs text-rose-700 font-mono">Dimension 1 $\rightarrow$</div>
-            <div className="absolute -left-6 top-0 text-xs text-rose-700 font-mono -rotate-90 origin-bottom-left">$\leftarrow$ Dimension 2</div>
+            <div className="absolute -bottom-6 right-0 text-xs text-white/40 font-mono">Dimension 1 $\rightarrow$</div>
+            <div className="absolute -left-6 top-0 text-xs text-white/40 font-mono -rotate-90 origin-bottom-left">$\leftarrow$ Dimension 2</div>
 
             {/* Vector Math: King - Man + Woman */}
             {activeMath === "royalty" && (
@@ -121,9 +121,9 @@ export function InteractiveEmbeddings() {
                 <div className={`w-4 h-4 -ml-2 -mt-2 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.5)] cursor-pointer transition-transform hover:scale-150 ${item.color}`} />
                 
                 {/* Tooltip */}
-                <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-rose-100 border border-rose-300 text-rose-950 text-xs p-2 rounded shadow-xl pointer-events-none whitespace-nowrap z-20">
+                <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-white/[0.04] border border-white/[0.1] text-white/90 text-xs p-2 rounded shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] pointer-events-none whitespace-nowrap z-20">
                   <div className="font-bold mb-1 capitalize text-sm">{item.word}</div>
-                  <div className="font-mono text-rose-600">{item.vector}</div>
+                  <div className="font-mono text-white/35">{item.vector}</div>
                 </div>
 
                 {/* Always visible label */}

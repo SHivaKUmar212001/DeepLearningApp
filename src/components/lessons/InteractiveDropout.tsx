@@ -68,16 +68,16 @@ export function InteractiveDropout() {
   }
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Interactive Dropout</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Interactive Dropout</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="flex flex-col gap-6">
           
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-6">
-            <h3 className="text-sm font-medium text-cyan-600">Regularization Techniques</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-6">
+            <h3 className="text-sm font-medium text-cyan-400">Regularization Techniques</h3>
             
             <Slider 
               label="Dropout Rate (Hidden Layers)" 
@@ -99,34 +99,34 @@ export function InteractiveDropout() {
             </div>
           </div>
 
-          <div className="bg-rose-50 rounded-xl border border-rose-200 p-5 font-mono text-sm">
-            <h3 className="text-xs uppercase text-rose-700 font-semibold mb-3 tracking-wider">Current Batch Stats</h3>
+          <div className="bg-[#111128] rounded-xl border border-white/[0.08] p-5 font-mono text-sm">
+            <h3 className="text-xs uppercase text-white/40 font-semibold mb-3 tracking-wider">Current Batch Stats</h3>
             <div className="grid grid-cols-2 gap-4 text-center">
               <div className="flex flex-col">
-                <span className="text-rose-700 mb-1">Total Parameters</span>
-                <span className="text-xl text-cyan-600 font-bold">{totalParams}</span>
+                <span className="text-white/40 mb-1">Total Parameters</span>
+                <span className="text-xl text-cyan-400 font-bold">{totalParams}</span>
               </div>
-              <div className="flex flex-col border-l border-rose-200">
-                <span className="text-rose-700 mb-1">Active Parameters</span>
-                <span className="text-xl text-amber-600 font-bold">{isPlaying ? activeParams : totalParams}</span>
+              <div className="flex flex-col border-l border-white/[0.08]">
+                <span className="text-white/40 mb-1">Active Parameters</span>
+                <span className="text-xl text-amber-400 font-bold">{isPlaying ? activeParams : totalParams}</span>
               </div>
             </div>
             
             {useBatchNorm && (
-              <div className="mt-4 pt-4 border-t border-rose-200 text-emerald-600 text-xs text-center flex items-center justify-center gap-2">
+              <div className="mt-4 pt-4 border-t border-white/[0.08] text-emerald-400 text-xs text-center flex items-center justify-center gap-2">
                 <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 Activations are being zero-centered and scaled!
               </div>
             )}
           </div>
           
-          <p className="text-xs text-rose-700 leading-relaxed">
+          <p className="text-xs text-white/40 leading-relaxed">
             <strong>Hint:</strong> Press play to simulate batches of data passing through the network. Notice how high dropout rates force the network to become sparse, preventing complex co-adaptations between neurons.
           </p>
 
         </div>
 
-        <div className="flex flex-col gap-4 bg-rose-50 rounded-xl border border-rose-200 overflow-hidden relative">
+        <div className="flex flex-col gap-4 bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative">
           <NeuralNet 
             layers={layers} 
             mode={isPlaying ? "forward" : "static"} 

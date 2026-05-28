@@ -47,14 +47,14 @@ export function InteractiveVAE() {
   let renderText = "0";
   let opacity = 1;
   let blur = "blur-none";
-  let color = "text-rose-950";
+  let color = "text-white/90";
 
   if (weight3 > 0.8) {
     renderText = "3";
-    color = "text-indigo-700";
+    color = "text-violet-400";
   } else if (weight8 > 0.8) {
     renderText = "8";
-    color = "text-rose-600";
+    color = "text-white/35";
   } else {
     // Interpolation zone
     renderText = weight3 > weight8 ? "3" : "8";
@@ -77,10 +77,10 @@ export function InteractiveVAE() {
   }, [isDragging]);
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Variational Autoencoders</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Variational Autoencoders</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Continuous Latent Space
         </div>
       </div>
@@ -89,11 +89,11 @@ export function InteractiveVAE() {
         
         {/* Controls / Instructions */}
         <div className="lg:col-span-4 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Interactive Sampling</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Interactive Sampling</h3>
             
-            <div className="text-sm text-rose-600 leading-relaxed">
-              Drag the <span className="font-bold text-emerald-600">Sample Dot</span> around the continuous 2D Latent Space.
+            <div className="text-sm text-white/35 leading-relaxed">
+              Drag the <span className="font-bold text-emerald-400">Sample Dot</span> around the continuous 2D Latent Space.
               <br/><br/>
               Notice how the space is no longer jagged. The distribution for &quot;3&quot; smoothly interpolates into the distribution for &quot;8&quot;. 
               <br/><br/>
@@ -103,15 +103,15 @@ export function InteractiveVAE() {
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-8 flex flex-col md:flex-row items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[350px] gap-12">
+        <div className="lg:col-span-8 flex flex-col md:flex-row items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[350px] gap-12">
           
           {/* Latent Space 2D Grid */}
           <div className="flex flex-col items-center gap-2">
-            <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">2D Latent Space</h3>
+            <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest">2D Latent Space</h3>
             
             <div 
               ref={containerRef}
-              className="w-48 h-48 bg-rose-100 border-2 border-rose-300 rounded-lg relative cursor-crosshair overflow-hidden shadow-inner"
+              className="w-48 h-48 bg-white/[0.04] border-2 border-white/[0.1] rounded-lg relative cursor-crosshair overflow-hidden shadow-inner"
               onMouseDown={(e) => { setIsDragging(true); handleDrag(e); }}
               onTouchStart={(e) => { setIsDragging(true); handleDrag(e); }}
               onMouseMove={handleDrag}
@@ -121,14 +121,14 @@ export function InteractiveVAE() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:10%_10%]" />
               
               {/* Distribution 3 (Indigo) */}
-              <div className="absolute w-24 h-24 bg-indigo-500/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute w-12 h-12 bg-indigo-500/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute text-indigo-600 font-bold text-xs pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=3</div>
+              <div className="absolute w-24 h-24 bg-violet-500/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute w-12 h-12 bg-violet-500/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute text-violet-400 font-bold text-xs pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=3</div>
               
               {/* Distribution 8 (Rose) */}
-              <div className="absolute w-24 h-24 bg-rose-500/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute w-12 h-12 bg-rose-500/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute text-rose-300 font-bold text-xs pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=8</div>
+              <div className="absolute w-24 h-24 bg-[#111128]0/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute w-12 h-12 bg-[#111128]0/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute text-white/20 font-bold text-xs pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=8</div>
 
               {/* Draggable Point */}
               <motion.div 
@@ -139,7 +139,7 @@ export function InteractiveVAE() {
               />
             </div>
             
-            <div className="text-[10px] font-mono text-emerald-600 bg-emerald-50 px-2 py-1 rounded mt-2 border border-emerald-900/50">
+            <div className="text-[10px] font-mono text-emerald-400 bg-emerald-50 px-2 py-1 rounded mt-2 border border-emerald-900/50">
               z = [{point.x.toFixed(1)}, {point.y.toFixed(1)}]
             </div>
           </div>
@@ -147,23 +147,23 @@ export function InteractiveVAE() {
           {/* Arrow */}
           <div className="hidden md:flex flex-col items-center">
             <div className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-1">Decoder</div>
-            <svg width="40" height="20" className="text-rose-600">
+            <svg width="40" height="20" className="text-white/35">
               <path d="M 0 10 L 35 10 M 25 2 L 35 10 L 25 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
           
           <div className="md:hidden flex flex-row items-center gap-2">
             <div className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">Decoder</div>
-            <svg width="20" height="20" className="text-rose-600 rotate-90">
+            <svg width="20" height="20" className="text-white/35 rotate-90">
               <path d="M 0 10 L 15 10 M 7 2 L 15 10 L 7 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
 
           {/* Generated Output */}
           <div className="flex flex-col items-center gap-2">
-            <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Generated Image</h3>
+            <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Generated Image</h3>
             
-            <div className="w-32 h-32 bg-rose-100 border-2 border-emerald-700/50 rounded-xl flex items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+            <div className="w-32 h-32 bg-white/[0.04] border-2 border-emerald-700/50 rounded-xl flex items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.1)]">
               {/* Overlay Grid */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:10%_10%] pointer-events-none" />
               
@@ -175,7 +175,7 @@ export function InteractiveVAE() {
               </div>
             </div>
             
-            <div className="text-[10px] font-mono text-rose-700 mt-2">
+            <div className="text-[10px] font-mono text-white/40 mt-2">
               Weights: 3:{(weight3*100).toFixed(0)}% 8:{(weight8*100).toFixed(0)}%
             </div>
           </div>

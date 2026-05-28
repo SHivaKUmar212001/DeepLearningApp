@@ -26,18 +26,18 @@ export function Toggle({ checked, onChange, label, className }: ToggleProps) {
         <div 
           className={cn(
             "h-6 w-11 rounded-full transition-colors duration-200 ease-in-out",
-            "peer-focus-visible:ring-2 peer-focus-visible:ring-indigo-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-rose-50",
-            checked ? "bg-indigo-500" : "bg-rose-300"
+            "peer-focus-visible:ring-2 peer-focus-visible:ring-violet-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-[#0d0d20]",
+            checked ? "bg-violet-500" : "bg-white/[0.08]"
           )}
         />
         <span
           className={cn(
-            "absolute left-[2px] top-[2px] h-5 w-5 transform rounded-full bg-white shadow transition-transform duration-200 ease-in-out",
+            "absolute left-[2px] top-[2px] h-5 w-5 transform rounded-full bg-[#0d0d20] shadow transition-transform duration-200 ease-in-out",
             checked ? "translate-x-5" : "translate-x-0"
           )}
         />
       </div>
-      {label && <span className="text-sm font-medium text-rose-800">{label}</span>}
+      {label && <span className="text-sm font-medium text-white/60">{label}</span>}
     </label>
   );
 }

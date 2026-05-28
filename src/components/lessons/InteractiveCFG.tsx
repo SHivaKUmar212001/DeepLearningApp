@@ -34,10 +34,10 @@ export function InteractiveCFG() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Classifier-Free Guidance</h2>
-        <div className="text-xs font-mono text-rose-700 bg-rose-100 px-3 py-1 rounded-full border border-rose-200">
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Classifier-Free Guidance</h2>
+        <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
           Steering the U-Net
         </div>
       </div>
@@ -46,11 +46,11 @@ export function InteractiveCFG() {
         
         {/* Controls */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
             
-            <div className="bg-rose-50 border border-rose-200 p-3 rounded flex items-center gap-3">
+            <div className="bg-[#111128] border border-white/[0.08] p-3 rounded flex items-center gap-3">
               <span className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest">Prompt</span>
-              <span className="font-mono text-rose-950 text-sm">&quot;A cute cat&quot;</span>
+              <span className="font-mono text-white/90 text-sm">&quot;A cute cat&quot;</span>
             </div>
 
             <div className="flex flex-col gap-2 mt-2">
@@ -60,7 +60,7 @@ export function InteractiveCFG() {
                 min={0} max={20} step={0.5}
                 onChange={(val) => setCfg(val)} 
               />
-              <p className="text-xs text-rose-700 mt-2 leading-relaxed">
+              <p className="text-xs text-white/40 mt-2 leading-relaxed">
                 CFG controls how strongly the network follows the text prompt. 
                 <br/><br/>
                 • <strong>0</strong>: Ignores prompt (Unconditional).<br/>
@@ -73,15 +73,15 @@ export function InteractiveCFG() {
         </div>
 
         {/* Visualizer */}
-        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-8 min-h-[350px]">
+        <div className="lg:col-span-7 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-8 min-h-[350px]">
           
           <div className="w-full flex flex-col md:flex-row items-center justify-around gap-8">
             
             {/* Vector Graph */}
             <div className="flex flex-col items-center gap-2">
-              <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Denoising Vectors</h3>
+              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Denoising Vectors</h3>
               
-              <div className="w-48 h-48 bg-rose-100 border-2 border-rose-300 rounded-lg relative overflow-hidden">
+              <div className="w-48 h-48 bg-white/[0.04] border-2 border-white/[0.1] rounded-lg relative overflow-hidden">
                 {/* Grid */}
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:10%_10%]" />
                 
@@ -111,9 +111,9 @@ export function InteractiveCFG() {
 
             {/* Generated Image Result */}
             <div className="flex flex-col items-center gap-2">
-              <h3 className="text-[10px] font-bold text-rose-700 uppercase tracking-widest">Final Generation</h3>
+              <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Final Generation</h3>
               
-              <div className={`w-32 h-32 bg-rose-100 border-2 ${cfg > 12 ? 'border-rose-500/50 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'border-rose-300'} rounded-xl flex items-center justify-center relative overflow-hidden transition-all duration-300`}>
+              <div className={`w-32 h-32 bg-white/[0.04] border-2 ${cfg > 12 ? 'border-violet-500/40/50 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'border-white/[0.1]'} rounded-xl flex items-center justify-center relative overflow-hidden transition-all duration-300`}>
                 <div 
                   className={`text-8xl transition-all duration-300 ${getEffects()}`}
                 >
@@ -122,10 +122,10 @@ export function InteractiveCFG() {
               </div>
               
               <div className="text-[10px] font-mono text-center mt-2 h-8">
-                {cfg === 0 && <span className="text-rose-700">Realistic, but ignored prompt.</span>}
+                {cfg === 0 && <span className="text-white/40">Realistic, but ignored prompt.</span>}
                 {cfg > 0 && cfg <= 3 && <span className="text-amber-500">Loosely follows prompt.</span>}
                 {cfg > 3 && cfg <= 12 && <span className="text-emerald-500 font-bold">Perfect prompt adherence.</span>}
-                {cfg > 12 && <span className="text-rose-700 font-bold">&quot;Deep Fried&quot; visual artifacts.</span>}
+                {cfg > 12 && <span className="text-white/40 font-bold">&quot;Deep Fried&quot; visual artifacts.</span>}
               </div>
             </div>
 

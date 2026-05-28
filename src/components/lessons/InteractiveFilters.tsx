@@ -143,21 +143,21 @@ export function InteractiveFilters() {
   const activeKernel = KERNELS[selectedFilter];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-white border border-rose-200 rounded-xl shadow-xl">
+    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
-        <h2 className="text-xl font-bold text-rose-950 tracking-tight">Interactive Filters</h2>
+        <h2 className="text-xl font-bold text-white/90 tracking-tight">Interactive Filters</h2>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Controls */}
         <div className="lg:col-span-1 flex flex-col gap-6">
-          <div className="p-4 bg-rose-100 rounded-lg border border-rose-200 flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-600">Select Filter Kernel</h3>
+          <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
+            <h3 className="text-sm font-medium text-cyan-400">Select Filter Kernel</h3>
             
             <div className="flex flex-col gap-2">
               <select 
-                className="bg-rose-200 border border-rose-300 text-rose-950 text-sm rounded focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2"
+                className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-violet-500 focus:border-violet-500 block w-full p-2"
                 value={selectedFilter}
                 onChange={(e) => setSelectedFilter(e.target.value)}
               >
@@ -168,18 +168,18 @@ export function InteractiveFilters() {
             </div>
 
             <div className="mt-4 flex flex-col items-center">
-              <span className="text-xs text-rose-700 mb-2 uppercase tracking-wider font-semibold">3x3 Matrix</span>
-              <div className="grid grid-cols-3 gap-1 bg-rose-50 p-2 rounded-lg border border-rose-200">
+              <span className="text-xs text-white/40 mb-2 uppercase tracking-wider font-semibold">3x3 Matrix</span>
+              <div className="grid grid-cols-3 gap-1 bg-[#111128] p-2 rounded-lg border border-white/[0.08]">
                 {activeKernel.kernel.map((row, y) => (
                   row.map((val, x) => (
-                    <div key={`${y}-${x}`} className="w-10 h-10 flex items-center justify-center bg-rose-200 text-rose-950 font-mono text-sm rounded border border-rose-300">
+                    <div key={`${y}-${x}`} className="w-10 h-10 flex items-center justify-center bg-white/[0.06] text-white/90 font-mono text-sm rounded border border-white/[0.1]">
                       {val}
                     </div>
                   ))
                 ))}
               </div>
               {activeKernel.divisor && (
-                <div className="mt-2 text-xs text-amber-600 font-mono">
+                <div className="mt-2 text-xs text-amber-400 font-mono">
                   Multiplied by 1/{activeKernel.divisor}
                 </div>
               )}
@@ -189,12 +189,12 @@ export function InteractiveFilters() {
         </div>
 
         {/* Canvas Display */}
-        <div className="lg:col-span-2 flex flex-col items-center justify-center bg-rose-50 rounded-xl border border-rose-200 p-6">
+        <div className="lg:col-span-2 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6">
           <div className="flex justify-between w-[420px] mb-2 px-2">
-            <span className="text-sm font-semibold text-rose-600">Original Image</span>
-            <span className="text-sm font-semibold text-cyan-600">Filtered Output</span>
+            <span className="text-sm font-semibold text-white/35">Original Image</span>
+            <span className="text-sm font-semibold text-cyan-400">Filtered Output</span>
           </div>
-          <canvas ref={canvasRef} className="rounded border border-rose-300 shadow-2xl" />
+          <canvas ref={canvasRef} className="rounded border border-white/[0.1] shadow-[0_0_40px_-10px_rgba(139,92,246,0.2)]" />
         </div>
 
       </div>
