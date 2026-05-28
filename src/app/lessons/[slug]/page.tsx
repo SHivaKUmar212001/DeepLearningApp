@@ -6,7 +6,7 @@ import path from "path";
 import matter from "gray-matter";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { ArrowLeft, Clock, GraduationCap } from "lucide-react";
+import { ArrowLeft, Clock, GraduationCap, Zap } from "lucide-react";
 
 import LossSurface3D from "@/components/viz/LossSurface3D";
 import { Slider } from "@/components/ui/Slider";
@@ -70,80 +70,33 @@ import { InteractiveGNN } from "@/components/lessons/InteractiveGNN";
 import { InteractiveFuture } from "@/components/lessons/InteractiveFuture";
 
 const components = {
-  LossSurface3D,
-  Slider,
-  Toggle,
-  PlayControl,
-  NeuralNet,
-  MatrixViz,
-  TrainingChart,
-  InteractiveDescent,
-  InteractiveVector,
-  InteractiveMatrix,
-  InteractivePerceptron,
-  InteractiveActivation,
-  InteractiveNetwork,
-  InteractiveForwardPass,
-  InteractiveLoss,
-  InteractiveBackprop,
-  InteractiveOptimizers,
-  InteractiveLearningRates,
-  InteractiveRegularization,
-  InteractiveDropout,
-  InteractivePlayground,
-  InteractiveDerivative,
-  InteractiveChainRule,
-  InteractiveImageTensors,
-  InteractiveFilters,
-  InteractiveConvolution,
-  InteractiveStride,
-  InteractivePooling,
-  InteractiveCNN,
-  InteractiveObjectDetection,
-  InteractiveSegmentation,
-  InteractiveTransferLearning,
-  InteractiveAdversarial,
-  InteractiveTokenization,
-  InteractiveEmbeddings,
-  InteractiveRNN,
-  InteractiveVanishingTime,
-  InteractiveLSTM,
-  InteractiveSeq2Seq,
-  InteractiveAttention,
-  InteractiveSelfAttention,
-  InteractivePositional,
-  InteractiveTransformer,
-  InteractiveGPT,
-  InteractiveBERT,
-  InteractiveLoRA,
-  InteractiveAutoencoder,
-  InteractiveVAE,
-  InteractiveGAN,
-  InteractiveForwardDiffusion,
-  InteractiveReverseDiffusion,
-  InteractiveUNet,
-  InteractiveCFG,
-  InteractiveStableDiffusion,
-  InteractiveRLBasics,
-  InteractiveQLearning,
-  InteractivePolicyGradient,
-  InteractiveActorCritic,
-  InteractiveGNN,
-  InteractiveFuture,
+  LossSurface3D, Slider, Toggle, PlayControl, NeuralNet, MatrixViz, TrainingChart,
+  InteractiveDescent, InteractiveVector, InteractiveMatrix, InteractivePerceptron,
+  InteractiveActivation, InteractiveNetwork, InteractiveForwardPass, InteractiveLoss,
+  InteractiveBackprop, InteractiveOptimizers, InteractiveLearningRates,
+  InteractiveRegularization, InteractiveDropout, InteractivePlayground,
+  InteractiveDerivative, InteractiveChainRule, InteractiveImageTensors,
+  InteractiveFilters, InteractiveConvolution, InteractiveStride, InteractivePooling,
+  InteractiveCNN, InteractiveObjectDetection, InteractiveSegmentation,
+  InteractiveTransferLearning, InteractiveAdversarial, InteractiveTokenization,
+  InteractiveEmbeddings, InteractiveRNN, InteractiveVanishingTime, InteractiveLSTM,
+  InteractiveSeq2Seq, InteractiveAttention, InteractiveSelfAttention,
+  InteractivePositional, InteractiveTransformer, InteractiveGPT, InteractiveBERT,
+  InteractiveLoRA, InteractiveAutoencoder, InteractiveVAE, InteractiveGAN,
+  InteractiveForwardDiffusion, InteractiveReverseDiffusion, InteractiveUNet,
+  InteractiveCFG, InteractiveStableDiffusion, InteractiveRLBasics,
+  InteractiveQLearning, InteractivePolicyGradient, InteractiveActorCritic,
+  InteractiveGNN, InteractiveFuture,
 };
 
-function DifficultyLabel({ level }: { level: string }) {
-  const color =
+function DifficultyBadge({ level }: { level: string }) {
+  const style =
     level === "Beginner"
-      ? "bg-emerald-50 text-emerald-700 border-emerald-100"
+      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
       : level === "Intermediate"
-        ? "bg-amber-50 text-amber-700 border-amber-100"
-        : "bg-rose-50 text-rose-700 border-rose-100";
-  return (
-    <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${color}`}>
-      {level}
-    </span>
-  );
+        ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+        : "bg-pink-500/10 text-pink-400 border-pink-500/20";
+  return <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${style}`}>{level}</span>;
 }
 
 export default async function LessonPage({
@@ -165,13 +118,16 @@ export default async function LessonPage({
   const { data: frontmatter, content } = matter(fileContent);
 
   return (
-    <article className="animate-fade-in-up">
-      {/* ── Thin top bar with back link ── */}
-      <div className="border-b border-rose-50 bg-white">
-        <div className="mx-auto max-w-[780px] px-6 py-3">
+    <article className="animate-fade-in-up relative">
+      {/* ── Ambient background glow ── */}
+      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-violet-600/5 blur-[120px]" />
+
+      {/* ── Back nav ── */}
+      <div className="relative z-10 border-b border-white/[0.04]">
+        <div className="mx-auto max-w-[820px] px-6 py-3">
           <Link
             href="/curriculum"
-            className="inline-flex items-center gap-1.5 text-sm text-rose-400 transition-colors hover:text-rose-700"
+            className="inline-flex items-center gap-1.5 text-sm text-white/25 transition-colors hover:text-violet-400"
           >
             <ArrowLeft size={14} />
             All lessons
@@ -180,37 +136,38 @@ export default async function LessonPage({
       </div>
 
       {/* ── Article header ── */}
-      <header className="mx-auto max-w-[780px] px-6 pt-10 pb-8">
-        <h1 className="text-[2.25rem] font-bold leading-[1.15] tracking-tight text-rose-950 sm:text-[2.75rem]">
+      <header className="relative z-10 mx-auto max-w-[820px] px-6 pt-12 pb-8">
+        <h1 className="text-[2.5rem] font-bold leading-[1.1] tracking-tight text-white sm:text-[3rem]">
           {frontmatter.title || "Lesson"}
         </h1>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-rose-400">
+        <div className="mt-7 flex flex-wrap items-center gap-4 text-sm">
           {frontmatter.difficulty && (
-            <DifficultyLabel level={frontmatter.difficulty} />
+            <DifficultyBadge level={frontmatter.difficulty} />
           )}
 
           {frontmatter.estimatedTime && (
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 text-white/25">
               <Clock size={14} />
               {frontmatter.estimatedTime}
             </span>
           )}
 
           {frontmatter.prereqs && (
-            <span className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1.5 text-white/25">
               <GraduationCap size={14} />
               Prereqs: {frontmatter.prereqs}
             </span>
           )}
         </div>
 
-        <hr className="mt-8 border-rose-100" />
+        {/* Holographic divider */}
+        <div className="mt-10 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
       </header>
 
       {/* ── MDX content ── */}
-      <div className="mx-auto max-w-[780px] px-6 pb-20">
-        <div className="prose prose-rose max-w-none prose-headings:font-bold prose-h2:text-[1.625rem] prose-h2:mt-14 prose-h3:text-xl">
+      <div className="relative z-10 mx-auto max-w-[820px] px-6 pb-24">
+        <div className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-[1.625rem] prose-h2:mt-14 prose-h3:text-xl">
           <MDXRemote
             source={content}
             components={components}
@@ -221,6 +178,23 @@ export default async function LessonPage({
               },
             }}
           />
+        </div>
+      </div>
+
+      {/* ── Bottom CTA ── */}
+      <div className="relative z-10 border-t border-white/[0.04]">
+        <div className="mx-auto max-w-[820px] px-6 py-12 flex items-center justify-between">
+          <Link
+            href="/curriculum"
+            className="inline-flex items-center gap-2 text-sm text-white/25 hover:text-violet-400 transition-colors"
+          >
+            <ArrowLeft size={14} />
+            Back to curriculum
+          </Link>
+          <div className="flex items-center gap-2 text-xs text-white/15">
+            <Zap size={12} />
+            Interactive lesson
+          </div>
         </div>
       </div>
     </article>

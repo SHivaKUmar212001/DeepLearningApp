@@ -16,26 +16,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans text-rose-950 bg-white">
+      <body className="min-h-full flex flex-col font-sans">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-indigo-600 focus:font-bold"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-violet-900 focus:text-white focus:font-bold"
         >
           Skip to content
         </a>
         <SiteHeader />
-        <main id="main-content" className="flex-1 flex flex-col">
+        <main id="main-content" className="flex-1 flex flex-col relative">
           {children}
         </main>
-        <footer className="border-t border-rose-100 bg-white">
+        <footer className="relative z-10 border-t border-white/5">
           <div className="mx-auto max-w-[1200px] px-6 py-10 lg:px-8">
             <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-              <p className="text-sm text-rose-400">
+              <p className="text-sm text-white/25">
                 &copy; {new Date().getFullYear()} DeepDive &mdash; Learn deep learning interactively.
               </p>
-              <div className="flex gap-6 text-sm text-rose-400">
-                <a href="/curriculum" className="hover:text-rose-700 transition-colors">Curriculum</a>
-                <a href="/playground" className="hover:text-rose-700 transition-colors">Lab</a>
+              <div className="flex gap-6 text-sm text-white/25">
+                <a href="/curriculum" className="hover:text-violet-400 transition-colors duration-300">Curriculum</a>
+                <a href="/playground" className="hover:text-cyan-400 transition-colors duration-300">Lab</a>
               </div>
             </div>
           </div>
