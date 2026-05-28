@@ -1,0 +1,42 @@
+---
+title: Vanishing Gradients in Time
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Recurrent Neural Networks (RNNs)
+---
+
+Standard RNNs have a critical, mathematical flaw: they have a terrible memory. 
+
+If you give an RNN a short sentence like "The cat sat on the mat", it works perfectly. But if you give it a paragraph of text, it completely forgets the beginning of the paragraph by the time it reaches the end.
+
+## The Mathematics of Forgetting
+
+To understand why, we need to look at **Backpropagation Through Time (BPTT)**. 
+
+During training, the network makes a prediction at the end of the sentence. It calculates the Loss, and sends that error signal backwards through time to update the weights. 
+
+At every single time step $t$, the gradient is multiplied by the recurrent weight matrix $W_{hh}$. 
+
+Imagine $W_{hh}$ is just a single number, like $0.5$.
+- Going back 1 step: $0.5$
+- Going back 2 steps: $0.5 \times 0.5 = 0.25$
+- Going back 3 steps: $0.5 \times 0.5 \times 0.5 = 0.125$
+- Going back 15 steps: $0.5^{15} = 0.00003$
+
+Because we are multiplying a number less than $1$ over and over again, the gradient **decays exponentially** towards zero. This is called the **Vanishing Gradient Problem**. By the time the error signal reaches the beginning of the sentence, it is essentially $0$. The network learns absolutely nothing about the long-term dependencies.
+
+## Exploding Gradients
+
+What if we just make the weight bigger than $1$? Let's say $1.5$.
+- Going back 15 steps: $1.5^{15} = 437.89$
+- Going back 50 steps: $1.5^{50} = 637,621,500$
+
+Now we have the opposite problem: **Exploding Gradients**. The math overflows, the gradients become infinitely large, and the network shatters.
+
+## Interactive BPTT Simulator
+
+Adjust the Recurrent Weight slider below to see how the mathematical gradient decays as it travels backward from the target word ("French") trying to reach the context word ("France").
+
+<InteractiveVanishingTime />
+
+To fix this problem, we need a network architecture that allows the gradient to flow backwards without being repeatedly multiplied by a weight matrix. We need a "highway" for the memory. We need an **LSTM**.

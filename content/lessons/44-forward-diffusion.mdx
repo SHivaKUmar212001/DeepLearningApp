@@ -1,0 +1,36 @@
+---
+title: "Diffusion Models: Forward Process"
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Generative Adversarial Networks (GANs)
+---
+
+GANs are incredibly powerful, but they have a major flaw: Mode Collapse. 
+
+Because the Generator is constantly trying to trick the Discriminator, it often figures out that drawing *one single perfect cat* tricks the Discriminator 100% of the time. So, it stops trying to draw anything else. It forgets how to draw dogs, cars, or even other types of cats.
+
+To solve this, researchers completely rethought how we generate images, inspired by non-equilibrium thermodynamics. This led to the creation of **Diffusion Models**.
+
+## The Core Concept
+
+Imagine a drop of ink falling into a glass of water. At first, you can clearly see the shape of the ink drop. But over time, the ink diffuses until the water is just a uniform color. The original information (the shape of the drop) has been completely destroyed by entropy.
+
+What if we could train a neural network to run time *backwards*? What if it could look at a uniform glass of water and mathematically un-diffuse it back into a perfect drop of ink?
+
+## The Forward Process (Adding Noise)
+
+To train a network to reverse diffusion, we first have to mathematically define diffusion. We call this the **Forward Process**.
+
+We start with a clean image from our dataset. Over $T = 1000$ tiny time steps, we iteratively add a tiny bit of Gaussian noise to the image. 
+
+This is a **Markov Chain**, meaning the image at step $t=10$ is calculated *only* by taking the image at $t=9$ and adding a little more noise. 
+
+Try dragging the slider below to diffuse an image.
+
+<InteractiveForwardDiffusion />
+
+By $t=1000$, the image is completely unrecognizable. It is pure, isotropic Gaussian noise. The "Signal" has been completely destroyed by the "Noise".
+
+There is no neural network involved in the Forward Process. It is purely a fixed mathematical equation.
+
+But now that we know exactly *how* the noise was added at every single step, we can train a neural network to predict that noise and remove it!

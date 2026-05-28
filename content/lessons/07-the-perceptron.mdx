@@ -1,0 +1,47 @@
+---
+title: The Perceptron
+difficulty: Beginner
+estimatedTime: 15 mins
+prereqs: Matrices & Transformations
+---
+
+In 1957, Frank Rosenblatt created the **Perceptron**—the very first artificial neuron. It was originally a physical machine built with wires and motors, designed to recognize simple images. 
+
+Today, it is the fundamental building block of all deep learning.
+
+## How a Neuron Works
+
+A single neuron takes multiple inputs, multiplies each by a **weight**, adds a **bias**, and then decides whether to "fire" or stay silent. 
+
+Mathematically, it computes:
+
+$$ z = w_1 x_1 + w_2 x_2 + b $$
+
+Where:
+- $x_1, x_2$ are the **inputs** (what the network sees).
+- $w_1, w_2$ are the **weights** (how important each input is).
+- $b$ is the **bias** (how easy it is for the neuron to fire).
+
+If $z > 0$, the neuron outputs $1$. If $z \le 0$, the neuron outputs $0$.
+
+## The Decision Boundary
+
+Geometrically, a single neuron with two inputs draws a straight line across 2D space. Everything on one side of the line is classified as `Class 1`, and everything on the other side is `Class 0`.
+
+This line is called the **Decision Boundary**.
+
+### Interactive Perceptron Lab
+
+In the lab below, your goal is to manually act as the training algorithm. Adjust the weights and bias until the network correctly classifies every single point (100% accuracy). 
+- Notice how changing the **weights** rotates the boundary.
+- Notice how changing the **bias** shifts the boundary parallel to itself.
+
+<InteractivePerceptron />
+
+### The Limitation of the Perceptron
+
+If the data can be separated by a straight line, it is called **linearly separable**, and a single perceptron can solve it perfectly.
+
+But what if the data forms a circle? Or a spiral? A straight line cannot cut a circle in half perfectly. This is the exact problem that killed neural network research in the 1970s (the "AI Winter"). 
+
+To solve this, we need to bend the straight line. We need **Activation Functions**.

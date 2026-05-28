@@ -1,0 +1,24 @@
+---
+title: Calculus & Derivatives
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Dot Products
+---
+
+Deep learning is essentially a giant optimization problem: we want to find the exact combination of millions of weights that results in the lowest possible error. But how do we know which way to adjust the weights? We use **calculus**.
+
+## The Derivative
+A derivative is the instantaneous **rate of change** of a function. 
+If you are driving a car, your position is the function $f(x)$, and your speedometer is the derivative $f'(x)$. 
+
+In deep learning, we don't care about speed; we care about **slope**. The derivative tells us the slope of the loss landscape at any given point.
+If the slope is positive, we are walking uphill. If the slope is negative, we are walking downhill. 
+By calculating the derivative of the loss with respect to our weights, we know exactly which direction to step to reduce the error.
+
+## Interactive Tangent Lab
+Below is a visual representation of a function (the blue curve) and its derivative (the orange tangent line). 
+Move the **Position (x)** slider. Notice how the tangent line perfectly hugs the curve at that exact point.
+
+<InteractiveDerivative />
+
+Pay special attention to what happens when you reach the bottom of the "valley". The slope becomes exactly **0.00**. This is the holy grail of deep learning: when the derivative is zero, we have reached a local minimum, which means our network is fully trained!

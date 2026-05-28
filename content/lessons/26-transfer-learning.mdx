@@ -1,0 +1,39 @@
+---
+title: Transfer Learning
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: CNN Architectures
+---
+
+Training a massive Convolutional Neural Network like ResNet-50 from scratch requires millions of images (like the ImageNet dataset) and weeks of computing power on expensive GPUs. 
+
+What if you want to build an AI to detect a rare disease in medical X-Rays, but you only have 500 images of the disease? If you try to train a CNN from scratch with only 500 images, it will overfit immediately and fail.
+
+The solution is **Transfer Learning**.
+
+## The Universal Feature Extractor
+
+We know that CNNs learn in a hierarchy:
+- Early layers learn basic shapes (lines, edges, colors).
+- Middle layers learn textures and patterns.
+- Late layers learn complex concepts (eyes, wheels).
+
+The magic of Transfer Learning is realizing that **lines, edges, and textures are universal**. The convolutional layers that learned to detect edges of a dog in ImageNet are the exact same mathematical filters needed to detect the edges of a lung in an X-Ray!
+
+## Freezing the Base
+
+To perform Transfer Learning, we do three things:
+1. **Download** a massive pre-trained model (like ResNet-50 trained on ImageNet).
+2. **Chop off** the final classification head (the Dense layers that output 1000 classes).
+3. **Freeze** the convolutional base. We lock all the weights so they cannot change during training.
+4. **Attach** a brand new, randomly initialized classification head (e.g., just 2 outputs for "Healthy" vs "Disease").
+
+When we train this new model on our tiny dataset of 500 X-Rays, the gradients *only* update the weights of our new classification head. The massive convolutional base acts purely as a fixed feature extractor!
+
+## Interactive Transfer Learning
+
+Toggle between Pre-training and Fine-tuning below to visualize what happens to the weights during Transfer Learning. Notice how the massive ResNet-50 base "freezes" (no gradient updates flowing through it), saving us massive amounts of compute time!
+
+<InteractiveTransferLearning />
+
+Transfer learning is the absolute standard in the modern AI industry. Almost nobody trains vision or language models entirely from scratch anymore; we stand on the shoulders of giants by fine-tuning pre-trained foundation models.

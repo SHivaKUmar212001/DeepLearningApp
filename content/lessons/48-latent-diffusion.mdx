@@ -1,0 +1,39 @@
+---
+title: Latent Diffusion (Stable Diffusion)
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: Classifier-Free Guidance
+---
+
+We now have all the ingredients for a modern text-to-image generator:
+1. A Forward Process that adds noise.
+2. A Reverse Process (U-Net) that predicts and removes noise.
+3. Classifier-Free Guidance to steer the U-Net using a text prompt.
+
+However, there is one massive bottleneck. If we want to generate a $512 \times 512$ image, we have to run a massive U-Net over 262,144 pixels... 1,000 times in a row!
+
+Running **Pixel Diffusion** requires datacenter-level hardware and can take hours. 
+
+## The Stable Diffusion Breakthrough
+
+In 2022, researchers released an open-source model that changed the world: **Stable Diffusion**. 
+
+They realized that the vast majority of those 262,144 pixels are redundant. If you have a blue sky, you don't need a million pixels to represent "blue sky." 
+
+So, they borrowed the **Variational Autoencoder (VAE)** from Lesson 42!
+
+## Latent Diffusion
+
+Instead of running the diffusion process in "Pixel Space", Stable Diffusion runs it in "Latent Space".
+
+1. First, they trained a massive VAE to compress $512 \times 512$ images down into a tiny $64 \times 64$ latent grid.
+2. They then trained the Diffusion U-Net entirely inside that tiny latent grid!
+3. To generate an image, they start with a $64 \times 64$ grid of pure noise, run the U-Net 1,000 times (which is incredibly fast), and then run the final $64 \times 64$ latent vector through the VAE Decoder to blow it back up to $512 \times 512$ pixels.
+
+Try the benchmark in the interactive visualizer below to see the difference.
+
+<InteractiveStableDiffusion />
+
+Because the $64 \times 64$ grid contains $64\times$ fewer numbers than the $512 \times 512$ grid, the entire diffusion process runs 64 times faster! This brilliant combination of VAEs and Diffusion Models made it possible to generate photorealistic images on a single consumer graphics card in seconds.
+
+Congratulations! You have completed **Module 4: Generative AI**, and you now understand the exact architecture running under the hood of Midjourney, DALL-E, and Stable Diffusion!

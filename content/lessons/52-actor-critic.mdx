@@ -1,0 +1,43 @@
+---
+title: Actor-Critic Models
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: Policy Gradients
+---
+
+In the last two lessons, we learned the two main branches of Reinforcement Learning:
+1. **Value-Based (Q-Learning)**: Guessing the exact numerical value of an action.
+2. **Policy-Based (Policy Gradients)**: Optimizing the pure probability of taking an action.
+
+Both methods have flaws. Q-Learning struggles with continuous actions (e.g., how much to turn a steering wheel), and Policy Gradients suffer from high variance (sometimes getting lucky/unlucky rewards that ruin the training).
+
+So, researchers asked: Why not combine them?
+
+## The Hybrid Approach
+
+**Actor-Critic Models** combine the best of both worlds by training *two* neural networks simultaneously.
+
+1. **The Actor (Policy)**: This network decides *what to do*. It looks at the state and outputs a probability distribution over actions (just like Policy Gradients).
+2. **The Critic (Value)**: This network judges *how good the action was*. It looks at the state and the action taken, and outputs an exact numerical score (just like Q-Learning).
+
+## The Advantage Function
+
+The true power of this architecture is the **Advantage Function**. 
+
+In standard Policy Gradients, the Actor has to wait until the end of the game to see if it won or lost, and then update its probabilities. 
+
+In an Actor-Critic model, the Actor makes a move, and the Critic *instantly* evaluates it! The Critic tells the Actor, "Based on my calculations, that move was 2.5 points better than average." This is called the Advantage.
+
+The Actor then immediately uses this Advantage score to update its probabilities. 
+
+Try acting as the Actor in the interactive visualizer below. Choose a chess piece to move, and watch the Critic instantly evaluate your choice and update your probabilities.
+
+<InteractiveActorCritic />
+
+## Modern Implementation
+
+Actor-Critic algorithms are currently the absolute state-of-the-art in Reinforcement Learning. 
+
+Variants like **A2C (Advantage Actor-Critic)** and **PPO (Proximal Policy Optimization)** are the standard algorithms used by OpenAI and DeepMind to train everything from superhuman DOTA 2 bots to ChatGPT itself!
+
+Congratulations! You have mastered the fundamentals of Reinforcement Learning. In our final two lessons, we'll look at exotic architectures and peer into the future of AI.

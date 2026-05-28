@@ -1,0 +1,39 @@
+---
+title: Loss Functions
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Forward Propagation
+---
+
+When a neural network first starts out, its weights are completely random. When you pass an image of a dog through the network, it might predict "Cat" with 90% confidence.
+
+How does the network know it made a mistake? It calculates the **Loss**.
+
+A Loss Function takes the network's prediction ($\hat{y}$) and the actual ground truth ($y$) and outputs a single number: the penalty. If the network is right, the loss is zero. If it is wrong, the loss is high.
+
+## Mean Squared Error (MSE)
+
+The most intuitive loss function is **Mean Squared Error**. You simply take the difference between the prediction and the truth, and square it:
+
+$$ L = (\hat{y} - y)^2 $$
+
+This is great for predicting continuous numbers (like housing prices), but terrible for classification (like dog vs. cat). Why? Because probabilities are bounded between 0 and 1. If the truth is $1.0$ and the network predicts $0.0$, the MSE is $(0 - 1)^2 = 1.0$. 
+
+A maximum penalty of $1.0$ doesn't provide a strong enough "push" for the network to quickly correct its confident mistakes.
+
+## Cross-Entropy Loss
+
+For classification, we use **Cross-Entropy Loss**. It uses logarithms to heavily penalize confident mistakes.
+
+$$ L = -[y \log(\hat{y}) + (1-y) \log(1-\hat{y})] $$
+
+### Interactive Loss Comparison
+
+Set the Ground Truth to $y=1$. Then drag the Prediction slider from right (correct) to left (incorrect). 
+Watch the shape of the two loss curves. 
+
+<InteractiveLoss />
+
+Notice how the Cross-Entropy curve (red) explodes upwards to infinity as the prediction approaches $0.0$. If a network predicts the complete opposite of the truth with 100% confidence, Cross-Entropy hits it with an infinite penalty!
+
+This extreme slope gives the network massive gradients when it is confidently wrong, forcing it to learn and correct its weights much faster than MSE.

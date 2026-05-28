@@ -1,0 +1,40 @@
+---
+title: Autoencoders
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: The Transformer Architecture
+---
+
+Up until now, our neural networks have been entirely **Discriminative**. We feed them an image, and they squeeze it down to a single prediction (e.g., "This is a cat"). 
+
+But what if we want to build a network that creates brand new images? We need to transition from Discriminative AI to **Generative AI**.
+
+The first step on this journey is the **Autoencoder**.
+
+## Learning to Compress
+
+An Autoencoder has two halves:
+1. **The Encoder**: Takes a high-dimensional image (e.g., $28 \times 28 = 784$ pixels) and compresses it down into a tiny vector called the **Latent Space**.
+2. **The Decoder**: Takes that tiny Latent Space vector and tries to expand it back into the original $784$-pixel image!
+
+Why would we do this? Because forcing the network to squeeze data through a tiny bottleneck forces it to learn the *fundamental underlying concepts* of the data. 
+
+For example, to compress a picture of a handwritten "8", the Encoder might learn to just output `[2 loops, tilted left]`. The Decoder then learns how to draw an "8" from those two abstract concepts.
+
+## The Bottleneck Problem
+
+Play with the **Latent Neurons** slider below to see how the bottleneck affects the reconstruction quality.
+
+<InteractiveAutoencoder />
+
+If the Latent Space is too large (e.g., 128 neurons), the network doesn't actually learn anything useful. It just memorizes the exact pixel values. This is called **Overfitting**.
+
+If the Latent Space is too small (e.g., 2 neurons), the network is forced to learn highly abstract concepts, but it loses too much detail, resulting in a blurry, lossy reconstruction.
+
+## Can We Generate New Images?
+
+You might think: "If the Decoder knows how to turn latent concepts into images, what if I just bypass the Encoder, throw some random numbers into the Latent Space, and see what the Decoder draws?"
+
+Unfortunately, with a standard Autoencoder, this produces absolute garbage. The Latent Space is extremely jagged and full of empty "holes" where the Decoder has no idea what to draw.
+
+To generate *new* images, we need to force the Latent Space to be smooth and continuous. That leads us to our next breakthrough...

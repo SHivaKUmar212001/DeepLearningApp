@@ -1,0 +1,35 @@
+---
+title: BERT and Encoder-only Models
+difficulty: Intermediate
+estimatedTime: 8 mins
+prereqs: GPT and Decoder-only Models
+---
+
+While OpenAI was busy throwing away the Encoder to build GPT, researchers at Google took the opposite approach. They threw away the Decoder!
+
+They created **BERT** (Bidirectional Encoder Representations from Transformers). 
+
+## The Problem with GPT
+
+GPT is brilliant for generating text because it predicts one word at a time, strictly moving left-to-right. 
+However, this makes it inherently "blind" to the future. If GPT sees the word "The", it has to guess what comes next without knowing how the sentence ends.
+
+If you just want a neural network to *understand* text (like for Sentiment Analysis or Google Search), reading left-to-right is actually a disadvantage. Humans don't read word-by-word; we scan sentences and use the end of a sentence to understand the beginning.
+
+## Masked Language Modeling (MLM)
+
+Because BERT is an Encoder, it uses full Self-Attention. Every word can look at every other word simultaneously—both left AND right!
+
+But how do you train it? You can't train it to "predict the next word" because it can already see the whole sentence. It would just cheat by looking at the answer!
+
+Google solved this by inventing **Masked Language Modeling (MLM)**. They took millions of sentences from Wikipedia, randomly replaced 15% of the words with a special `[MASK]` token, and forced BERT to fill in the blanks!
+
+## Bidirectional Context
+
+Try changing the right-side context in the interactive visualizer below.
+
+<InteractiveBERT />
+
+Notice how BERT perfectly deduces the missing word by looking at the *end* of the sentence. This bidirectional understanding made BERT the undisputed king of Natural Language Understanding (NLU), and it is what powers Google Search today!
+
+But what happens when these models get too big to fit on a single computer? How do we train them? We'll find out in our final lesson!

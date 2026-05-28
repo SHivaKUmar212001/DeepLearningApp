@@ -1,0 +1,41 @@
+---
+title: Generative Adversarial Networks (GANs)
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: Variational Autoencoders (VAEs)
+---
+
+VAEs are great because they give us a perfectly continuous latent space, allowing us to generate infinite variations of images. 
+
+However, because VAEs are penalized by the Mean Squared Error (MSE) loss function, they tend to generate blurry images. A blurry edge is mathematically "safer" than a sharp edge when trying to minimize MSE.
+
+To generate razor-sharp, photorealistic images, we need to completely abandon standard loss functions. We need two neural networks to fight each other.
+
+Welcome to **Generative Adversarial Networks (GANs)**.
+
+## The Counterfeiter and the Police
+
+A GAN consists of two distinct neural networks locked in an adversarial game:
+
+1. **The Generator (The Counterfeiter)**: Its only job is to take random noise and turn it into a fake image. It has never seen the real dataset.
+2. **The Discriminator (The Police)**: Its job is to look at an image and guess whether it is a Real image from the dataset, or a Fake image created by the Generator.
+
+## Adversarial Training
+
+Here is how the training loop works:
+1. The Generator creates a batch of fake images from random noise.
+2. We mix those fakes with real images and show them to the Discriminator.
+3. The Discriminator makes its guesses. If it correctly identifies a fake, the Discriminator gets rewarded.
+4. **The Magic Step**: The Discriminator's gradients are pushed *backwards* into the Generator. The Generator uses this feedback to adjust its weights so that its next batch of fakes will be slightly harder to detect!
+
+<InteractiveGAN />
+
+## The Nash Equilibrium
+
+In Epoch 0, the Generator just outputs static noise. The Discriminator easily achieves 100% accuracy.
+
+But as the game continues, the Generator receives massive amounts of feedback on exactly *why* its images look fake. It slowly learns to draw edges, textures, and eventually photorealistic objects.
+
+The training is complete when the networks reach a **Nash Equilibrium**: The Generator's fakes are so utterly perfect that the Discriminator is forced to just flip a coin, operating at exactly 50% accuracy. 
+
+At this point, we can throw away the Discriminator, and use our trained Generator to create infinite photorealistic images!

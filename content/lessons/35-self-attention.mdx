@@ -1,0 +1,39 @@
+---
+title: Self-Attention (QKV)
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: The Attention Mechanism
+---
+
+The original Attention Mechanism allowed the *Decoder* to look back at the *Encoder*. But what if we use Attention to let a sequence look at **itself**?
+
+This is called **Self-Attention**, and it completely eliminates the need for RNNs. It allows a neural network to process an entire sentence in parallel, fundamentally changing the meaning of each word based on its surrounding context.
+
+## The Problem with Static Embeddings
+
+In Lesson 29, we learned that the word "bank" is mapped to a static embedding vector, like `[-0.5, 0.8]`.
+
+But what does "bank" actually mean?
+- "The river **bank** is muddy." $\rightarrow$ Sloping land near water.
+- "The money **bank** is closed." $\rightarrow$ A financial institution.
+
+If "bank" always maps to the exact same static vector, the network is confused. It needs a way to dynamically update the vector for "bank" based on the other words in the sentence.
+
+## Query, Key, Value (QKV)
+
+Self-Attention solves this using an analogy similar to a Database Search Engine:
+1. **Query (Q)**: What I am looking for.
+2. **Key (K)**: What I have to offer.
+3. **Value (V)**: The actual content I hold.
+
+When processing the word "bank", the network projects it into a **Query** vector. It then projects every other word in the sentence into a **Key** vector. 
+
+It calculates the dot product between the "bank" Query and all the other Keys. 
+- In Context A, the "bank" Query highly matches the "river" Key. 
+- In Context B, the "bank" Query highly matches the "money" Key.
+
+Finally, it takes the **Value** of the matched word and adds it to "bank", forever changing its mathematical meaning!
+
+<InteractiveSelfAttention />
+
+Because every word does this QKV calculation with every other word simultaneously, Self-Attention requires zero sequential loops. It is massively parallelizable on GPUs, making training infinitely faster than RNNs!

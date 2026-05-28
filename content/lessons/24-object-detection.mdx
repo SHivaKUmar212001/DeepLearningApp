@@ -1,0 +1,41 @@
+---
+title: Object Detection Basics
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: CNN Architectures
+---
+
+We've seen how a CNN can look at an image and output a single probability: "This image contains a dog." But what if there are 3 dogs and 2 cats in the image? How do we find exactly *where* they are?
+
+Welcome to **Object Detection**.
+
+## The Regression Head
+
+To find an object, the network must output the exact coordinates of a **Bounding Box** that surrounds the object. 
+Instead of just outputting a probability array at the end of the Dense layers (a Classification Head), we add a second path called a **Regression Head**.
+
+For a single object, the regression head outputs 4 specific numbers:
+1. **X Coordinate** (center or top-left)
+2. **Y Coordinate** (center or top-left)
+3. **Width**
+4. **Height**
+
+## Intersection over Union (IoU)
+
+How do we train the network to output the correct coordinates? We use a metric called **Intersection over Union (IoU)**.
+During training, we have a "Ground Truth" box drawn by a human. The network guesses a "Prediction" box. 
+
+IoU calculates the area where the two boxes overlap (Intersection) divided by the total area they both cover (Union). 
+- An IoU of `0.0` means they don't touch at all.
+- An IoU of `1.0` means the prediction perfectly matches the ground truth.
+
+The Loss Function is designed to push the IoU as close to 1.0 as possible!
+
+## Interactive Bounding Box Lab
+
+Below is an interactive simulation of a regression head. Adjust the output coordinates (X, Y, Width, Height) to move the predicted bounding box over the car. 
+Try to achieve an **IoU of > 70%**!
+
+<InteractiveObjectDetection />
+
+Modern architectures like **YOLO (You Only Look Once)** divide the image into a grid and have *every single grid cell* predict multiple bounding boxes simultaneously. This allows YOLO models to detect dozens of objects in real-time video streams at 60 frames per second!

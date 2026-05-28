@@ -1,0 +1,35 @@
+---
+title: Optimizers (Momentum, RMSprop, Adam)
+difficulty: Advanced
+estimatedTime: 15 mins
+prereqs: Gradient Descent
+---
+
+In the last lesson, we saw how standard **Stochastic Gradient Descent (SGD)** works: it calculates the gradient of the loss, and takes a step in the opposite direction. 
+
+However, standard SGD has a major problem: it struggles with ravines and saddle points. If the loss surface is much steeper in one dimension than another, SGD will wildly oscillate back and forth across the ravine, making very slow progress toward the actual minimum.
+
+To solve this, researchers invented advanced **Optimizers**.
+
+### Momentum
+Imagine rolling a heavy boulder down a hill. As it rolls, it builds up speed (momentum) in the direction it is moving, and it tends to power through small bumps or oscillations. 
+In math, we keep a running average of our past gradients (velocity) and add it to our current step. This dampens the zig-zagging.
+
+### RMSprop
+RMSprop takes a different approach: it keeps track of the squared gradients for each dimension. If a dimension has a very large gradient (steep walls of a ravine), it divides the learning rate for that dimension by a large number, effectively slowing it down. If a dimension has a small gradient, it speeds it up. This forces the optimizer to walk straight down the center of the ravine.
+
+### Adam (Adaptive Moment Estimation)
+Adam is the undisputed king of deep learning optimizers. It simply combines both **Momentum** and **RMSprop**:
+1. It keeps a running average of the gradient (Momentum)
+2. It keeps a running average of the squared gradient (RMSprop)
+
+It uses both of these to adapt the learning rate for every single parameter dynamically.
+
+## Interactive Optimizer Race
+
+In the interactive lab below, select the `rosenbrock` or `ravine` surface, which are notoriously difficult for standard SGD.
+Try standard SGD, and watch how it struggles. Then, switch to Adam or RMSprop and watch how quickly they find the minimum!
+
+<InteractiveOptimizers />
+
+Notice how Adam smoothly glides to the minimum even on the hardest surfaces, which is why it's the default choice for almost all modern neural networks.

@@ -1,0 +1,41 @@
+---
+title: Matrices & Transformations
+difficulty: Beginner
+estimatedTime: 12 mins
+prereqs: Scalars, Vectors, & Tensors
+---
+
+If a vector is a point or an arrow in space, a **matrix** is an action that transforms that space. 
+
+In deep learning, every Linear layer (or Dense layer) is mathematically just a matrix multiplication. When we pass an input vector $x$ into a layer with weights $W$, we compute:
+
+$$ y = Wx $$
+
+What does this actually mean geometrically?
+
+## Matrices as Linear Transformations
+
+A $2 \times 2$ matrix tells us exactly where the fundamental grid lines of space (the basis vectors) will land.
+Let's call the unit vector pointing right $\hat{i} = [1, 0]$ and the unit vector pointing up $\hat{j} = [0, 1]$.
+
+A matrix $W = \begin{bmatrix} a & b \\ c & d \end{bmatrix}$ dictates that:
+- The new $\hat{i}$ lands at $[a, c]$
+- The new $\hat{j}$ lands at $[b, d]$
+
+Every other point in space follows them, stretching and rotating the grid.
+
+## Interactive Matrix Lab
+
+Use the sliders below to change where the cyan basis vector $\hat{i}$ and the amber basis vector $\hat{j}$ land. Watch how the entire 2D space warps in response!
+
+<InteractiveMatrix />
+
+### The Determinant
+
+Notice the **Determinant** readout. The determinant measures the factor by which the *area* of the grid squares scales.
+- **Determinant = 1**: The area is unchanged (e.g., Rotation).
+- **Determinant > 1**: Space is stretched outward.
+- **Determinant < 0**: Space is flipped inside out (like a mirror reflection).
+- **Determinant = 0**: Space collapses into a single line (1D) or a point (0D). This means the matrix destroys information—you cannot reverse it!
+
+In neural networks, weight matrices constantly stretch, rotate, and squash the input data into new representations until the classes become linearly separable.

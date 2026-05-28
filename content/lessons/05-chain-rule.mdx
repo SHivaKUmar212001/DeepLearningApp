@@ -1,0 +1,38 @@
+---
+title: The Chain Rule
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Calculus & Derivatives
+---
+
+In the last lesson, we learned how to find the derivative (slope) of simple functions like $f(x) = x^2$. 
+
+But deep learning models are not simple functions. They are **composite functions**—functions nested inside other functions. A neural network layer takes an input, passes it through a matrix multiplication, and then passes *that* result through an activation function like ReLU.
+
+Mathematically, this looks like $h(x) = f(g(x))$.
+How do we find the derivative of a function nested inside another? We use **The Chain Rule**.
+
+## Gears of Computation
+
+The Chain Rule states that the derivative of a composite function is simply the product of the derivatives of the individual functions:
+
+$$ \frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx} $$
+
+Think of it like a system of gears. 
+- If turning gear $x$ once causes gear $u$ to turn 2 times ($\frac{du}{dx} = 2$)
+- And turning gear $u$ once causes gear $y$ to turn 3 times ($\frac{dy}{du} = 3$)
+- Then turning gear $x$ once must cause gear $y$ to turn $2 \times 3 = 6$ times! ($\frac{dy}{dx} = 6$)
+
+## Interactive Chain Rule Lab
+
+Let's visualize a simple composite function: 
+1. The first function doubles the input: $g(x) = 2x$. Let's call the output $u$.
+2. The second function squares its input: $f(u) = u^2$. Let's call the output $y$.
+
+The total function is $y = (2x)^2$.
+
+Drag the slider for the input $x$. Notice how the change in $x$ is amplified as it flows through $u$ and finally into $y$. The "speed" at which $y$ moves relative to $x$ is the product of the two intermediate speeds!
+
+<InteractiveChainRule />
+
+This exact principle is what allows us to train neural networks. By calculating the local derivatives of each layer and multiplying them backward from the output to the input, we can figure out exactly how to adjust every single weight. This is called **Backpropagation**.

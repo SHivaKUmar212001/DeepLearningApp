@@ -1,0 +1,36 @@
+---
+title: CNN Architectures
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Pooling Layers
+---
+
+We now have all the individual building blocks of a Convolutional Neural Network (CNN):
+1. **Convolutions** to extract features and build depth.
+2. **ReLU** activations to introduce non-linearity.
+3. **Pooling Layers** to downsample space and build translational invariance.
+
+How do we actually stack these blocks together to build a model that can recognize handwritten digits (LeNet), classify 1000 different objects (AlexNet, VGG), or even drive a car?
+
+## The CNN Funnel
+
+Classic CNN architectures look like a massive mathematical funnel. As the data flows deeper into the network, two things happen simultaneously:
+
+1. **Spatial Dimensions Shrink**: Thanks to Pooling layers and Strided convolutions, the physical width and height of the feature maps shrink from something like $224 \times 224$ down to $7 \times 7$.
+2. **Channel Depth Grows**: Thanks to having dozens or hundreds of different convolutional kernels per layer, the number of channels (feature maps) grows from $3$ (RGB) to hundreds or thousands (e.g., $512$).
+
+The network transforms a wide, thin image into a narrow, incredibly deep block of highly abstract features.
+
+## The fully connected tail
+
+Once the data has been funneled into a deep block of abstract features, we **Flatten** it. We take the 3D tensor and unroll it into a single 1D vector. 
+
+This vector is then fed into standard **Dense (Fully Connected)** layers—exactly like the MLP we built in Module 1. The convolutions do the hard work of feature extraction, and the dense layers do the final classification!
+
+## Interactive Pipeline Viewer
+
+Explore the visual architecture of a typical CNN below (similar to the famous VGG network). Notice how the tensors start as flat squares and physically morph into deep, narrow blocks before being flattened.
+
+<InteractiveCNN />
+
+In modern architectures like **ResNet**, researchers added "Skip Connections" that allow data to bypass certain layers, solving the vanishing gradient problem and allowing networks to be hundreds of layers deep! But the core funnel principle remains the same.

@@ -1,0 +1,38 @@
+---
+title: Recurrent Neural Networks (RNNs)
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: Word Embeddings
+---
+
+We now know how to convert a word into a rich mathematical vector. But language is more than just a bag of words. **Order matters.** 
+
+"The dog chased the cat" means something completely different than "The cat chased the dog", even though the exact same words are used! A standard MLP or CNN has a fixed input size and processes everything at once. It has no concept of sequence or time.
+
+To process sequences like sentences, audio waves, or stock prices, we need a **Recurrent Neural Network (RNN)**.
+
+## Time and Memory
+
+An RNN processes a sequence one item at a time. It works like this:
+1. It reads the first word ($x_1$).
+2. It generates a **Hidden State** ($h_1$). This hidden state acts as the network's "memory" of what it just read.
+3. It moves to the second word ($x_2$). But instead of just looking at the second word in isolation, the RNN looks at *both* the second word $x_2$ **AND** the memory of the first word $h_1$.
+4. It combines them to generate a new memory, $h_2$.
+
+This loop continues until the entire sentence is processed.
+
+## Unrolling Through Time
+
+Because an RNN has a loop inside it, it can be mathematically confusing to visualize. To make it easier, we usually draw RNNs "unrolled through time". 
+
+Imagine stamping out a copy of the RNN cell for every single word in the sentence. The exact same weights are used in every cell, but the hidden state memory gets passed horizontally from left to right.
+
+## Interactive Unrolled RNN
+
+Press Play to watch the RNN process the sentence "The cat sat". 
+
+Notice how the network at Time $t_3$ is predicting the word after "sat". It knows the subject was a "cat" because that information was passed forward through the hidden states $h_1$ and $h_2$!
+
+<InteractiveRNN />
+
+RNNs were a massive breakthrough, but they have a fatal flaw. When a sentence gets very long (like a paragraph), the hidden state "forgets" the early words. This is called the **Vanishing Gradient Problem**, and we'll learn how to fix it in the next lesson!

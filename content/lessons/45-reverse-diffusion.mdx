@@ -1,0 +1,39 @@
+---
+title: "Diffusion Models: Reverse Process"
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: "Diffusion Models: Forward Process"
+---
+
+In the last lesson, we used a fixed mathematical equation to add noise to an image until it became pure static. 
+
+Now, we are going to train a neural network to run time backwards. This is the **Reverse Process**, also known as **Denoising**.
+
+## Predicting Noise, Not Images
+
+When training the neural network, you might assume its job is to look at a noisy image and output a clean image. However, that turns out to be mathematically unstable. 
+
+Instead, the network is trained to look at a noisy image and predict **only the noise**. 
+
+If the network can perfectly predict the exact noise pattern that was added to the image, we can simply subtract that noise to get the clean image back!
+
+## The Denoising Loop
+
+Because the Forward Process added noise slowly over 1,000 steps, we must remove it slowly over 1,000 steps. 
+
+1. Start with an image of pure, random noise (this is $t=1000$).
+2. Pass the image into the neural network. The network predicts the noise.
+3. Subtract a tiny fraction of that predicted noise from the image.
+4. We are now at $t=999$. Repeat this loop 1,000 times!
+
+Try running the Reverse Process in the interactive visualizer below.
+
+<InteractiveReverseDiffusion />
+
+## Why Is This Better Than GANs?
+
+GANs try to generate an image in a single, massive forward pass. This makes them unstable and prone to Mode Collapse (only generating one type of image).
+
+Diffusion Models break the generation process down into 1,000 tiny, mathematically rigorous steps. Because the network only has to remove a tiny fraction of noise at each step, the process is incredibly stable, and the model can learn to generate an infinite variety of highly detailed images.
+
+But what kind of neural network is powerful enough to process these massive images and predict noise at pixel-perfect accuracy? In the next lesson, we'll look inside the "Neural Network" box and explore the **U-Net** architecture.

@@ -1,0 +1,29 @@
+---
+title: Activation Functions
+difficulty: Beginner
+estimatedTime: 10 mins
+prereqs: The Perceptron
+---
+
+If a neural network was just a series of Perceptrons (Linear layers) stacked on top of each other, it would be mathematically identical to one single, giant Perceptron. 
+
+Why? Because a linear transformation of a linear transformation is just... another linear transformation. No matter how many layers you add, a purely linear network can only ever draw a straight line decision boundary.
+
+To solve complex problems (like circles, spirals, or recognizing a cat), the network needs to **bend** the space. 
+
+## The Spark of Non-Linearity
+
+We introduce bending by passing the output of every neuron ($z$) through a non-linear **Activation Function**. 
+
+Instead of the neuron outputting $z = Wx + b$, it outputs $a = f(z)$.
+
+### Interactive Activation Lab
+
+Below are the most common activation functions. Drag the input slider ($z$) to see how each function "activates" or squashes the output ($a$).
+
+<InteractiveActivation />
+
+### Why ReLU is King
+For decades, researchers used **Sigmoid** and **Tanh** because they are smooth and biological (like a real neuron firing or not firing). But deep networks suffered from the *Vanishing Gradient Problem*: their slopes are completely flat at the far left and right, meaning gradients die out and the network stops learning.
+
+**ReLU (Rectified Linear Unit)** changed everything. It is incredibly simple: $max(0, z)$. It turns off negative values and leaves positive values alone. It is fast to compute, and its gradient doesn't vanish on the positive side, allowing networks to be hundreds of layers deep!

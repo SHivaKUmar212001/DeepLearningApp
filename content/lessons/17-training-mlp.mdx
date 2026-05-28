@@ -1,0 +1,35 @@
+---
+title: Training your first MLP
+difficulty: Advanced
+estimatedTime: 15 mins
+prereqs: All previous lessons
+---
+
+You have made it to the final lesson of **Module 1: Foundations**.
+Let's review the tools we've built from scratch:
+
+1. **Perceptrons and Layers**: We stacked neurons into matrices to build a Multi-Layer Perceptron (MLP).
+2. **Forward Propagation**: We learned how data flows through the network via matrix multiplication and non-linear activations like ReLU.
+3. **Loss Functions**: We defined mathematical penalties (like Cross-Entropy) to measure how wrong our predictions are.
+4. **Backpropagation**: We used the Chain Rule of calculus to calculate exactly how much each weight contributed to the error.
+5. **Gradient Descent & Optimizers**: We updated the weights using Adam to roll down the loss surface as fast as possible.
+6. **Regularization**: We added L2 penalties and Dropout to ensure our network generalized instead of just memorizing the data.
+
+### The Capstone Project
+
+Now, it is time to put all of these concepts together to solve a problem that a simple linear model cannot solve: separating a dataset of inner circles from an outer ring.
+
+## The Interactive Playground
+
+Below is a live, completely functional Neural Network running directly in your browser. 
+The task is to classify the points on the 2D plane: **Blue** points are class 1, **Orange** points are class 0.
+
+By default, it has 2 hidden layers with 6 neurons each. 
+Press **Play** to start the training loop. You will watch the background (the **decision boundary**) warp and fold as the network learns to carve out a circular region in the center of the space to perfectly separate the blue points from the orange points.
+
+Try resetting it, dropping the neurons down to 2, and seeing if it can still solve the problem! (Spoiler: it can't, it doesn't have enough capacity!)
+
+<InteractivePlayground />
+
+### Congratulations!
+You have officially mastered the foundations of Deep Learning. In **Module 2**, we will leave the world of simple vectors behind and learn how to make neural networks see the real world using Convolutions!

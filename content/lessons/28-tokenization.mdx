@@ -1,0 +1,44 @@
+---
+title: "Text as Data: Tokenization"
+difficulty: Beginner
+estimatedTime: 10 mins
+prereqs: None
+---
+
+Neural networks are mathematical functions. They take numbers as input, multiply them by weights, and output numbers. They have absolutely no concept of English, Spanish, or what a "word" is.
+
+So, how do we feed a book into a neural network? We must translate language into numbers. This process is called **Tokenization**.
+
+## The Vocabulary
+
+To tokenize text, we first need a dictionary of all known words, called a **Vocabulary**. 
+Every word in the vocabulary is assigned a unique integer ID.
+
+- `the` $\rightarrow 101$
+- `cat` $\rightarrow 842$
+- `sat` $\rightarrow 305$
+
+The sentence "the cat sat" becomes the 1D tensor: `[101, 842, 305]`.
+
+## The Problem with Words
+
+If our vocabulary contains every word in the English language, it will be massive (hundreds of thousands of words). But what happens if the user types a word the network has never seen before, like `DeepDiveApp`?
+
+If a word isn't in the vocabulary, it's considered **Out Of Vocabulary (OOV)**, and is usually mapped to an "Unknown" token ID like `[UNK]`. This means the network loses all information about that word.
+
+## Subword Tokenization (BPE)
+
+To solve the OOV problem, modern models like GPT don't use whole words. They use **Subword Tokenization** (like Byte-Pair Encoding or BPE).
+
+Instead of mapping `jumped` to a single ID, they split it into its root and suffix: `jump` and `##ed`. 
+This is brilliant because:
+1. The vocabulary stays small (usually around ~30,000 to ~50,000 tokens).
+2. The network can understand brand new words! If you type `Bitcoinizing`, it might split it into `Bit` + `coin` + `##ize` + `##ing`, allowing the network to mathematically guess its meaning from the roots.
+
+## Interactive Tokenizer Lab
+
+Try typing sentences into the tokenizer below. Notice how it handles common suffixes to simulate a BPE tokenization scheme!
+
+<InteractiveTokenization />
+
+Next, we will learn how we take these raw integer IDs and map them into a continuous mathematical space so the neural network can actually understand their *meaning*.

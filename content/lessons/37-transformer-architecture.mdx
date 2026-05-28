@@ -1,0 +1,34 @@
+---
+title: The Transformer Architecture
+difficulty: Advanced
+estimatedTime: 15 mins
+prereqs: Positional Encoding
+---
+
+In 2017, researchers from Google Brain published a paper titled **"Attention Is All You Need"**. 
+
+They proposed completely throwing away all Recurrent Neural Networks (RNNs) and Convolutional Neural Networks (CNNs) for language modeling. Instead, they built an architecture entirely out of Self-Attention and standard Feed Forward networks.
+
+They called it **The Transformer**.
+
+## Bringing It All Together
+
+The Transformer is an Encoder-Decoder model, just like we saw in Lesson 33. But because it doesn't use RNNs, it has no Sequence Bottleneck. The Encoder can look at the entire 500-word source essay simultaneously, and the Decoder can cross-attend to all 500 words at once while translating!
+
+This architecture powers almost every major AI breakthrough today. Let's look at the complete block diagram of the original Transformer.
+
+## Interactive Architecture Explorer
+
+Hover over the blocks in the diagram below to see how all the concepts we've learned in the past few lessons fit together into a single, cohesive masterpiece of engineering.
+
+<InteractiveTransformer />
+
+## The Legacy of the Transformer
+
+The original Transformer was built for translation (English to French). It needed both an Encoder (to read English) and a Decoder (to generate French).
+
+But soon after, researchers started asking:
+- What if we just rip the **Encoder** out and use it by itself to understand text? (This became Google's **BERT**).
+- What if we just rip the **Decoder** out and use it by itself to generate text? (This became OpenAI's **GPT**).
+
+In the final lessons of this module, we will explore these two massive branching paths!

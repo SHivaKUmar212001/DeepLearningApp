@@ -1,0 +1,30 @@
+---
+title: Pooling Layers
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Padding & Stride
+---
+
+We've learned how convolutional kernels slide across an image to extract features like edges. But if we have an ultra-high resolution image (e.g., 4K), sliding a tiny $3 \times 3$ kernel over it will produce a feature map that is still essentially 4K resolution. This requires an enormous amount of memory and computation!
+
+To solve this, Convolutional Neural Networks use **Pooling Layers**. 
+
+## What is Pooling?
+Pooling is a downsampling operation. It aggressively shrinks the spatial dimensions (width and height) of a feature map while retaining the most important information. 
+
+By downsampling the image, pooling achieves **Translational Invariance**. If a feature (like a cat's ear) moves slightly to the left in the original image, pooling ensures that the network still detects it in the exact same way.
+
+## Types of Pooling
+There are no "learnable weights" in a pooling layer. It simply applies a fixed mathematical rule over a window (usually $2 \times 2$ with a stride of 2, meaning it doesn't overlap).
+
+1. **Max Pooling**: Extracts the single largest number in the window. This is the most common technique. It effectively asks: *"Did this feature exist ANYWHERE in this $2 \times 2$ patch? If yes, keep the strongest signal."*
+2. **Average Pooling**: Calculates the mean of the numbers in the window. This smooths out the information rather than picking the strongest signal.
+
+## Interactive Pooling Lab
+
+Press **Play** below to watch a $2 \times 2$ window pool a $4 \times 4$ feature map down into a tiny $2 \times 2$ map. 
+Toggle between Max and Average pooling to see how the mathematical output changes. Notice how Max Pooling perfectly preserves the "brightest" pixel (the strongest feature activation).
+
+<InteractivePooling />
+
+Pooling allows CNNs to "zoom out". A kernel in an early layer might only look at a $3 \times 3$ pixel patch. But after a few pooling layers have shrunk the image, a new $3 \times 3$ kernel is now effectively looking at a massive chunk of the original image!

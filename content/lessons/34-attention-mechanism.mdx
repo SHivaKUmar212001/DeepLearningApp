@@ -1,0 +1,34 @@
+---
+title: The Attention Mechanism
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: Sequence to Sequence Models
+---
+
+In the last lesson, we saw that standard Encoder-Decoder models suffer from a massive bottleneck. The Encoder has to compress a potentially huge sentence into a single, fixed-size Context Vector before handing it to the Decoder. 
+
+If humans were to translate a book, we wouldn't memorize the entire book, close it, and then write the translation from memory. We would translate it sentence by sentence, constantly looking back at the source text for reference.
+
+In 2014, researchers Dzmitry Bahdanau and Thang Luong gave neural networks the ability to "look back" at the source text. This is called **The Attention Mechanism**.
+
+## Dynamic Context Routing
+
+Instead of throwing away all the Encoder's hidden states and only keeping the final one, Attention keeps **all** of them!
+
+When the Decoder is generating the French translation, it doesn't just look at a single Context Vector. It pauses, looks at *every single word* in the English sentence, and calculates an **Attention Score** (between 0% and 100%) for how "relevant" that English word is to the French word it's currently trying to predict.
+
+It then multiplies those scores by the Encoder's hidden states to create a custom, dynamically weighted context vector specifically for that exact moment in time!
+
+## Translating Adjectives
+
+This is incredibly powerful for translating languages with different grammar rules. 
+
+In English, the adjective comes first ("The green apple"). In French, the adjective comes after the noun ("La pomme verte"). 
+
+Select the target words in the visualizer below to see how the Decoder dynamically routes its attention backwards to figure out which English word to translate next!
+
+<InteractiveAttention />
+
+By allowing the network to explicitly focus on specific parts of the input, the bottleneck problem was completely solved! 
+
+But researchers soon realized something even more profound... If Attention is so powerful for routing information, do we even need the RNNs at all?

@@ -1,0 +1,35 @@
+---
+title: Adversarial Examples
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: The Convolution Operation
+---
+
+We've spent the entire module seeing how powerful Neural Networks are at finding patterns in images. However, this power comes with a terrifying vulnerability. 
+
+Because neural networks look at images as massive mathematical tensors (not as visual concepts like humans do), they can be tricked by math.
+
+## The FGSM Attack
+
+The **Fast Gradient Sign Method (FGSM)** is a classic adversarial attack. 
+Normally, during training, we use Backpropagation to find the gradients of the *Weights* with respect to the Loss, so we can update the weights to make the model smarter.
+
+In an FGSM attack, the attacker does the exact opposite. They freeze the model's weights, and instead calculate the gradient of the *Image* with respect to the Loss. 
+They ask the math: *"How do I change the pixels in this image just slightly to absolutely maximize the chance the network predicts 'Gibbon' instead of 'Panda'?"*
+
+## Invisible Noise
+
+The attacker calculates a specific noise pattern tensor. They multiply it by a tiny number ($\epsilon$) so it becomes almost invisible to the human eye, and add it to the original image tensor.
+
+To you and me, the image still looks perfectly like a Panda. 
+But to the neural network, those tiny pixel changes align perfectly with the high-dimensional mathematical decision boundary of a "Gibbon". The model's confidence completely flips!
+
+## Interactive Attack Sandbox
+
+Slowly increase the Adversarial Noise Multiplier below. Notice how the visual change to the image is practically zero, yet the network goes from 99.7% confident it's a Panda, to 99.3% confident it's a Gibbon!
+
+<InteractiveAdversarial />
+
+This is a massive area of ongoing research. If a self-driving car's vision system can be tricked into seeing a "Stop Sign" as a "Speed Limit 65" sign simply by someone putting a carefully calculated sticker on it, the real-world consequences could be disastrous. 
+
+This concludes Module 2. Congratulations on mastering Computer Vision!

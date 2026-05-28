@@ -1,0 +1,29 @@
+---
+title: Learning Rates & Scheduling
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Gradient Descent
+---
+
+The **Learning Rate** (often denoted by $\eta$ or $\alpha$) is arguably the most important hyperparameter in deep learning. It determines the size of the step the optimizer takes during gradient descent.
+
+If the learning rate is too small, your model will take an eternity to train, or it might get stuck in a shallow local minimum. If the learning rate is too high, the optimizer will wildly bounce across the loss surface and might even diverge (loss goes to infinity).
+
+### The Plateau Problem
+As a model trains, it often hits **plateaus**—regions where the loss stops decreasing because the gradient is very small, but it hasn't reached the true minimum yet. A constant learning rate that was perfect at the beginning of training is often too large to settle into the fine details of the minimum at the end of training.
+
+### Learning Rate Schedules
+Instead of keeping the learning rate constant, we **schedule** it to decrease over time:
+1. **Step Decay**: Drop the learning rate by a factor (e.g., divide by 2) every $N$ epochs.
+2. **Exponential Decay**: Continuously multiply the learning rate by a decay factor less than 1.
+3. **Cosine Annealing**: Start high and slowly drop to near-zero following the shape of a cosine curve. This is currently the most popular method for training large language models.
+
+## Interactive Learning Rate Lab
+
+In this lab, you control the base learning rate and the schedule. Watch how the learning rate curve (cyan) directly affects the loss curve (amber) over 100 epochs.
+
+If you set the base learning rate to **0.20**, the model will diverge because the steps are too large.
+If you set it to **0.10** with a **constant** schedule, the model will decrease its loss nicely but get stuck bouncing around a plateau (loss $\approx$ 2.0).
+Try switching to **Cosine Annealing** with a base of 0.10. Watch how the gradual decay allows the optimizer to gently settle into the true minimum!
+
+<InteractiveLearningRates />

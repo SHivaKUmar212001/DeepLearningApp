@@ -1,0 +1,35 @@
+---
+title: Semantic Segmentation
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: Object Detection Basics
+---
+
+Object detection is great for drawing boxes around things, but a bounding box includes a lot of background noise. If you are building a self-driving car, a bounding box isn't precise enough to tell you exactly where the physical edges of the road are. 
+
+For perfect precision, we use **Semantic Segmentation**.
+
+## Pixel-Wise Classification
+
+Instead of outputting 4 coordinates, a Semantic Segmentation network outputs a classification prediction for **every single pixel** in the image.
+
+If the input image is $256 \times 256$, the output of the network is a $256 \times 256$ matrix. Inside that matrix, the integer at position `[10, 15]` might be `3`, which corresponds to the class "Car".
+
+This creates a dense, color-coded "mask" over the image.
+
+## Architectures: The U-Net
+
+How do we get a full-resolution output when Pooling layers constantly shrink our image? 
+
+Architectures like the **U-Net** use an encoder-decoder structure:
+1. **The Encoder**: Standard convolutional and pooling layers shrink the image, extracting deep semantic meaning ("what" is in the image).
+2. **The Decoder**: Special "Transposed Convolution" (or Up-sampling) layers expand the image back up to its original resolution ("where" it is).
+3. **Skip Connections**: The network copies the high-resolution edges from the early encoder layers and pastes them directly into the decoder layers, allowing the network to draw perfectly sharp boundaries around objects.
+
+## Interactive Segmentation Mask
+
+Toggle the class masks below to see how a neural network "sees" a segmented scene. Notice how the network doesn't just see a "tree", it explicitly labels every pixel that belongs to the trunk and the leaves.
+
+<InteractiveSegmentation />
+
+Semantic segmentation is heavily used in medical imaging (finding the exact boundaries of a tumor in an MRI) and autonomous robotics!

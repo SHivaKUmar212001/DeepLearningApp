@@ -1,0 +1,26 @@
+---
+title: Dropout & Batch Normalization
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Overfitting & Regularization
+---
+
+In the last lesson, we saw how L2 Regularization (Weight Decay) keeps weights small to prevent overfitting. But as networks get incredibly deep and wide, we need more powerful tricks to force them to generalize. 
+
+### Dropout
+Imagine you are part of a tug-of-war team. If you know the big guy at the back is doing all the work, you might just pretend to pull. This happens in neural networks: neurons start to rely on a few "loud" neurons to do all the work, creating a fragile network.
+
+**Dropout** is a brilliantly simple solution: During training, we literally "turn off" a random percentage of the neurons in every single batch. 
+This forces every neuron to learn useful features because it can no longer rely on its neighbors being there! It acts as an incredible regularizer, making the network highly robust.
+
+### Batch Normalization
+As data flows through a deep network, multiplying by weights and adding biases can cause the values (activations) to shift dramatically. If layer 1 shifts the data to the right, layer 2 has to scramble to keep up. This is called **Internal Covariate Shift**.
+
+**Batch Normalization** inserts a small mathematical checkpoint between layers: it subtracts the mean and divides by the variance of the current batch, resetting the data to be nicely centered around zero before passing it to the next layer. This allows the network to train much faster and at higher learning rates.
+
+## Interactive Dropout Lab
+
+In the lab below, press **Play** to simulate batches of data passing through the network. Notice how the active pathways constantly shift!
+Try setting the **Dropout Rate** to `0.5`. On every single pass, 50% of the hidden neurons are randomly dropped (turned gray), forcing the network to train with a different architecture every step.
+
+<InteractiveDropout />

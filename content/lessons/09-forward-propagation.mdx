@@ -1,0 +1,35 @@
+---
+title: Forward Propagation
+difficulty: Intermediate
+estimatedTime: 12 mins
+prereqs: What is a Neural Network?
+---
+
+When you pass an image into a neural network to get a prediction, the data flows from the input layer, through all the hidden layers, and finally out to the output layer. 
+
+This left-to-right flow of information is called **Forward Propagation** (or the Forward Pass).
+
+## The Math Behind the Magic
+
+While drawing circles and lines is a great way to intuitively understand a neural network, a computer cannot literally draw circles. It uses **Linear Algebra**.
+
+For any given hidden layer, computing the forward pass consists of two extremely simple steps:
+
+1. **Linear Transformation**: Multiply the input vector $X$ by the layer's weight matrix $W$.
+   $$ Z = W \cdot X $$
+2. **Non-linear Activation**: Pass the result $Z$ through an activation function like ReLU to get the layer's output $A$.
+   $$ A = \text{ReLU}(Z) $$
+
+If there is a second layer, $A$ becomes the new $X$ for the next layer, and the process repeats until the end!
+
+## Interactive Forward Pass Lab
+
+Below is a single hidden layer with 3 neurons, receiving 2 inputs. 
+- The weights are represented by a $3 \times 2$ matrix ($W$).
+- The input is represented by a $2 \times 1$ column vector ($X$).
+
+Adjust the inputs and weights to watch the computer perform the matrix multiplication in real-time. Notice how the ReLU function at the bottom instantly zeroes out any negative values in $Z$ to produce the final activation $A$.
+
+<InteractiveForwardPass />
+
+Because a forward pass is just a series of matrix multiplications, it can be computed massively in parallel. This is exactly why deep learning runs on GPUs (Graphics Processing Units)—GPUs were originally designed to multiply huge matrices together very quickly to render 3D video game graphics!

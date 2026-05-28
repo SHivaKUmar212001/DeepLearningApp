@@ -1,0 +1,36 @@
+---
+title: Dot Products & Projections
+difficulty: Beginner
+estimatedTime: 10 mins
+prereqs: Matrices & Transformations
+---
+
+The most fundamental operation in all of deep learning is the **dot product**. It lies at the heart of matrix multiplication, neural network layers, and similarity metrics (like cosine similarity used in embeddings).
+
+The dot product tells us *how similar* two vectors are, or how much they point in the same direction.
+
+## The Mathematics
+
+Algebraically, the dot product of two vectors is the sum of the products of their corresponding components:
+
+$$ v_1 \cdot v_2 = (x_1 \times x_2) + (y_1 \times y_2) $$
+
+Geometrically, the dot product is related to the angle $\theta$ between the two vectors:
+
+$$ v_1 \cdot v_2 = ||v_1|| \times ||v_2|| \times \cos(\theta) $$
+
+- If the dot product is **positive**, the vectors point in roughly the same direction ($\theta < 90^\circ$).
+- If the dot product is **zero**, the vectors are perfectly perpendicular (orthogonal).
+- If the dot product is **negative**, they point in opposite directions.
+
+### Projections
+Think of the dot product as dropping a light source perpendicular to $v_2$. The "shadow" that $v_1$ casts onto $v_2$ is its **projection**. If the shadow is long and goes in the same direction as $v_2$, the dot product is large.
+
+## Interactive Vector Lab
+
+Play with the two vectors below. Try to make the dot product **exactly zero**. What does the angle say?
+Toggle "Show Projection" to physically see the shadow that $v_1$ casts onto $v_2$.
+
+<InteractiveVector />
+
+Neural networks are essentially giant machines that compute billions of dot products every second. When a network layer computes a dot product between its **weights** (what it learned) and the **input** (what it sees), it is mathematically asking: *"How similar is this input to the pattern I am looking for?"*

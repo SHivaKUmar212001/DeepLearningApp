@@ -1,0 +1,35 @@
+---
+title: Images as Tensors
+difficulty: Beginner
+estimatedTime: 10 mins
+prereqs: Matrices & Transformations
+---
+
+Welcome to Module 2! Over the next several lessons, we are going to explore how neural networks learn to "see" the world. This field is called **Computer Vision**.
+
+To a computer, an image is not a picture of a cat or a dog. It is a massive grid of numbers.
+
+## The RGB Color Model
+
+Most digital screens emit three colors of light: **R**ed, **G**reen, and **B**lue. By mixing these three lights at different intensities (from 0 to 255), a pixel can display over 16 million different colors.
+- White is `[255, 255, 255]`
+- Black is `[0, 0, 0]`
+- Bright purple is `[255, 0, 255]`
+
+## The 3D Tensor
+
+Because every single pixel requires 3 numbers to describe its color, a standard image cannot be represented as a flat 2D matrix. It must be represented as a **3D Tensor**.
+
+If you have a 1920x1080 high-definition image, the shape of the tensor inside your computer memory is:
+`[1080, 1920, 3]`
+
+This means there is a matrix of 1080 rows and 1920 columns, and at each cell, there is an array of 3 numbers.
+
+## Interactive Tensor Visualizer
+
+Below is an 8x8 image (represented by 64 pixels). 
+Hover over any pixel to inspect its tensor values. Then, toggle the **3D Tensor View** to physically peel apart the 3 color channels (Red, Green, Blue) that make up the image.
+
+<InteractiveImageTensors />
+
+When we pass an image into a Neural Network, we are literally passing it these 3 color matrices. In the next lesson, we will see how we can use math to detect patterns (like edges) inside these matrices.

@@ -1,0 +1,50 @@
+---
+title: Graph Neural Networks (GNNs)
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: None
+---
+
+Throughout this course, we've looked at two main types of data:
+1. **Grids**: Images are perfect 2D grids of pixels. We use Convolutional Neural Networks (CNNs) for these.
+2. **Sequences**: Text is a 1D sequence of words. We use Transformers or RNNs for these.
+
+But what if the data doesn't fit into a perfect grid or a neat sequence? What if the data is a complex web of connections? 
+
+Think about a social network, a molecule, or a traffic system. These are called **Graphs**. To process them, we need **Graph Neural Networks (GNNs)**.
+
+## Nodes and Edges
+
+A Graph consists of two things:
+- **Nodes**: The entities (e.g., people in a social network, atoms in a molecule).
+- **Edges**: The connections between them (e.g., friendships, chemical bonds).
+
+Each node has its own "Feature Vector" (a list of numbers describing it). But simply looking at a single node's features isn't enough. To understand a node, you have to understand who its friends are!
+
+## Message Passing
+
+The core algorithm of a GNN is called **Message Passing**.
+
+In every layer of a GNN, each node takes its Feature Vector and sends it along its edges to all of its direct neighbors. It also receives the vectors from all of its neighbors.
+
+Try clicking "Play" on the interactive graph below to watch Message Passing in action.
+
+<InteractiveGNN />
+
+## Aggregation
+
+Once a node receives all the incoming "messages" from its neighbors, it has to combine them. This is called **Aggregation**. The simplest way to aggregate is to just sum them all together, but modern GNNs use complex neural networks to intelligently combine the messages.
+
+After one round of Message Passing, Node A knows about Node B. 
+But after *two* rounds of Message Passing, Node B sends its newly updated information back to Node A. This means Node A now knows about Node B's friends (Nodes C and D)!
+
+With every layer of the GNN, the nodes learn about an increasingly wider neighborhood of the graph.
+
+## Applications
+
+GNNs are rapidly becoming one of the most important fields in Deep Learning:
+- **Drug Discovery**: GNNs can look at a graph of a new molecule and predict if it will cure a disease or be toxic.
+- **Google Maps**: GNNs predict estimated arrival times by running message passing over the global road network.
+- **Recommendation Systems**: Pinterest uses a massive GNN with billions of nodes to recommend pins by finding paths between users and images.
+
+We have now covered almost every major architecture in modern AI. In our final lesson, we will look into the future!

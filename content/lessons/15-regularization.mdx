@@ -1,0 +1,31 @@
+---
+title: Overfitting & Regularization
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Learning Rates
+---
+
+As you add more layers and neurons to a neural network, you increase its **capacity**. A high-capacity network can learn incredibly complex patterns, but this comes with a dangerous side effect: **Overfitting**.
+
+### The Bias-Variance Tradeoff
+When a model is too simple (low capacity), it **underfits**. It can't capture the underlying pattern of the data (High Bias).
+When a model is too complex (high capacity), it **overfits**. It memorizes the noise in the training data instead of the actual pattern (High Variance). It will perform perfectly on training data but fail miserably on new, unseen data.
+
+How do we give a model high capacity but prevent it from overfitting? We use **Regularization**.
+
+### Weight Decay (L2 Regularization)
+The most common form of regularization is called **L2 Regularization** or **Weight Decay**.
+We add a penalty term to our Loss Function based on the size of the network's weights:
+
+$$ Loss = Error + \lambda \sum w_i^2 $$
+
+By adding this penalty, we force the optimizer to keep the weights as close to zero as possible. The network is only "allowed" to use large weights if they significantly reduce the error. This naturally smooths out the network's predictions and prevents it from wildly zigzagging to hit noisy data points.
+
+## Interactive Regularization Lab
+
+Below is a noisy dataset. The model uses a highly flexible set of neurons to fit the curve. 
+Set the **Model Capacity** to 30 and leave the **Regularization ($\lambda$)** at 0. Notice how the blue curve wiggles wildly to perfectly hit every yellow dot? This is severe overfitting.
+
+Now, slowly increase $\lambda$. Watch how the curve mathematically "stiffens" and smooths out, revealing the true underlying sine wave!
+
+<InteractiveRegularization />

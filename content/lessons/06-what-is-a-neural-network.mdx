@@ -1,0 +1,34 @@
+---
+title: What is a Neural Network?
+difficulty: Beginner
+estimatedTime: 10 mins
+prereqs: The Perceptron
+---
+
+A single Perceptron draws a straight line. But the world is not made of straight lines. 
+
+To solve more complex problems, we combine multiple Perceptrons together. We feed the output of one Perceptron into the input of another. When we organize these neurons into vertical columns, we create a **Multi-Layer Perceptron (MLP)**, also known as a dense neural network.
+
+## The Architecture of a Neural Network
+
+A neural network is divided into three types of layers:
+
+1. **Input Layer**: The data you feed into the network (e.g., the pixels of an image).
+2. **Hidden Layers**: The intermediate processing steps. They are called "hidden" because their outputs are not explicitly given in the dataset—the network decides what these neurons represent during training.
+3. **Output Layer**: The final prediction (e.g., "Is this a dog?").
+
+Every line connecting two neurons represents a **Weight**. Every neuron (except inputs) has a **Bias**.
+
+### Interactive Architecture Sandbox
+
+Use the sandbox below to build your own network. Add hidden layers and change the number of neurons in each layer. 
+Watch how the total number of **Parameters** (the weights and biases) explodes as the network grows wider and deeper!
+
+<InteractiveNetwork />
+
+### Deep vs Wide
+
+- **Wide networks** (many neurons in one layer) are good at memorizing large amounts of simple patterns.
+- **Deep networks** (many hidden layers) are good at learning *hierarchical* representations. For example, Layer 1 might detect edges, Layer 2 might combine edges into shapes, and Layer 3 might combine shapes into a face.
+
+This hierarchical feature learning is exactly why the field is called **Deep Learning**.

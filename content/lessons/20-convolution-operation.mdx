@@ -1,0 +1,33 @@
+---
+title: The Convolution Operation
+difficulty: Intermediate
+estimatedTime: 15 mins
+prereqs: Kernels & Filters
+---
+
+We've seen that applying a Kernel to an image can extract features like edges. But how is that math actually calculated? It's done through the **Convolution Operation**.
+
+## Sliding the Window
+
+A convolution is essentially a giant `for` loop. We take our $3 \times 3$ kernel and we slide it over every possible $3 \times 3$ patch of the original image, moving from left to right, top to bottom.
+
+At each stop, we compute the **Dot Product** between the numbers in the kernel and the numbers in that specific patch of the image. 
+
+1. Multiply the top-left kernel value by the top-left image value.
+2. Multiply the top-middle by the top-middle.
+3. ...and so on for all 9 pixels.
+4. Add all 9 multiplications together into a single sum.
+
+This single sum becomes exactly *one* pixel in the new **Output Feature Map**.
+
+## Interactive Convolution Lab
+
+Press **Play** below to watch the sliding window in action. The 5x5 Input Image is scanned by the 3x3 Kernel to produce a 3x3 Output Feature Map. 
+
+Notice how the output map is smaller than the input image. Because the kernel is $3 \times 3$, it cannot center itself on the outermost edges of the 5x5 image without spilling over the boundaries.
+
+<InteractiveConvolution />
+
+In a real Convolutional Neural Network (CNN), we don't just use one kernel. A single layer might use **64 different kernels** simultaneously, creating 64 different feature maps! One might find vertical edges, another horizontal edges, and another might just look for red colors.
+
+By stacking these convolution layers on top of each other, the network eventually learns to combine simple lines and edges into complex shapes like eyes, ears, and faces!

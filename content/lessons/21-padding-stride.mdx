@@ -1,0 +1,34 @@
+---
+title: Padding & Stride
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: The Convolution Operation
+---
+
+In the last lesson, we saw that sliding a $3 \times 3$ kernel over a $5 \times 5$ image produced a $3 \times 3$ output. The image shrank!
+If we keep passing the image through more convolutional layers, it will eventually shrink down to nothing. 
+
+To control the spatial dimensions of our feature maps, we use two powerful hyper-parameters: **Padding** and **Stride**.
+
+## Padding (P)
+Padding solves the shrinking problem. Before we apply the convolution, we add a border of zeros around the entire image. 
+- **Valid Padding ($P=0$)**: No padding. The image shrinks.
+- **Same Padding ($P=1$)**: We add a 1-pixel border. For a $3 \times 3$ kernel, this perfectly preserves the original image dimensions!
+
+## Stride (S)
+Stride controls how many pixels the kernel "jumps" on each step.
+- **Stride 1**: The kernel moves 1 pixel at a time.
+- **Stride 2**: The kernel skips every other pixel. This artificially halves the size of the output feature map, forcefully compressing the information.
+
+## The Output Formula
+You can calculate the exact dimensions of the Output Feature Map ($O$) using the Input Size ($W$), Kernel Size ($K$), Padding ($P$), and Stride ($S$):
+
+$$ O = \lfloor \frac{W - K + 2P}{S} \rfloor + 1 $$
+
+## Interactive Sandbox
+
+Play with the hyperparameters below. Notice how **Padding = 1** creates a dashed border of zeros around the input, allowing the $3 \times 3$ kernel to reach the very edges of the real data, maintaining a $5 \times 5$ output (when Stride is 1).
+
+<InteractiveStride />
+
+By tweaking Strides and Padding, architects can precisely sculpt the mathematical shape of the data as it flows through the neural network pipeline!

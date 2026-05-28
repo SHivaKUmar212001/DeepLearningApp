@@ -1,0 +1,43 @@
+---
+title: Policy Gradients
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: Q-Learning & Deep Q-Networks
+---
+
+Q-Learning and DQNs are **Value-Based** methods. They train a neural network to look at a State and predict exactly how much Reward it will get for taking a specific Action.
+
+But what if the exact value of an action is impossible to calculate? For example, in a game of Mario, what is the exact numerical value of jumping over a Goomba? It's extremely hard to quantify.
+
+Instead of guessing the *value* of an action, what if we just trained the neural network to output the *probability* of taking that action? This is called a **Policy-Based** method, and the algorithm is called **Policy Gradients**.
+
+## The Policy Network $\pi_\theta$
+
+A Policy Network takes in a State (like the pixels of a video game) and outputs a probability distribution over all possible Actions. 
+
+For example, if Mario is running towards a Goomba, the network might output:
+- Jump: 33%
+- Duck: 33%
+- Run: 33%
+
+The Agent then rolls a 3-sided die (weighted by those probabilities) and takes an action.
+
+## The Gradient Update
+
+Let's say the Agent rolls the die and randomly decides to "Jump". It jumps over the Goomba and the Environment gives it a Reward of +10.
+
+Because we are doing Deep Learning, we can calculate the **Gradients**! We use backpropagation to slightly tweak the weights of the neural network so that the probability of "Jump" increases, and the probability of "Duck" and "Run" decreases.
+
+Try clicking the buttons in the interactive visualizer below to act as the environment. 
+
+<InteractivePolicyGradient />
+
+If you click "Sample: JUMP", the agent receives a +10 reward, and the network immediately shifts its probabilities to favor jumping when faced with a wall. If you click "Sample: RUN", the agent runs into the wall, gets a -10 reward, and the network immediately shifts its probabilities to avoid running.
+
+## Why Policy Gradients?
+
+Policy Gradients are incredibly stable because they smoothly adjust probabilities rather than drastically changing absolute value numbers. 
+
+They are the foundation for the most advanced Reinforcement Learning algorithms in the world today, such as **PPO (Proximal Policy Optimization)**, which is exactly how OpenAI trained ChatGPT to be polite and helpful using human feedback (RLHF)!
+
+We have now covered the two main branches of Reinforcement Learning. In the next lesson, we'll see what happens when we combine them together to create the ultimate RL architecture!

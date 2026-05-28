@@ -1,0 +1,42 @@
+---
+title: Q-Learning & Deep Q-Networks
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: Reinforcement Learning Basics
+---
+
+How does an Agent know which Action to take in a given State?
+
+It builds a giant cheat sheet called a **Q-Table**. The "Q" stands for Quality. The Q-Table maps exactly how valuable it is to take a specific action in a specific state.
+
+If the Agent is in State 3, it looks at the Q-Table for State 3. If taking the "Right" action has a Q-Value of `8.5` and the "Left" action has a Q-Value of `-2.0`, it chooses "Right".
+
+## The Bellman Equation
+
+But how do we calculate these Q-Values? We use the **Bellman Equation**.
+
+When the Agent takes an action and receives a reward, it updates the Q-Table. The genius of the Bellman Equation is that it allows the Agent to "look ahead" into the *next* state. It updates the current Q-Value based on the immediate reward PLUS the maximum possible Q-Value of the next state.
+
+This allows the reward from reaching a goal to slowly propagate backwards through the table over multiple episodes.
+
+Try running the simulation below. Notice how the Agent stumbles randomly at first, but once it hits the battery in State 4, the Q-Value for S3-Right goes up. In the next episode, the Q-Value for S2-Right goes up, and so on, until a perfect path is carved!
+
+<InteractiveQLearning />
+
+## Exploration vs Exploitation
+
+In the beginning, the Q-Table is entirely zeros. The Agent has to take random actions to discover rewards. This is called **Exploration**.
+
+Once the Agent finds a reward, it updates the Q-Table. Now, it can simply look at the table and always pick the highest number. This is called **Exploitation**.
+
+A good RL algorithm balances the two. It mostly exploits its known knowledge, but occasionally takes a random action just in case there is an even bigger reward hiding somewhere else (this is called Epsilon-Greedy).
+
+## The Scaling Problem: Deep Q-Networks (DQN)
+
+A Q-Table works perfectly for a tiny 1D grid. 
+
+But what if we want to train an AI to play Super Mario? The "State" is the entire screen of pixels. There are more possible screen combinations than there are atoms in the universe. You cannot physically build a Q-Table that large!
+
+In 2013, researchers at DeepMind solved this by replacing the massive Q-Table with a Neural Network! Instead of looking up a row in a table, we pass the screen pixels into a Convolutional Neural Network, and it *predicts* the Q-Values for "Jump", "Left", and "Right". 
+
+This breakthrough, called the **Deep Q-Network (DQN)**, allowed AI to play classic Atari games at a superhuman level, kicking off the modern Reinforcement Learning revolution!

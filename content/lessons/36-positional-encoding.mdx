@@ -1,0 +1,44 @@
+---
+title: Positional Encoding
+difficulty: Advanced
+estimatedTime: 10 mins
+prereqs: Self-Attention (QKV)
+---
+
+By switching from RNNs to Self-Attention, we gained the ability to process an entire sentence simultaneously in parallel. This made training massive models incredibly fast on GPUs.
+
+But we lost something critical: **Time**.
+
+## The Bag of Words Problem
+
+A Self-Attention mechanism looks at every word at the exact same time. It has absolutely no concept of order. 
+To a raw Self-Attention layer, "The dog chased the cat" and "The cat chased the dog" look mathematically identical. It's just a bag of words!
+
+To fix this, we have to manually inject a sense of "position" or "time" into the words *before* we feed them into the network.
+
+## The Positional Encoding Matrix
+
+In the original Transformer paper, the researchers decided to add a unique mathematical signature to each word based on its position in the sentence.
+
+They didn't just use integers like `1, 2, 3`. They used a brilliant combination of **Sine** and **Cosine** waves of varying frequencies.
+
+Why waves? 
+Because waves are continuous and periodic. This allows the network to easily learn *relative* positions. For example, the network can mathematically figure out that word 5 and word 7 are exactly 2 steps apart, regardless of how long the sentence is.
+
+## Interactive Wave Matrix
+
+The visualization below shows the exact Positional Encoding matrix used in modern Transformers. 
+
+- Each **Row** represents a word's position in the sentence.
+- Each **Column** represents a dimension in the embedding vector.
+- The colors represent the sine/cosine values between -1 (Blue) and +1 (Red).
+
+Hover over the grid cells to see the exact formula and float values!
+
+<InteractivePositional />
+
+This matrix is literally **added** to the Word Embeddings. 
+
+$$ FinalEmbedding = WordEmbedding + PositionalEncoding $$
+
+Now, every word in the sentence contains a unique, high-dimensional timestamp. The Transformer can finally understand order!

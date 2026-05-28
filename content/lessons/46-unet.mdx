@@ -1,0 +1,38 @@
+---
+title: U-Net Architectures
+difficulty: Advanced
+estimatedTime: 8 mins
+prereqs: "Diffusion Models: Reverse Process"
+---
+
+In the Reverse Process, we need a neural network to look at a noisy $512 \times 512$ image and predict the noise at every single pixel. 
+
+Because we need an output that is the exact same size as the input, we could try using a massive grid of standard Convolutional layers. However, that is far too slow and takes too much memory. 
+
+Instead, Diffusion Models use a famous architecture borrowed from medical imaging: the **U-Net**.
+
+## The Autoencoder Structure
+
+A U-Net is structured very much like an Autoencoder, shaped like a "U".
+
+1. **Downsampling (Encoder)**: The left side of the U compresses the image. It halves the spatial resolution while doubling the number of feature channels. This allows the network to "zoom out" and understand the **global context** (e.g., "The noise roughly forms the shape of a dog").
+2. **The Bottleneck**: At the bottom of the U, the image is highly compressed. The network has maximum global context but has lost all fine pixel details.
+3. **Upsampling (Decoder)**: The right side of the U expands the abstract bottleneck back up to a $512 \times 512$ image.
+
+## The Skip Connections
+
+If the U-Net was just an Autoencoder, it would output a blurry, low-resolution noise prediction because the Bottleneck lost all the sharp edges. 
+
+The genius of the U-Net is the **Skip Connections**. 
+
+Hover over the interactive diagram below to see how it works.
+
+<InteractiveUNet />
+
+At every level of the U, a Skip Connection copies the high-resolution feature maps from the Downsampling path and directly attaches them to the Upsampling path!
+
+This provides the Decoder with the exact, sharp local details it needs, while still benefiting from the global context learned in the Bottleneck. 
+
+The U-Net is the perfect engine for Diffusion. But currently, if we give it pure noise, it will just generate a random image. How do we force it to draw a *specific* image, like "a cute cat"? 
+
+We'll find out in the next lesson!

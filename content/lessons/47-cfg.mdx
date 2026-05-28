@@ -1,0 +1,44 @@
+---
+title: Classifier-Free Guidance
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: U-Net Architectures
+---
+
+We now have a U-Net that can perfectly predict and remove noise to generate photorealistic images. 
+
+But if we just give it random noise, we have no control over what it generates. It might generate a dog, a car, or a landscape. How do we *force* it to generate exactly what we type into a text box, like "A cute cat"?
+
+## Conditioning
+
+To do this, we pass our text prompt into a Transformer (like the ones we learned about in Module 3) to convert the text into an embedding vector. We then feed this embedding into the U-Net alongside the noisy image. This is called **Conditioning**.
+
+The U-Net now predicts the noise *conditioned* on the fact that the image should contain a cat.
+
+## The Problem: Ignoring the Prompt
+
+However, researchers noticed a massive problem. The U-Net is lazy. If it can easily predict the noise just by looking at the noisy pixels, it will completely ignore the text prompt! It will generate a beautiful, photorealistic image... of a car, instead of a cat.
+
+To force the U-Net to listen to us, we use a brilliant mathematical trick called **Classifier-Free Guidance (CFG)**.
+
+## The CFG Trick
+
+During the reverse process, we don't just run the U-Net once. We run it *twice* at every step:
+1. **Unconditional Pass**: We ask the U-Net to predict the noise *without* showing it the text prompt.
+2. **Conditional Pass**: We ask the U-Net to predict the noise *with* the text prompt ("A cute cat").
+
+We now have two vectors. By calculating the difference between them, we find the exact mathematical direction that points toward "cat-ness". We then take that difference, multiply it by a massive scalar (the **CFG Scale**), and add it to our prediction.
+
+We literally take the "cat" signal and turn the volume up to 11!
+
+<InteractiveCFG />
+
+## Finding the Balance
+
+Play with the **CFG Scale** slider above. 
+
+If CFG is too low, the model ignores you. If CFG is perfectly balanced (usually around 7.5), the model perfectly executes your prompt. 
+
+But if you turn the CFG scale too high (e.g., 20), you force the math so hard in one direction that the image literally breaks down, becoming over-saturated and "deep-fried."
+
+We now know how to generate prompted images! But doing this 1,000 times on a $512 \times 512$ image requires an insane amount of computational power. How do tools like Midjourney do it in seconds? We'll find out in our final lesson!

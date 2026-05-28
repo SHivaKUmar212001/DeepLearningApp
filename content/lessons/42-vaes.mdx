@@ -1,0 +1,40 @@
+---
+title: Variational Autoencoders (VAEs)
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: Autoencoders
+---
+
+Standard Autoencoders are great at compressing and decompressing images, but they are terrible at generating *new* ones. 
+
+Because they map images to exact, discrete points in the Latent Space, the space ends up full of "holes". If you randomly pick a point between the encoding for a "3" and the encoding for an "8", the Decoder panics and outputs garbage because it was never trained on that empty space.
+
+To fix this, we need to force the Latent Space to be a smooth, continuous landscape. Enter the **Variational Autoencoder (VAE)**.
+
+## Gaussian Distributions
+
+Instead of the Encoder outputting a single, exact point (like `[2.5, -1.2]`), a VAE Encoder outputs a **Gaussian Distribution** (a probability cloud). 
+
+It outputs two vectors:
+1. **Mean ($\mu$)**: The center of the cloud.
+2. **Variance ($\sigma^2$)**: How wide the cloud spreads.
+
+During training, we sample a random point from inside this cloud and pass it to the Decoder. Because the cloud takes up a wide area, the Decoder is forced to learn how to decode *entire regions* of the latent space, not just single dots!
+
+## The KL Divergence
+
+To prevent the clouds from floating infinitely far apart (which would create holes again), we add a special mathematical penalty called **KL Divergence**. This penalty acts like gravity, pulling all the clouds towards the center of the graph (`[0, 0]`) and forcing them to overlap.
+
+## Interactive Sampling
+
+Because the clouds overlap in the center, the Latent Space becomes perfectly smooth and continuous. 
+
+Try dragging the Sample Dot around the 2D Latent Space below.
+
+<InteractiveVAE />
+
+When you move the dot into the overlapping zone between the "3" cloud and the "8" cloud, the Decoder generates a smooth mixture of both! 
+
+By simply picking a random $(x, y)$ coordinate anywhere in this space, we can instantly generate a photorealistic image that *never existed in the training dataset*.
+
+We have officially achieved Generative AI! But as you can see, the generated images are often a bit blurry. To get razor-sharp, photorealistic images, we need two networks to fight each other.

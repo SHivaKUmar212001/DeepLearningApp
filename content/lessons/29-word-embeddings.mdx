@@ -1,0 +1,36 @@
+---
+title: Word Embeddings (Word2Vec)
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: "Text as Data: Tokenization"
+---
+
+In the last lesson, we saw that `dog` might be mapped to ID `109`, and `cat` to ID `842`. But mathematically, the number $842$ has absolutely no relationship to the number $109$. A neural network doesn't know that these two integers both represent fluffy house pets.
+
+To solve this, we don't feed the raw integer ID into the network. Instead, we use the integer ID to look up a **Word Embedding**.
+
+## Dense Vectors
+
+A Word Embedding is a dense vector of floating-point numbers. Instead of representing a word as a single integer, we represent it as an array of numbers, such as `[0.34, -0.81, 0.12, 0.99]`.
+
+Each number in this array represents a hidden, latent "concept". For example, the first number might loosely correspond to "is this a living thing?", and the second number might correspond to "gender". The network learns these concepts entirely on its own during training!
+
+## Latent Semantic Space
+
+Because words are now represented as vectors (just like the physics vectors from Module 1), we can plot them in a mathematical space!
+
+When a neural network is trained on millions of sentences, an amazing phenomenon occurs. The network naturally learns to group similar words together.
+- `Apple` and `Orange` will be plotted very close to each other.
+- `Car` and `Bus` will be plotted close to each other, but far away from the fruit.
+
+## Vector Math: King - Man + Woman
+
+Because words exist in a mathematical space, we can do algebra with them!
+
+The most famous example is from the **Word2Vec** paper. The researchers found that the spatial distance between `Man` and `Woman` perfectly perfectly matched the spatial distance between `King` and `Queen`. The space had naturally learned a mathematical "Gender Vector".
+
+If you take the vector for `King`, subtract the vector for `Man`, and add the vector for `Woman`, the resulting coordinate lands exactly on the word `Queen`!
+
+<InteractiveEmbeddings />
+
+In modern LLMs like GPT-4, these embedding vectors don't just have 2 or 3 dimensions—they have **thousands** of dimensions, allowing them to capture incredibly nuanced semantic meanings!

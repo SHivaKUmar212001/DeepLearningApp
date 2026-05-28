@@ -1,0 +1,37 @@
+---
+title: Sequence to Sequence Models
+difficulty: Intermediate
+estimatedTime: 15 mins
+prereqs: LSTMs & GRUs
+---
+
+LSTMs fixed the memory problem, but we still have a structural problem. 
+Standard RNNs expect the input sequence and the output sequence to be the exact same length. If you input 5 words, it outputs 5 predictions.
+
+But what if you want to translate English to French? 
+"I am happy" (3 words) $\rightarrow$ "Je suis heureux" (3 words, okay).
+"I am very hungry" (4 words) $\rightarrow$ "J'ai très faim" (3 words, uh oh!).
+
+To translate languages where sequences are different lengths and have different grammar rules, we use the **Sequence to Sequence (Seq2Seq)** architecture.
+
+## The Encoder-Decoder Paradigm
+
+Seq2Seq models use *two entirely separate* RNNs (usually LSTMs).
+
+1. **The Encoder**: This RNN reads the English sentence word by word. It doesn't output any predictions. Its only job is to update its Hidden State. Once it finishes the last word, its final Hidden State contains the entire "meaning" of the English sentence. This final state is called the **Context Vector**.
+2. **The Bottleneck**: The Encoder hands this single Context Vector over to the Decoder.
+3. **The Decoder**: This RNN takes the Context Vector and starts generating the French sentence. It predicts the first word ("Je"), feeds that prediction back into itself, and predicts the next word ("suis"), continuing until it predicts a special `<END>` token.
+
+## The Context Vector Problem
+
+This architecture powered Google Translate in 2014 and was revolutionary.
+
+Watch the animation below to see how the Encoder compresses "I am happy" into a single Context Vector, which is then unpacked by the Decoder.
+
+<InteractiveSeq2Seq />
+
+Do you see the massive flaw in this architecture? 
+
+Imagine translating a 500-word essay. The Encoder has to compress the meaning of all 500 words into a single, fixed-size Context Vector bottleneck! It's like asking someone to read a book and summarize it perfectly in one sentence before translating it.
+
+To fix this bottleneck, researchers in 2014 invented the most important AI breakthrough of the decade: **The Attention Mechanism**. We'll learn about that in the next sprint!

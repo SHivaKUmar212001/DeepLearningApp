@@ -1,0 +1,48 @@
+---
+title: Fine-tuning LLMs (LoRA)
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: GPT and Decoder-only Models
+---
+
+We've learned how GPT and BERT scale up to billions of parameters to become extremely intelligent. But how do you train them? 
+
+Training a modern LLM (like Llama 3 with 70 Billion parameters) from scratch costs millions of dollars and requires clusters of thousands of GPUs. 
+
+But what if you just want to *fine-tune* an existing open-source model to learn how to write Python code, or to act like a specific character? You can't afford to update 70 billion parameters on your laptop.
+
+## The Parameter Bottleneck
+
+During backpropagation, we calculate gradients and update the weight matrices. 
+A typical weight matrix ($W$) in a Transformer might be $10,000 \times 10,000$. That's **100 million parameters** for a *single* layer!
+
+If you want to fine-tune the model, you have to compute gradients for all 100 million parameters and update them. This requires massive amounts of VRAM that consumer GPUs simply don't have.
+
+## Low-Rank Adaptation (LoRA)
+
+In 2021, researchers from Microsoft discovered an incredibly elegant mathematical trick called **LoRA**.
+
+Instead of updating the massive frozen matrix $W_0$, what if we just add a small "update matrix" $\Delta W$ to it?
+$$ W_{final} = W_0 + \Delta W $$
+
+But $\Delta W$ is still $10,000 \times 10,000$. That doesn't solve the problem!
+
+Here is the trick: Using linear algebra, we can decompose $\Delta W$ into the multiplication of two much smaller matrices, $A$ and $B$.
+- Matrix $A$ is $10,000 \times 4$
+- Matrix $B$ is $4 \times 10,000$
+
+If we multiply $A$ and $B$, the result is a $10,000 \times 10,000$ matrix! But we only need to store and train the parameters inside $A$ and $B$. 
+
+## The Mathematical Savings
+
+Let's do the math:
+- Parameters in $\Delta W$: $100,000,000$
+- Parameters in $A$ and $B$: $(10,000 \times 4) + (4 \times 10,000) = 80,000$
+
+We just reduced the number of trainable parameters by **99.92%**!
+
+Play with the Rank ($r$) slider in the interactive visualizer below to see how these tiny adapter matrices can inject new knowledge into massive frozen LLMs, allowing anyone to fine-tune state-of-the-art AI on a single consumer GPU!
+
+<InteractiveLoRA />
+
+Congratulations! You have officially completed Module 3, and understand the core mechanics powering the modern Artificial Intelligence revolution!

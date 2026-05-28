@@ -1,0 +1,32 @@
+---
+title: LSTMs & GRUs
+difficulty: Advanced
+estimatedTime: 12 mins
+prereqs: Vanishing Gradients in Time
+---
+
+To solve the Vanishing Gradient problem, we need to stop multiplying the memory by weights at every time step. We need a clean "highway" that allows information to flow straight through the network unchanged, unless we explicitly decide to change it.
+
+Enter the **Long Short-Term Memory (LSTM)** cell.
+
+## The Cell State Conveyor Belt
+
+The key to LSTMs is the **Cell State** ($C_t$). It acts like a conveyor belt running straight across the top of the entire sequence. Instead of multiplying by weights, information is added to or removed from the cell state using simple **addition**.
+
+Because addition doesn't suffer from exponential decay, gradients can flow back through the Cell State for hundreds of time steps without vanishing!
+
+## The Three Gates
+
+To control what gets added or removed from the conveyor belt, the LSTM uses three specialized neural networks called **Gates**. They output numbers between $0$ (completely closed) and $1$ (completely open).
+
+1. **The Forget Gate**: Decides what to throw away from the old memory. If the subject of a sentence changes from "Alice" to "Bob", the forget gate outputs a $0$ to erase "Alice".
+2. **The Input Gate**: Decides what new information from the current word is important enough to be added to the memory.
+3. **The Output Gate**: The Cell State contains *everything* (gender, tense, plural, etc.). The Output Gate filters this massive memory into a focused Hidden State ($h_t$) containing only the specific information needed to predict the very next word.
+
+## Interactive LSTM Architecture
+
+Toggle the scenarios below to watch the LSTM's valves open and close to control the flow of information!
+
+<InteractiveLSTM />
+
+A simplified, faster version of the LSTM is the **Gated Recurrent Unit (GRU)**. It combines the Forget and Input gates into a single "Update Gate", and merges the Cell State with the Hidden State. GRUs are heavily used in mobile audio and text applications!

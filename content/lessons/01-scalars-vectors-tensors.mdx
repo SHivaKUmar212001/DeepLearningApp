@@ -1,0 +1,25 @@
+---
+title: Vectors & Tensors
+difficulty: Beginner
+estimatedTime: 5 mins
+prereqs: Basic Algebra
+---
+
+Before we can teach a computer to see, read, or think, we have to translate the universe into a language it understands: **numbers**. 
+
+In deep learning, we organize these numbers into structures called **tensors**. A scalar is a single number (a 0D tensor). A list of numbers is a **vector** (a 1D tensor). A grid of numbers is a **matrix** (a 2D tensor).
+
+## Vectors: Direction and Magnitude
+
+A vector is simply a list of coordinates. For example, $v_1 = [3, 4]$ tells us to walk 3 steps right and 4 steps up. But geometrically, it represents a line pointing in space. 
+
+It has two core properties:
+1. **Magnitude** (Length): How far it reaches.
+2. **Direction**: Where it points.
+
+### Tensors in PyTorch and Numpy
+
+In code, we define tensors using arrays. A 1D tensor (vector) has a shape of `[N]`, while a 2D tensor (matrix) has a shape of `[N, M]`.
+Deep learning relies on passing these tensors through multiple layers of mathematical transformations.
+
+In the next lessons, we will explore how matrices can transform these vectors, and how we measure the similarity between vectors using dot products!

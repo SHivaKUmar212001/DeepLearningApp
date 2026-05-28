@@ -1,0 +1,39 @@
+---
+title: Gradient Descent
+difficulty: Intermediate
+estimatedTime: 15 mins
+prereqs: Calculus & Gradients, The Perceptron
+---
+
+Gradient descent is the engine that powers neural network training. Imagine a hilly landscape where the height of the hills represents the "loss" or error of our model. Our goal is to find the lowest point in this landscape—the global minimum.
+
+In mathematical terms, we want to minimize a loss function $L(\theta)$ with respect to its parameters $\theta$. We do this by taking small steps in the direction of the negative gradient:
+
+$$ \theta_{t+1} = \theta_t - \eta \nabla L(\theta_t) $$
+
+where $\eta$ is the learning rate.
+
+## The Interactive Lab
+
+Below is a full interactive optimization lab. The orange ball represents our current parameter values $(X, Y)$ on a 3D loss surface.
+
+Use the controls to select different surfaces, tweak the **Learning Rate**, and toggle **Momentum**. You can **Scrub** through the timeline to review the path the optimizer took.
+
+<InteractiveDescent />
+
+### Understanding the Hyperparameters
+
+#### 1. Learning Rate ($\eta$)
+
+If the learning rate is too small, the ball takes forever to reach the bottom, and might get stuck in a flat region. 
+If it is too large, the ball might overshoot the minimum and bounce wildly across the valley, failing to converge or even diverging to infinity. 
+* **Try this:** Set the surface to **Rosenbrock Valley**, turn off Momentum, and set the Learning Rate to `0.01`. The loss will quickly hit `NaN` (divergence).
+
+#### 2. Momentum ($\gamma$)
+
+Momentum helps accelerate gradients in the right direction, dampening oscillations. It accumulates an exponentially decaying moving average of past gradients and continues to move in their direction:
+
+$$ v_{t+1} = \gamma v_t + \eta \nabla L(\theta_t) $$
+$$ \theta_{t+1} = \theta_t - v_{t+1} $$
+
+* **Try this:** On the **Ravine** surface, a standard SGD optimizer bounces side-to-side incredibly slowly. Turn on Momentum, and watch how it cuts through the ravine efficiently by carrying its velocity forward!

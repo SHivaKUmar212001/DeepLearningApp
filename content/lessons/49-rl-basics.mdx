@@ -1,0 +1,39 @@
+---
+title: Reinforcement Learning Basics
+difficulty: Beginner
+estimatedTime: 8 mins
+prereqs: None
+---
+
+Welcome to the final module: **Module 5: Advanced Topics**.
+
+Up until now, our neural networks have learned passively. We hand them a dataset of a million images and say, "Learn to classify these." 
+
+But what if we don't have a dataset? What if we want to train a robot to walk, or an AI to beat a human at Chess? We can't just hand them a dataset of "every possible move in Chess."
+
+Instead, we use **Reinforcement Learning (RL)**. We drop the AI into a world and force it to learn through active trial and error.
+
+## The RL Loop
+
+In Reinforcement Learning, there is no fixed dataset. Instead, there is a continuous loop between two entities: the **Agent** and the **Environment**.
+
+1. **State ($S_t$)**: The Environment tells the Agent what is currently happening. (e.g., "You are at coordinates [0,0]").
+2. **Action ($A_t$)**: The Agent looks at the State and decides what to do. (e.g., "Move Right").
+3. **Reward ($R_t$)**: The Environment updates the State based on the Action, and gives the Agent a Reward. (e.g., "-1 point for wasting time").
+
+The Agent's *only* goal is to maximize its total cumulative reward over time.
+
+## Interactive Grid World
+
+Try acting as the Agent in the grid world below. Your goal is to get the Battery while avoiding the Fire.
+
+<InteractiveRLBasics />
+
+Notice the reward structure:
+- You get **+10** for reaching the Battery.
+- You get **-10** for walking into the Fire.
+- You get **-1** for every single step you take.
+
+Why the -1 penalty for every step? If there was no step penalty, the Agent might just walk back and forth infinitely, delaying the game forever. The step penalty forces the Agent to find the *fastest* route to the battery.
+
+As a human, you can look at the grid and instantly see the best path. But how does an AI learn the best path if it has never seen the grid before? It uses a massive cheat sheet called a **Q-Table**, which we will build in the next lesson!

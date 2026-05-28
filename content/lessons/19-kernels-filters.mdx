@@ -1,0 +1,29 @@
+---
+title: Kernels & Filters
+difficulty: Intermediate
+estimatedTime: 15 mins
+prereqs: Images as Tensors
+---
+
+If an image is just a massive grid of numbers, how do we find a "face" or a "stop sign" inside it? We can't just look at single pixels. A single pixel is just a color. It has no context.
+
+To find patterns, we need to look at **local neighborhoods** of pixels. We do this using a tiny matrix called a **Kernel** (or Filter).
+
+## The 3x3 Kernel
+
+A kernel is simply a small matrix of weights. The most common size is $3 \times 3$.
+Instead of connecting every pixel in an image to our neural network (which would take billions of connections), we slide this tiny $3 \times 3$ kernel over the image. 
+
+Depending on the numbers inside the kernel, it will react to different patterns.
+- If the kernel has positive numbers on the left and negative numbers on the right, it acts as a **Vertical Edge Detector**.
+- If all the numbers are $1$, and we divide by $9$, it acts as a **Blur**.
+
+## Interactive Filter Sandbox
+
+Select different kernels below to see exactly how they transform the original image. Notice how the Edge Detection kernel completely removes flat areas (turning them black) and only leaves the boundaries where the color changes rapidly!
+
+<InteractiveFilters />
+
+In traditional computer vision (like Photoshop), engineers had to manually invent these $3 \times 3$ kernels to create effects like "Sharpen" or "Emboss". 
+
+In deep learning, we don't invent the kernels. **The neural network learns the numbers inside the kernels from scratch!** During training, the network might learn that the first kernel should detect horizontal edges, the second should detect vertical edges, and the third should detect diagonal edges.

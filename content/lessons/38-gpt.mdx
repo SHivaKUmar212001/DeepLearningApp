@@ -1,0 +1,35 @@
+---
+title: GPT and Decoder-only Models
+difficulty: Intermediate
+estimatedTime: 10 mins
+prereqs: The Transformer Architecture
+---
+
+The original Transformer was built for translation, so it needed both an Encoder and a Decoder. 
+
+But in 2018, researchers at OpenAI asked a question: What if we just throw away the Encoder? What if we just give the Decoder a block of text, and ask it to predict the very next word?
+
+They called this **Generative Pre-trained Transformer**, or **GPT**.
+
+## Auto-Regressive Generation
+
+A Decoder-only model has one single job: Look at the current sequence of words (the **Context Window**), calculate the probabilities for what the next word should be, and sample a word from that distribution.
+
+But how does it write an entire essay? It uses an **Auto-Regressive** loop!
+
+1. Read the Context Window.
+2. Predict the next word.
+3. **Append** that new word to the end of the Context Window.
+4. Go back to Step 1.
+
+Try clicking the "Generate Next Token" button in the interactive visualizer below to see this loop in action. 
+
+<InteractiveGPT />
+
+## The Scaling Laws
+
+Because GPT models are so incredibly simple (just predict the next word), they are incredibly easy to train on massive datasets. You don't need highly structured, human-translated English-to-French datasets. You can just scrape the entire internet!
+
+OpenAI discovered the "Scaling Laws": As you increase the size of the neural network (parameters) and the size of the dataset (internet text), the model's ability to generate coherent, intelligent text increases predictably. 
+
+This simple Decoder-only architecture, scaled up to massive proportions, is exactly what powers **ChatGPT** today!

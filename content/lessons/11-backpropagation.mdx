@@ -1,0 +1,44 @@
+---
+title: Backpropagation
+difficulty: Advanced
+estimatedTime: 15 mins
+prereqs: Loss Functions
+---
+
+We know how to calculate a prediction (Forward Pass). We know how to calculate the penalty for being wrong (Loss).
+
+But how do we know **which specific weight** to change to fix the mistake? If a neural network has 1 million weights, how do we know exactly how much each individual weight contributed to the final error?
+
+The answer is **Backpropagation**.
+
+## The Chain Rule of Calculus
+
+Backpropagation is simply the Chain Rule of calculus applied recursively.
+
+If $A$ affects $B$, and $B$ affects $C$, then the effect of $A$ on $C$ is simply the effect of $A$ on $B$ multiplied by the effect of $B$ on $C$.
+
+$$ \frac{\partial C}{\partial A} = \frac{\partial C}{\partial B} \times \frac{\partial B}{\partial A} $$
+
+We start at the end of the network (the Loss). The derivative of the Loss with respect to the Loss is exactly 1. Then we step backward, node by node, multiplying gradients together until we reach the very first weight.
+
+## Interactive Computation Graph
+
+To understand this, let's look at a simple mathematical expression instead of a full neural network:
+$$ f(x, y, z) = (x + y) \times z $$
+
+This expression has two operations: an addition node ($+$) and a multiplication node ($*$).
+
+- The **green numbers** on top show the Forward Pass: the actual calculated values flowing from left to right.
+- The **red numbers** on the bottom show the Backward Pass: the gradients (derivatives) flowing from right to left.
+
+Try changing the inputs and see how the gradients shift!
+
+<InteractiveBackprop />
+
+### Understanding the Nodes
+
+Notice how different mathematical operations handle gradients differently:
+1. **The `+` Node (Gradient Distributor):** The derivative of $x+y$ with respect to $x$ is 1. Therefore, a plus node simply takes the gradient it receives from the right and distributes it equally to both of its inputs on the left without changing it.
+2. **The `*` Node (Gradient Switcher):** The derivative of $x \times y$ with respect to $x$ is $y$. Therefore, a multiplication node takes the gradient it receives from the right, multiplies it by the *other* forward value, and passes it to the left.
+
+In a real neural network, every matrix multiplication, addition, and ReLU activation is just a node in a massive computation graph doing exactly this!
