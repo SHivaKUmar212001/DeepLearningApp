@@ -72,21 +72,21 @@ export function InteractiveActorCritic() {
               <button 
                 onClick={() => handleAction("knight")}
                 disabled={isUpdating}
-                className="py-2 bg-indigo-100 hover:bg-violet-600 disabled:opacity-50 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-2 bg-indigo-100 hover:bg-teal-700 disabled:opacity-50 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Move Knight ♞
               </button>
               <button 
                 onClick={() => handleAction("pawn")}
                 disabled={isUpdating}
-                className="py-2 bg-indigo-100 hover:bg-violet-600 disabled:opacity-50 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-2 bg-indigo-100 hover:bg-teal-700 disabled:opacity-50 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Move Pawn ♟
               </button>
               <button 
                 onClick={() => handleAction("queen")}
                 disabled={isUpdating}
-                className="py-2 bg-indigo-100 hover:bg-violet-600 disabled:opacity-50 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-2 bg-indigo-100 hover:bg-teal-700 disabled:opacity-50 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Move Queen ♛
               </button>
@@ -117,7 +117,7 @@ export function InteractiveActorCritic() {
 
               <div className="flex flex-col items-center gap-2 flex-1">
                 <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Critic Network (Value)</div>
-                <div className="w-32 h-20 bg-[#111128] border-2 border-violet-500/40/50 rounded-lg flex flex-col items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.1)]">
+                <div className="w-32 h-20 bg-[#111128] border-2 border-teal-600/40/50 rounded-lg flex flex-col items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.1)]">
                   <span className="text-white/35 font-bold tracking-widest">Evaluate</span>
                   <AnimatePresence>
                     {criticScore !== null && (
@@ -150,31 +150,31 @@ export function InteractiveActorCritic() {
                 </motion.svg>
               )}
 
-              <div className="text-[10px] font-bold text-violet-400 uppercase tracking-widest mb-2">Actor Network (Policy)</div>
+              <div className="text-[10px] font-bold text-teal-400 uppercase tracking-widest mb-2">Actor Network (Policy)</div>
               
               <div className="w-full flex justify-around">
                 <div className="flex flex-col items-center gap-2">
                   <div className="h-24 w-4 bg-white/[0.04] rounded-full flex items-end overflow-hidden border border-white/[0.08]">
-                    <motion.div className="w-full bg-violet-500" animate={{ height: `${probs.knight}%` }} />
+                    <motion.div className="w-full bg-teal-600" animate={{ height: `${probs.knight}%` }} />
                   </div>
                   <span className="text-[10px] font-mono text-white/40">Knight</span>
-                  <span className="text-xs font-bold text-violet-400">{probs.knight.toFixed(1)}%</span>
+                  <span className="text-xs font-bold text-teal-400">{probs.knight.toFixed(1)}%</span>
                 </div>
 
                 <div className="flex flex-col items-center gap-2">
                   <div className="h-24 w-4 bg-white/[0.04] rounded-full flex items-end overflow-hidden border border-white/[0.08]">
-                    <motion.div className="w-full bg-violet-500" animate={{ height: `${probs.pawn}%` }} />
+                    <motion.div className="w-full bg-teal-600" animate={{ height: `${probs.pawn}%` }} />
                   </div>
                   <span className="text-[10px] font-mono text-white/40">Pawn</span>
-                  <span className="text-xs font-bold text-violet-400">{probs.pawn.toFixed(1)}%</span>
+                  <span className="text-xs font-bold text-teal-400">{probs.pawn.toFixed(1)}%</span>
                 </div>
 
                 <div className="flex flex-col items-center gap-2">
                   <div className="h-24 w-4 bg-white/[0.04] rounded-full flex items-end overflow-hidden border border-white/[0.08]">
-                    <motion.div className="w-full bg-violet-500" animate={{ height: `${probs.queen}%` }} />
+                    <motion.div className="w-full bg-teal-600" animate={{ height: `${probs.queen}%` }} />
                   </div>
                   <span className="text-[10px] font-mono text-white/40">Queen</span>
-                  <span className="text-xs font-bold text-violet-400">{probs.queen.toFixed(1)}%</span>
+                  <span className="text-xs font-bold text-teal-400">{probs.queen.toFixed(1)}%</span>
                 </div>
               </div>
 

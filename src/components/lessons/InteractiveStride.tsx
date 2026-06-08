@@ -77,16 +77,16 @@ export function InteractiveStride() {
               <div className="flex items-center justify-between p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
                 <span className="text-sm text-white/60 font-medium">Padding (P)</span>
                 <div className="flex gap-2">
-                  <button onClick={() => setPadding(0)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 0 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>0 (Valid)</button>
-                  <button onClick={() => setPadding(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 1 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1 (Same)</button>
+                  <button onClick={() => setPadding(0)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 0 ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>0 (Valid)</button>
+                  <button onClick={() => setPadding(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 1 ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1 (Same)</button>
                 </div>
               </div>
 
               <div className="flex items-center justify-between p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
                 <span className="text-sm text-white/60 font-medium">Stride (S)</span>
                 <div className="flex gap-2">
-                  <button onClick={() => setStride(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 1 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1</button>
-                  <button onClick={() => setStride(2)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 2 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>2</button>
+                  <button onClick={() => setStride(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 1 ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1</button>
+                  <button onClick={() => setStride(2)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 2 ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>2</button>
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export function InteractiveStride() {
                       key={i} 
                       className={`w-8 h-8 flex items-center justify-center font-mono text-xs rounded transition-colors duration-300 
                         ${isPadding ? 'bg-white/[0.04] border border-dashed border-white/[0.1] text-white/35' : 'bg-white/[0.06] border border-solid border-white/[0.1] text-white/35'}
-                        ${inWindow ? 'ring-2 ring-inset ring-violet-500/50 bg-indigo-900/30' : ''}
+                        ${inWindow ? 'ring-2 ring-inset ring-teal-500/50 bg-indigo-900/30' : ''}
                       `}
                     >
                       {isPadding ? '0' : '1'}

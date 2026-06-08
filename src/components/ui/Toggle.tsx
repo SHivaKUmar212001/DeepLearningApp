@@ -26,8 +26,8 @@ export function Toggle({ checked, onChange, label, className }: ToggleProps) {
         <div 
           className={cn(
             "h-6 w-11 rounded-full transition-colors duration-200 ease-in-out",
-            "peer-focus-visible:ring-2 peer-focus-visible:ring-violet-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-[#0d0d20]",
-            checked ? "bg-violet-500" : "bg-white/[0.08]"
+            "peer-focus-visible:ring-2 peer-focus-visible:ring-teal-500 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-offset-[#111113]",
+            checked ? "bg-teal-600" : "bg-white/[0.08]"
           )}
         />
         <span

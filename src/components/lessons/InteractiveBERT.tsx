@@ -28,8 +28,8 @@ export function InteractiveBERT() {
         { w: "kitten", p: 9 },
         { w: "feline", p: 2 }
       ],
-      color: "bg-violet-500",
-      textColor: "text-violet-400"
+      color: "bg-teal-600",
+      textColor: "text-teal-400"
     },
     drove: {
       left: "The",
@@ -68,11 +68,11 @@ export function InteractiveBERT() {
                 <button 
                   key={key}
                   onClick={() => setContext(key)}
-                  className={`p-3 rounded border text-left transition-colors flex justify-between items-center ${context === key ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                  className={`p-3 rounded border text-left transition-colors flex justify-between items-center ${context === key ? 'bg-indigo-900/40 border-indigo-500/50 text-teal-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
                 >
                   <div className="font-mono text-sm opacity-80">&quot;... {scenarios[key].right}&quot;</div>
                   {context === key && (
-                    <div className="w-2 h-2 rounded-full bg-violet-500 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
+                    <div className="w-2 h-2 rounded-full bg-teal-600 shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
                   )}
                 </button>
               ))}

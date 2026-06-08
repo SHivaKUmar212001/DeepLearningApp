@@ -48,7 +48,7 @@ export function ParticleField({ className = "" }: { className?: string }) {
       vy: (Math.random() - 0.5) * 0.4,
       size: Math.random() * 2 + 0.5,
       opacity: Math.random() * 0.5 + 0.2,
-      hue: Math.random() > 0.5 ? 280 + Math.random() * 40 : 190 + Math.random() * 30, // violet or cyan
+      hue: 170 + Math.random() * 20, // teal range
       pulse: Math.random() * Math.PI * 2,
       pulseSpeed: 0.02 + Math.random() * 0.03,
     }));

@@ -84,31 +84,31 @@ export function InteractiveRLBasics() {
             </div>
 
             <div className="flex flex-col items-center gap-2">
-              <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Action Space</span>
+              <span className="text-[10px] font-bold text-teal-400 uppercase tracking-widest">Action Space</span>
               <div className="grid grid-cols-3 gap-2 w-48">
                 <div />
                 <button 
                   onClick={() => handleMove(0, -1)}
-                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-teal-700 hover:bg-teal-600 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
                 </button>
                 <div />
                 <button 
                   onClick={() => handleMove(-1, 0)}
-                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-teal-700 hover:bg-teal-600 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
                 </button>
                 <button 
                   onClick={() => handleMove(0, 1)}
-                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-teal-700 hover:bg-teal-600 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
                 </button>
                 <button 
                   onClick={() => handleMove(1, 0)}
-                  className="bg-violet-600 hover:bg-violet-500 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
+                  className="bg-teal-700 hover:bg-teal-600 text-white/90 p-3 rounded shadow-lg active:scale-95 transition-all flex items-center justify-center"
                 >
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
@@ -159,7 +159,7 @@ export function InteractiveRLBasics() {
               animate={{ left: `${pos.x * 33.33}%`, top: `${pos.y * 33.33}%` }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <div className="w-12 h-12 bg-violet-500 rounded-full border-4 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 text-xl">
+              <div className="w-12 h-12 bg-teal-600 rounded-full border-4 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 text-xl">
                 🤖
               </div>
             </motion.div>

@@ -37,7 +37,7 @@ export function InteractiveSegmentation() {
                   <div className="w-4 h-4 rounded bg-blue-500 opacity-60" />
                   <span className="font-medium text-sm">Sky (Class 0)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.sky ? 'bg-blue-500 border-blue-400' : 'border-violet-500/30'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.sky ? 'bg-blue-500 border-blue-400' : 'border-teal-600/30'}`} />
               </button>
 
               <button 
@@ -48,7 +48,7 @@ export function InteractiveSegmentation() {
                   <div className="w-4 h-4 rounded bg-green-500 opacity-60" />
                   <span className="font-medium text-sm">Tree (Class 1)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.tree ? 'bg-green-500 border-green-400' : 'border-violet-500/30'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.tree ? 'bg-green-500 border-green-400' : 'border-teal-600/30'}`} />
               </button>
 
               <button 
@@ -59,7 +59,7 @@ export function InteractiveSegmentation() {
                   <div className="w-4 h-4 rounded bg-gray-500 opacity-60" />
                   <span className="font-medium text-sm">Road (Class 2)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.road ? 'bg-gray-500 border-gray-400' : 'border-violet-500/30'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.road ? 'bg-gray-500 border-gray-400' : 'border-teal-600/30'}`} />
               </button>
 
               <button 
@@ -70,7 +70,7 @@ export function InteractiveSegmentation() {
                   <div className="w-4 h-4 rounded bg-red-500 opacity-60" />
                   <span className="font-medium text-sm">Car (Class 3)</span>
                 </div>
-                <div className={`w-4 h-4 rounded-sm border ${masks.car ? 'bg-red-500 border-red-400' : 'border-violet-500/30'}`} />
+                <div className={`w-4 h-4 rounded-sm border ${masks.car ? 'bg-red-500 border-red-400' : 'border-teal-600/30'}`} />
               </button>
             </div>
             
@@ -106,7 +106,7 @@ export function InteractiveSegmentation() {
             <div className="absolute bottom-[20%] left-[70%] w-12 h-1 bg-yellow-400" />
 
             {/* Car */}
-            <div className="absolute bottom-[15%] left-[45%] w-24 h-10 bg-violet-600 rounded-t-xl" />
+            <div className="absolute bottom-[15%] left-[45%] w-24 h-10 bg-teal-700 rounded-t-xl" />
             <div className="absolute bottom-[22%] left-[50%] w-14 h-8 bg-sky-100 rounded-t-lg" />
             <div className="absolute bottom-[12%] left-[48%] w-4 h-4 bg-white/[0.04] rounded-full" />
             <div className="absolute bottom-[12%] left-[62%] w-4 h-4 bg-white/[0.04] rounded-full" />

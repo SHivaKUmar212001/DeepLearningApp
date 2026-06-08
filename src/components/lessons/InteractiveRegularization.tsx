@@ -126,7 +126,7 @@ export function InteractiveRegularization() {
               </div>
               <div className="flex justify-between">
                 <span>Weights Size (||w||²):</span>
-                <span className="text-violet-400">{weightNorm.toFixed(2)}</span>
+                <span className="text-teal-400">{weightNorm.toFixed(2)}</span>
               </div>
             </div>
 

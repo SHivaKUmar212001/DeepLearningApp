@@ -146,7 +146,7 @@ export function InteractiveQLearning() {
                     {agentState === i && (
                       <motion.div 
                         layoutId="agent"
-                        className="w-10 h-10 bg-violet-500 rounded-full border-2 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 z-10"
+                        className="w-10 h-10 bg-teal-600 rounded-full border-2 border-white shadow-[0_0_15px_rgba(99,102,241,0.6)] flex items-center justify-center text-white/90 z-10"
                       >
                         🤖
                       </motion.div>
@@ -158,8 +158,8 @@ export function InteractiveQLearning() {
               <div className="flex flex-col items-center gap-2 mt-4">
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Last Action</span>
                 <div className="flex gap-4">
-                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "L" ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>LEFT</div>
-                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "R" ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>RIGHT</div>
+                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "L" ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>LEFT</div>
+                  <div className={`px-4 py-2 rounded font-bold ${lastAction === "R" ? 'bg-teal-700 text-white/90' : 'bg-white/[0.06] text-white/40'}`}>RIGHT</div>
                 </div>
               </div>
             </div>
@@ -180,7 +180,7 @@ export function InteractiveQLearning() {
                   <tbody>
                     {qTable.map((row, i) => (
                       <tr key={i} className={`border-b border-white/[0.08] last:border-0 ${agentState === i ? 'bg-indigo-50' : ''}`}>
-                        <td className={`py-2 font-mono text-sm ${agentState === i ? 'text-violet-400 font-bold' : 'text-white/35'}`}>S{i}</td>
+                        <td className={`py-2 font-mono text-sm ${agentState === i ? 'text-teal-400 font-bold' : 'text-white/35'}`}>S{i}</td>
                         <td className={`py-2 font-mono text-sm ${row.L > 0 ? 'text-emerald-400 font-bold' : row.L < 0 ? 'text-white/35' : 'text-white/35'}`}>
                           {row.L.toFixed(2)}
                         </td>

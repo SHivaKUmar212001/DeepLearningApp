@@ -76,16 +76,16 @@ export function InteractiveGAN() {
             
             {/* ================= GENERATOR ================= */}
             <div className="flex flex-col items-center gap-4 flex-1">
-              <h3 className="text-xs font-bold text-violet-400 uppercase tracking-widest border border-indigo-900/50 bg-indigo-50 px-3 py-1 rounded-full">The Generator</h3>
+              <h3 className="text-xs font-bold text-teal-400 uppercase tracking-widest border border-indigo-900/50 bg-indigo-50 px-3 py-1 rounded-full">The Generator</h3>
               
               <div className="text-[10px] font-mono text-white/40 bg-white/[0.04] px-2 py-1 rounded">Random Noise (Latent Vector)</div>
               
-              <svg width="20" height="30" className="text-violet-400">
+              <svg width="20" height="30" className="text-teal-400">
                 <path d="M 10 0 L 10 25 M 5 20 L 10 28 L 15 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
 
               <div className="w-full h-32 bg-indigo-50 border-2 border-indigo-500/50 rounded-xl flex items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(99,102,241,0.1)]">
-                <div className="text-violet-400 font-bold tracking-widest">G(z)</div>
+                <div className="text-teal-400 font-bold tracking-widest">G(z)</div>
                 {/* Backprop gradient animation when playing */}
                 <AnimatePresence>
                   {isPlaying && (
@@ -99,7 +99,7 @@ export function InteractiveGAN() {
                 </AnimatePresence>
               </div>
 
-              <svg width="20" height="30" className="text-violet-400">
+              <svg width="20" height="30" className="text-teal-400">
                 <path d="M 10 0 L 10 25 M 5 20 L 10 28 L 15 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
 
@@ -133,7 +133,7 @@ export function InteractiveGAN() {
                 </div>
                 <div className="flex flex-col items-center">
                   <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-2">Fake Image</div>
-                  <div className="w-16 h-16 bg-white/[0.04] border-2 border-indigo-900 rounded flex items-center justify-center text-xs font-bold text-violet-400">
+                  <div className="w-16 h-16 bg-white/[0.04] border-2 border-indigo-900 rounded flex items-center justify-center text-xs font-bold text-teal-400">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
                   </div>
                 </div>
@@ -143,12 +143,12 @@ export function InteractiveGAN() {
                 <svg width="20" height="30" className="text-emerald-400 rotate-[30deg]">
                   <path d="M 10 0 L 10 25 M 5 20 L 10 28 L 15 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <svg width="20" height="30" className="text-violet-400 -rotate-[30deg]">
+                <svg width="20" height="30" className="text-teal-400 -rotate-[30deg]">
                   <path d="M 10 0 L 10 25 M 5 20 L 10 28 L 15 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
 
-              <div className="w-full h-32 bg-[#111128] border-2 border-violet-500/40/50 rounded-xl flex flex-col items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.1)] gap-2">
+              <div className="w-full h-32 bg-[#111128] border-2 border-teal-600/40/50 rounded-xl flex flex-col items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.1)] gap-2">
                 <div className="text-white/20 font-bold tracking-widest">D(x)</div>
                 <div className="text-[10px] font-mono text-white/35 bg-[#06060e]/50 px-2 py-0.5 rounded">Accuracy: {dAccuracy.toFixed(1)}%</div>
               </div>
@@ -157,7 +157,7 @@ export function InteractiveGAN() {
                 <path d="M 10 0 L 10 25 M 5 20 L 10 28 L 15 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
 
-              <div className="text-[10px] font-bold text-white/90 bg-violet-600 px-4 py-2 rounded shadow-lg uppercase tracking-widest">
+              <div className="text-[10px] font-bold text-white/90 bg-teal-700 px-4 py-2 rounded shadow-lg uppercase tracking-widest">
                 Is it Real or Fake?
               </div>
             </div>

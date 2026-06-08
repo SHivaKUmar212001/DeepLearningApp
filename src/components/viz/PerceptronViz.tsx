@@ -189,14 +189,14 @@ export function PerceptronViz({ w1, w2, b, points, className }: PerceptronVizPro
       </svg>
       
       {/* Accuracy Readout */}
-      <div className="absolute top-4 right-4 bg-violet-500/10 p-2 px-4 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md">
+      <div className="absolute top-4 right-4 bg-teal-600/10 p-2 px-4 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md">
         <div className="text-xs text-white/40 uppercase tracking-wider mb-1">Accuracy</div>
         <div className={`text-2xl font-bold ${accuracy === 100 ? "text-emerald-400" : "text-white/90"}`}>
           {accuracy.toFixed(0)}%
         </div>
       </div>
 
-      <div className="absolute top-4 left-4 bg-violet-500/10 p-3 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md text-xs">
+      <div className="absolute top-4 left-4 bg-teal-600/10 p-3 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md text-xs">
         <div className="flex items-center gap-2 mb-1">
           <span className="w-3 h-3 rounded bg-cyan-500/30 border border-cyan-500 inline-block" />
           <span className="text-white/60">Class 1 (y &gt; 0)</span>

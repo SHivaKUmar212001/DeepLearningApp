@@ -2,17 +2,29 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-void: #06060e;
-  --color-abyss: #0a0a18;
-  --color-surface: #0f0f24;
-  --color-glass: rgba(15, 15, 36, 0.6);
-  --color-glass-border: rgba(139, 92, 246, 0.15);
+  /* ── Zinc-based neutral scale ── */
+  --color-bg: #111113;
+  --color-surface: #18181b;
+  --color-surface-raised: #1e1e22;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.12);
 
-  --color-neon-violet: #8b5cf6;
-  --color-neon-cyan: #06b6d4;
-  --color-neon-pink: #ec4899;
-  --color-neon-emerald: #10b981;
-  --color-neon-amber: #f59e0b;
+  /* ── Single accent: deep teal ── */
+  --color-accent: #0d9488;
+  --color-accent-light: #2dd4bf;
+  --color-accent-muted: rgba(13, 148, 136, 0.15);
+
+  /* ── Semantic states ── */
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+
+  /* ── Module category colors (used sparingly, data only) ── */
+  --color-mod-foundations: #6366f1;
+  --color-mod-vision: #06b6d4;
+  --color-mod-nlp: #eab308;
+  --color-mod-generative: #22c55e;
+  --color-mod-advanced: #ec4899;
 
   --font-inter: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -20,23 +32,19 @@
 
 @import "katex/dist/katex.min.css";
 
-/* ── Base: Deep space canvas ── */
+/* ── Base ── */
 html, body {
-  background-color: var(--color-void);
-  color: #e2e0f0;
+  background-color: var(--color-bg);
+  color: #d4d4d8;
   font-family: var(--font-inter), sans-serif;
 }
 
 body {
   @apply antialiased;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(6, 182, 212, 0.05) 0%, transparent 50%);
-  background-attachment: fixed;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.35);
+  background: rgba(13, 148, 136, 0.3);
   color: #fff;
 }
 
@@ -44,116 +52,49 @@ button, a, input {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ── Glassmorphism utility ── */
-.glass {
-  background: rgba(15, 15, 36, 0.55);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.glass-hover {
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+/* ── Surface card ── */
+.surface-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.glass-hover:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 20px 50px -15px rgba(15, 15, 36, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-/* ── Subtle text emphasis ── */
-.neon-text {
-  text-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
+.surface-card:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.4);
 }
 
-.neon-text-cyan {
-  text-shadow: 0 0 40px rgba(6, 182, 212, 0.15);
-}
-
-/* ── Refined border depth ── */
-.neon-border {
-  box-shadow:
-    0 20px 40px -15px rgba(15, 15, 36, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-/* ── Scanning line effect ── */
-@keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
-}
-
-.scanline::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(139, 92, 246, 0.03) 45%,
-    rgba(139, 92, 246, 0.06) 50%,
-    rgba(139, 92, 246, 0.03) 55%,
-    transparent 100%
-  );
-  height: 200%;
-  animation: scanline 8s linear infinite;
-}
-
-/* ── Cinematic fade/slide animations ── */
+/* ── Animations ── */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInScale {
-  from { opacity: 0; transform: scale(0.95) translateY(20px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-@keyframes glowPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.animate-fade-in-scale {
-  animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.animate-glow-pulse {
-  animation: glowPulse 3s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
 }
 
 /* ── Staggered children ── */
 .stagger-children > * {
   opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
 .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
@@ -161,126 +102,116 @@ button, a, input {
 .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
 .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
 .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
-.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
-.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
 
-/* ── ReactFlow overrides (dark) ── */
-.deepdive-flow .react-flow__node {
-  border-radius: 14px;
-}
-
+/* ── ReactFlow overrides ── */
+.deepdive-flow .react-flow__node { border-radius: 12px; }
 .deepdive-flow .react-flow__controls {
-  border: 1px solid rgba(139, 92, 246, 0.2);
-  border-radius: 999px;
-  box-shadow: 0 18px 35px -28px rgba(139, 92, 246, 0.4);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
   overflow: hidden;
-  background: rgba(15, 15, 36, 0.8);
+  background: var(--color-surface);
 }
-
 .deepdive-flow .react-flow__controls-button {
-  border-bottom-color: rgba(139, 92, 246, 0.15);
-  color: #c4b5fd;
+  border-bottom-color: var(--color-border);
+  color: #a1a1aa;
   background: transparent;
 }
-
 .deepdive-flow .react-flow__minimap {
   display: none;
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  border: 1px solid var(--color-border);
   border-radius: 8px;
   overflow: hidden;
 }
-
 @media (min-width: 768px) {
-  .deepdive-flow .react-flow__minimap {
-    display: block;
-  }
+  .deepdive-flow .react-flow__minimap { display: block; }
 }
 
-/* ── Article typography: dark sci-fi prose ── */
+/* ── Article typography ── */
 .prose h1, .prose h2, .prose h3, .prose h4 {
-  @apply font-bold tracking-tight;
-  color: #f0ecff;
+  @apply font-bold;
+  color: #fafafa;
   letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .prose h2 {
-  @apply text-[1.625rem] leading-tight mt-14 mb-4;
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.15);
+  @apply text-[1.5rem] leading-tight mt-12 mb-4;
 }
 
 .prose h3 {
-  @apply text-[1.3rem] leading-snug mt-10 mb-3;
+  @apply text-[1.25rem] leading-snug mt-8 mb-3;
 }
 
 .prose p {
-  @apply text-[1.125rem] leading-[1.85];
-  color: rgba(200, 195, 230, 0.85);
+  @apply text-[1.0625rem] leading-[1.8];
+  color: #a1a1aa;
+  max-width: 65ch;
   font-feature-settings: "liga" 1, "kern" 1;
+  text-wrap: pretty;
 }
 
 .prose li {
-  @apply text-[1.125rem] leading-[1.85];
-  color: rgba(200, 195, 230, 0.85);
+  @apply text-[1.0625rem] leading-[1.8];
+  color: #a1a1aa;
 }
 
 .prose strong {
-  color: #e0dbff;
+  color: #e4e4e7;
 }
 
 .prose blockquote {
-  @apply pl-5 italic my-8;
-  border-left: 3px solid rgba(139, 92, 246, 0.4);
-  color: rgba(196, 181, 253, 0.8);
+  @apply pl-5 italic my-8 rounded-r-lg py-3 pr-4;
+  background: var(--color-accent-muted);
+  border-left: none;
+  color: #a1a1aa;
 }
 
 .prose code {
-  @apply font-mono text-[0.9em] px-1.5 py-0.5 rounded-md;
-  background: rgba(139, 92, 246, 0.1);
-  border: 1px solid rgba(139, 92, 246, 0.15);
-  color: #c4b5fd;
+  @apply font-mono text-[0.875em] px-1.5 py-0.5 rounded;
+  background: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-accent-light);
 }
 
 .prose pre {
-  @apply rounded-xl my-8 p-5 overflow-x-auto;
-  background: rgba(6, 6, 14, 0.8);
-  border: 1px solid rgba(139, 92, 246, 0.12);
-  box-shadow: 0 0 40px -15px rgba(139, 92, 246, 0.15);
+  @apply rounded-lg my-8 p-5 overflow-x-auto;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
 }
 
 .prose pre code {
   @apply bg-transparent border-none p-0;
-  color: #c4b5fd;
+  color: #d4d4d8;
 }
 
 .prose a {
-  color: #a78bfa;
+  color: var(--color-accent-light);
   text-decoration: underline;
-  text-decoration-color: rgba(139, 92, 246, 0.3);
+  text-decoration-color: rgba(13, 148, 136, 0.3);
   text-underline-offset: 3px;
-  transition: color 0.3s, text-decoration-color 0.3s;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .prose a:hover {
-  color: #c4b5fd;
-  text-decoration-color: rgba(139, 92, 246, 0.6);
+  color: #5eead4;
+  text-decoration-color: rgba(13, 148, 136, 0.6);
 }
 
 .prose img {
-  @apply rounded-xl my-8;
-  box-shadow: 0 0 40px -15px rgba(139, 92, 246, 0.2);
+  @apply rounded-lg my-8;
 }
 
 .prose hr {
-  border-color: rgba(139, 92, 246, 0.12);
-  @apply my-12;
+  border-color: var(--color-border);
+  @apply my-10;
 }
 
 .prose > :where(figure, .interactive-widget, [class*="Interactive"]) {
   @apply my-10 -mx-4 sm:mx-0;
 }
 
-/* ── KaTeX dark mode overrides ── */
-.katex { color: #c4b5fd; }
-.katex .mord { color: #c4b5fd; }
-.katex .mbin { color: #06b6d4; }
-.katex .mrel { color: #ec4899; }
+/* ── KaTeX dark mode ── */
+.katex { color: #d4d4d8; }
+.katex .mord { color: #d4d4d8; }
+.katex .mbin { color: var(--color-accent-light); }
+.katex .mrel { color: #f472b6; }

@@ -50,7 +50,7 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
       
       <div className="relative flex rounded-lg border border-white/[0.08] bg-[#0d0d20] p-1.5 shadow-lg sm:p-3">
         {/* Left bracket */}
-        <div className="mr-1 w-1.5 rounded-l border-b-2 border-l-2 border-t-2 border-violet-400/40 sm:mr-2 sm:w-2" />
+        <div className="mr-1 w-1.5 rounded-l border-b-2 border-l-2 border-t-2 border-teal-500/40 sm:mr-2 sm:w-2" />
         
         <motion.div 
           layout
@@ -109,7 +109,7 @@ export function MatrixViz({ data, label, className, color, colorScale }: MatrixV
         </motion.div>
         
         {/* Right bracket */}
-        <div className="ml-1 w-1.5 rounded-r border-b-2 border-r-2 border-t-2 border-violet-400/40 sm:ml-2 sm:w-2" />
+        <div className="ml-1 w-1.5 rounded-r border-b-2 border-r-2 border-t-2 border-teal-500/40 sm:ml-2 sm:w-2" />
       </div>
     </div>
   );

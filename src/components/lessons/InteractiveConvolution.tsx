@@ -91,7 +91,7 @@ export function InteractiveConvolution() {
                 return (
                   <div 
                     key={`${y}-${x}`} 
-                    className={`w-10 h-10 flex items-center justify-center font-mono rounded border transition-colors duration-300 ${inWindow ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-white/[0.06] border-white/[0.1] text-white/40'}`}
+                    className={`w-10 h-10 flex items-center justify-center font-mono rounded border transition-colors duration-300 ${inWindow ? 'bg-indigo-900/40 border-indigo-500/50 text-teal-400' : 'bg-white/[0.06] border-white/[0.1] text-white/40'}`}
                   >
                     {val}
                   </div>

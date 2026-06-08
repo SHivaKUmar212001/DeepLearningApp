@@ -75,12 +75,12 @@ export function InteractiveRNN() {
           <div className="flex items-center gap-4 md:gap-8 relative min-w-[600px]">
             
             {/* Initial Hidden State $h_0$ */}
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.06] border-2 border-dashed border-violet-500/30 text-white/40 font-mono text-xs shrink-0 relative">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.06] border-2 border-dashed border-teal-600/30 text-white/40 font-mono text-xs shrink-0 relative">
               $h_0$
               {step > 0 && (
                 <motion.div 
                   initial={{ width: 0 }} animate={{ width: "2rem" }} transition={{ duration: 0.5 }}
-                  className="absolute left-full top-1/2 -translate-y-1/2 h-0.5 bg-violet-500 z-0 origin-left" 
+                  className="absolute left-full top-1/2 -translate-y-1/2 h-0.5 bg-teal-600 z-0 origin-left" 
                 />
               )}
             </div>
@@ -94,7 +94,7 @@ export function InteractiveRNN() {
                 <div key={i} className="flex flex-col items-center relative flex-1">
                   
                   {/* Time label */}
-                  <div className={`text-[10px] font-mono font-bold mb-4 uppercase tracking-wider ${isActive ? 'text-violet-400' : 'text-white/35'}`}>
+                  <div className={`text-[10px] font-mono font-bold mb-4 uppercase tracking-wider ${isActive ? 'text-teal-400' : 'text-white/35'}`}>
                     Time $t_{i+1}$
                   </div>
 
@@ -111,14 +111,14 @@ export function InteractiveRNN() {
 
                   {/* RNN Cell */}
                   <div className={`relative w-20 h-20 rounded-xl border-2 flex items-center justify-center text-sm font-bold shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] transition-all duration-500 z-10
-                    ${isActive ? 'bg-violet-600 border-indigo-400 text-white/90' : 'bg-white/[0.04] border-white/[0.1] text-white/35'}`}
+                    ${isActive ? 'bg-teal-700 border-indigo-400 text-white/90' : 'bg-white/[0.04] border-white/[0.1] text-white/35'}`}
                   >
                     RNN
                     {/* Activity pulse */}
                     {isCurrent && (
                       <motion.div 
                         initial={{ scale: 1, opacity: 0.8 }} animate={{ scale: 1.5, opacity: 0 }} transition={{ duration: 1, repeat: Infinity }}
-                        className="absolute inset-0 rounded-xl bg-violet-500"
+                        className="absolute inset-0 rounded-xl bg-teal-600"
                       />
                     )}
                   </div>
@@ -129,13 +129,13 @@ export function InteractiveRNN() {
                       {step > i + 1 && (
                         <motion.div 
                           initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 0.5 }}
-                          className="h-full bg-violet-500 origin-left"
+                          className="h-full bg-teal-600 origin-left"
                         />
                       )}
                       {/* Arrow head */}
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
-                      <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
+                      <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-teal-400 opacity-100' : 'opacity-0'}`}>
                         $h_{i+1}$
                       </div>
                     </div>
@@ -147,12 +147,12 @@ export function InteractiveRNN() {
                       {step > i + 1 && (
                         <motion.div 
                           initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 0.5 }}
-                          className="h-full bg-violet-500 origin-left"
+                          className="h-full bg-teal-600 origin-left"
                         />
                       )}
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
-                      <div className={`absolute -top-6 left-4 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
+                      <div className={`absolute -top-6 left-4 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-teal-400 opacity-100' : 'opacity-0'}`}>
                         $h_{i+1}$
                       </div>
                     </div>

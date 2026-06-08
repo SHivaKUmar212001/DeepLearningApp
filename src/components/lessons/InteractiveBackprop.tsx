@@ -143,7 +143,7 @@ export function InteractiveBackprop() {
 
           </div>
           
-          <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-3 rounded-lg">
+          <div className="text-sm text-teal-400 bg-teal-600/10 border border-teal-600/20 px-4 py-3 rounded-lg">
             <strong>Observation:</strong> Notice the `+` node. It takes the gradient it receives from the right (-4.00) and simply distributes it equally to both `x` and `y` on the left. A plus node is a &quot;gradient distributor&quot;.
           </div>
         </div>

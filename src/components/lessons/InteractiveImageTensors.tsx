@@ -37,13 +37,13 @@ export function InteractiveImageTensors() {
             <h3 className="text-sm font-medium text-cyan-400 mb-4">View Mode</h3>
             <div className="flex gap-4">
               <button
-                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${!isExpanded ? "bg-violet-600 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
+                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${!isExpanded ? "bg-teal-700 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
                 onClick={() => setIsExpanded(false)}
               >
                 2D Image View
               </button>
               <button
-                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${isExpanded ? "bg-violet-600 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
+                className={`flex-1 py-2 rounded font-medium text-sm transition-colors ${isExpanded ? "bg-teal-700 text-white/90" : "bg-white/[0.06] text-white/35 hover:bg-white/[0.08]"}`}
                 onClick={() => setIsExpanded(true)}
               >
                 3D Tensor View

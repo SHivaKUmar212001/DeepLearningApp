@@ -35,7 +35,7 @@ export function InteractiveUNet() {
             
             {hoverState === "down" && (
               <div className="flex flex-col gap-4">
-                <h3 className="text-sm font-medium text-violet-400">Downsampling (Encoder)</h3>
+                <h3 className="text-sm font-medium text-teal-400">Downsampling (Encoder)</h3>
                 <p className="text-sm text-white/35 leading-relaxed">
                   The network uses Convolutional layers to progressively halve the spatial dimensions of the image while doubling the number of feature channels.
                   <br/><br/>
@@ -116,7 +116,7 @@ export function InteractiveUNet() {
                   animate={{ scale: hoverState === "down" ? 1.05 : 1 }}
                 />
               ))}
-              <div className={`mt-2 text-[10px] font-bold tracking-widest uppercase transition-colors ${hoverState === "down" ? 'text-violet-400' : 'text-white/35'}`}>
+              <div className={`mt-2 text-[10px] font-bold tracking-widest uppercase transition-colors ${hoverState === "down" ? 'text-teal-400' : 'text-white/35'}`}>
                 Downsample
               </div>
             </div>
@@ -146,7 +146,7 @@ export function InteractiveUNet() {
               {[64, 48, 32].reverse().map((size, i) => (
                 <motion.div 
                   key={`up-${i}`}
-                  className={`border-2 rounded bg-[#06060e]/40 flex items-center justify-center transition-colors ${hoverState === "up" ? 'border-violet-500/30 shadow-[0_0_15px_rgba(251,113,133,0.5)]' : 'border-white/[0.05]/50'}`}
+                  className={`border-2 rounded bg-[#06060e]/40 flex items-center justify-center transition-colors ${hoverState === "up" ? 'border-teal-600/30 shadow-[0_0_15px_rgba(251,113,133,0.5)]' : 'border-white/[0.05]/50'}`}
                   style={{ width: size, height: size }}
                   animate={{ scale: hoverState === "up" ? 1.05 : 1 }}
                 />

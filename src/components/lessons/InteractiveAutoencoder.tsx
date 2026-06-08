@@ -77,11 +77,11 @@ export function InteractiveAutoencoder() {
             {/* Encoder */}
             <div className="flex-1 flex flex-col items-center z-0">
               <div className="w-full h-32 relative">
-                <svg className="absolute inset-0 w-full h-full text-violet-300/50" preserveAspectRatio="none">
+                <svg className="absolute inset-0 w-full h-full text-teal-300/50" preserveAspectRatio="none">
                   <polygon points="0,0 100,40 100,60 0,100" fill="currentColor" />
                 </svg>
               </div>
-              <div className="text-[10px] font-bold text-violet-400 uppercase tracking-widest mt-2 bg-indigo-950/50 px-2 py-1 rounded">Encoder</div>
+              <div className="text-[10px] font-bold text-teal-400 uppercase tracking-widest mt-2 bg-indigo-950/50 px-2 py-1 rounded">Encoder</div>
             </div>
 
             {/* Latent Space (Bottleneck) */}

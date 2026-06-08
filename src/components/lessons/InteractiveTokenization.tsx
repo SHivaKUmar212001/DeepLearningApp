@@ -51,7 +51,7 @@ export function InteractiveTokenization() {
   
   // Colors for visual distinction
   const colors = [
-    "bg-violet-500", "bg-emerald-500", "bg-[#111128]0", 
+    "bg-teal-600", "bg-emerald-500", "bg-[#111128]0", 
     "bg-amber-500", "bg-cyan-500", "bg-purple-500"
   ];
 
@@ -72,7 +72,7 @@ export function InteractiveTokenization() {
             <h3 className="text-sm font-medium text-cyan-400">Raw Text Input</h3>
             
             <textarea 
-              className="w-full h-32 bg-[#111128] border border-white/[0.1] text-white/90 p-3 rounded-lg focus:ring-2 focus:ring-violet-500 focus:outline-none resize-none"
+              className="w-full h-32 bg-[#111128] border border-white/[0.1] text-white/90 p-3 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none resize-none"
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type a sentence here..."

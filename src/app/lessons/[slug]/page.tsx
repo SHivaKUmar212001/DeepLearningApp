@@ -6,7 +6,7 @@ import path from "path";
 import matter from "gray-matter";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import { ArrowLeft, Clock, GraduationCap, Zap } from "lucide-react";
+import { ArrowLeft, Clock, GraduationCap } from "lucide-react";
 
 import LossSurface3D from "@/components/viz/LossSurface3D";
 import { Slider } from "@/components/ui/Slider";
@@ -89,23 +89,13 @@ const components = {
   InteractiveGNN, InteractiveFuture,
 };
 
-function DifficultyBadge({ level }: { level: string }) {
-  const style =
-    level === "Beginner"
-      ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
-      : level === "Intermediate"
-        ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-        : "bg-pink-500/10 text-pink-400 border-pink-500/20";
-  return <span className={`rounded-full border px-2.5 py-0.5 text-xs font-semibold ${style}`}>{level}</span>;
+function DifficultyTag({ level }: { level: string }) {
+  const color = level === "Beginner" ? "text-emerald-400" : level === "Intermediate" ? "text-yellow-400" : "text-pink-400";
+  return <span className={`text-xs font-medium ${color}`}>{level}</span>;
 }
 
-export default async function LessonPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const resolvedParams = await params;
-  const { slug } = resolvedParams;
+export default async function LessonPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
 
   let fileContent = "";
   try {
@@ -118,83 +108,47 @@ export default async function LessonPage({
   const { data: frontmatter, content } = matter(fileContent);
 
   return (
-    <article className="animate-fade-in-up relative">
-      {/* ── Ambient background glow ── */}
-      <div className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-violet-600/5 blur-[120px]" />
-
-      {/* ── Back nav ── */}
-      <div className="relative z-10 border-b border-white/[0.04]">
-        <div className="mx-auto max-w-[820px] px-6 py-3">
-          <Link
-            href="/curriculum"
-            className="inline-flex items-center gap-1.5 text-sm text-white/25 transition-colors hover:text-violet-400"
-          >
+    <article className="animate-fade-in-up">
+      <div className="border-b border-white/[0.05]">
+        <div className="mx-auto max-w-[780px] px-6 py-3">
+          <Link href="/curriculum" className="inline-flex items-center gap-1.5 text-sm text-zinc-600 transition-colors hover:text-zinc-300">
             <ArrowLeft size={14} />
             All lessons
           </Link>
         </div>
       </div>
 
-      {/* ── Article header ── */}
-      <header className="relative z-10 mx-auto max-w-[820px] px-6 pt-12 pb-8">
-        <h1 className="text-[2.5rem] font-bold leading-[1.1] tracking-tight text-white sm:text-[3rem]">
+      <header className="mx-auto max-w-[780px] px-6 pt-10 pb-6">
+        <h1 className="text-2xl font-bold tracking-tight text-zinc-100 sm:text-3xl" style={{ textWrap: "balance" }}>
           {frontmatter.title || "Lesson"}
         </h1>
-
-        <div className="mt-7 flex flex-wrap items-center gap-4 text-sm">
-          {frontmatter.difficulty && (
-            <DifficultyBadge level={frontmatter.difficulty} />
-          )}
-
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-zinc-500">
+          {frontmatter.difficulty && <DifficultyTag level={frontmatter.difficulty} />}
           {frontmatter.estimatedTime && (
-            <span className="flex items-center gap-1.5 text-white/25">
-              <Clock size={14} />
-              {frontmatter.estimatedTime}
-            </span>
+            <span className="flex items-center gap-1.5"><Clock size={13} />{frontmatter.estimatedTime}</span>
           )}
-
           {frontmatter.prereqs && (
-            <span className="flex items-center gap-1.5 text-white/25">
-              <GraduationCap size={14} />
-              Prereqs: {frontmatter.prereqs}
-            </span>
+            <span className="flex items-center gap-1.5"><GraduationCap size={13} />Prereqs: {frontmatter.prereqs}</span>
           )}
         </div>
-
-        {/* Holographic divider */}
-        <div className="mt-10 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
+        <hr className="mt-8 border-white/[0.07]" />
       </header>
 
-      {/* ── MDX content ── */}
-      <div className="relative z-10 mx-auto max-w-[820px] px-6 pb-24">
-        <div className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-[1.625rem] prose-h2:mt-14 prose-h3:text-xl">
+      <div className="mx-auto max-w-[780px] px-6 pb-20">
+        <div className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-[1.5rem] prose-h2:mt-12 prose-h3:text-xl">
           <MDXRemote
             source={content}
             components={components}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkMath],
-                rehypePlugins: [rehypeKatex],
-              },
-            }}
+            options={{ mdxOptions: { remarkPlugins: [remarkMath], rehypePlugins: [rehypeKatex] } }}
           />
         </div>
       </div>
 
-      {/* ── Bottom CTA ── */}
-      <div className="relative z-10 border-t border-white/[0.04]">
-        <div className="mx-auto max-w-[820px] px-6 py-12 flex items-center justify-between">
-          <Link
-            href="/curriculum"
-            className="inline-flex items-center gap-2 text-sm text-white/25 hover:text-violet-400 transition-colors"
-          >
-            <ArrowLeft size={14} />
-            Back to curriculum
+      <div className="border-t border-white/[0.05]">
+        <div className="mx-auto max-w-[780px] px-6 py-8 flex items-center justify-between">
+          <Link href="/curriculum" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-300 transition-colors">
+            <ArrowLeft size={14} /> Back to curriculum
           </Link>
-          <div className="flex items-center gap-2 text-xs text-white/15">
-            <Zap size={12} />
-            Interactive lesson
-          </div>
         </div>
       </div>
     </article>

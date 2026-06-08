@@ -15,7 +15,7 @@ export function InteractiveLSTM() {
           input: 0.1, 
           output: 0.2, 
           desc: "Reading filler words (e.g., 'on', 'the'). Keep the old memory exactly as it is. Ignore the new word.",
-          cellColor: "bg-violet-500",
+          cellColor: "bg-teal-600",
           math: "C_t = (C_{t-1} \\times 1.0) + (New \\times 0.1)"
         };
       case "forget":
@@ -33,7 +33,7 @@ export function InteractiveLSTM() {
           input: 0.2, 
           output: 0.9, 
           desc: "Time to make a prediction! Keep the memory, but open the output valve so the Hidden State can read it.",
-          cellColor: "bg-violet-500",
+          cellColor: "bg-teal-600",
           math: "h_t = \\tanh(C_t) \\times 0.9"
         };
     }
@@ -60,7 +60,7 @@ export function InteractiveLSTM() {
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => setScenario("maintain")}
-                className={`p-3 rounded border text-left transition-colors ${scenario === "maintain" ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                className={`p-3 rounded border text-left transition-colors ${scenario === "maintain" ? 'bg-indigo-900/40 border-indigo-500/50 text-teal-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="font-bold text-sm mb-1">Maintain Memory</div>
                 <div className="text-xs opacity-80">Reading filler words (&quot;on the&quot;)</div>
@@ -76,7 +76,7 @@ export function InteractiveLSTM() {
 
               <button 
                 onClick={() => setScenario("output")}
-                className={`p-3 rounded border text-left transition-colors ${scenario === "output" ? 'bg-[#0a0a18]/40 border-violet-500/40/50 text-white/20' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                className={`p-3 rounded border text-left transition-colors ${scenario === "output" ? 'bg-[#0a0a18]/40 border-teal-600/40/50 text-white/20' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="font-bold text-sm mb-1">Output Prediction</div>
                 <div className="text-xs opacity-80">Needed for classification</div>
@@ -116,7 +116,7 @@ export function InteractiveLSTM() {
             {/* FORGET GATE */}
             {/* ==================================================== */}
             <div className="absolute left-[25%] bottom-[20%] w-0.5 h-[55%] bg-white/[0.06]">
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-teal-600/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
                 $\sigma$
               </div>
               <div className="absolute -top-3 -translate-x-1/2 w-6 h-6 rounded-full bg-pink-500/20 border-2 border-pink-500 flex items-center justify-center text-[14px] font-bold text-pink-400 z-10">
@@ -140,10 +140,10 @@ export function InteractiveLSTM() {
             {/* INPUT GATE */}
             {/* ==================================================== */}
             <div className="absolute left-[50%] bottom-[20%] w-0.5 h-[55%] bg-white/[0.06]">
-              <div className="absolute top-[60%] -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
+              <div className="absolute top-[60%] -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-teal-600/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
                 $\sigma$
               </div>
-              <div className="absolute top-[30%] -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
+              <div className="absolute top-[30%] -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-teal-600/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
                 $\tanh$
               </div>
               <div className="absolute -top-3 -translate-x-1/2 w-6 h-6 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-[14px] font-bold text-emerald-400 z-10">
@@ -167,15 +167,15 @@ export function InteractiveLSTM() {
             {/* OUTPUT GATE */}
             {/* ==================================================== */}
             <div className="absolute left-[75%] bottom-[20%] w-0.5 h-[55%] bg-white/[0.06]">
-              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
+              <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-teal-600/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
                 $\sigma$
               </div>
-              <div className="absolute bottom-2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#111128]0/20 border-2 border-violet-500/40 flex items-center justify-center text-[14px] font-bold text-white/35 z-10">
+              <div className="absolute bottom-2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#111128]0/20 border-2 border-teal-600/40 flex items-center justify-center text-[14px] font-bold text-white/35 z-10">
                 $\times$
               </div>
 
               {/* Tap from cell state */}
-              <div className="absolute -top-[10%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-violet-500/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
+              <div className="absolute -top-[10%] -translate-x-1/2 w-8 h-8 rounded-full bg-[#0d0d20] border-2 border-teal-600/30 flex items-center justify-center text-[10px] font-bold text-white/35 z-10">
                 $\tanh$
               </div>
               

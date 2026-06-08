@@ -51,7 +51,7 @@ export function InteractiveVAE() {
 
   if (weight3 > 0.8) {
     renderText = "3";
-    color = "text-violet-400";
+    color = "text-teal-400";
   } else if (weight8 > 0.8) {
     renderText = "8";
     color = "text-white/35";
@@ -121,9 +121,9 @@ export function InteractiveVAE() {
               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:10%_10%]" />
               
               {/* Distribution 3 (Indigo) */}
-              <div className="absolute w-24 h-24 bg-violet-500/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute w-12 h-12 bg-violet-500/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
-              <div className="absolute text-violet-400 font-bold text-xs pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=3</div>
+              <div className="absolute w-24 h-24 bg-teal-600/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute w-12 h-12 bg-teal-600/50 rounded-full blur-md pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }} />
+              <div className="absolute text-teal-400 font-bold text-xs pointer-events-none" style={{ left: `${dist3.x}%`, top: `${dist3.y}%`, transform: 'translate(-50%, -50%)' }}>&mu;=3</div>
               
               {/* Distribution 8 (Rose) */}
               <div className="absolute w-24 h-24 bg-[#111128]0/30 rounded-full blur-xl pointer-events-none" style={{ left: `${dist8.x}%`, top: `${dist8.y}%`, transform: 'translate(-50%, -50%)' }} />

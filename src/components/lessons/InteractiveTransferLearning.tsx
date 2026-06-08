@@ -22,7 +22,7 @@ export function InteractiveTransferLearning() {
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => setTask("imagenet")}
-                className={`p-3 rounded border text-left transition-colors ${task === "imagenet" ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                className={`p-3 rounded border text-left transition-colors ${task === "imagenet" ? 'bg-indigo-900/40 border-indigo-500/50 text-teal-400' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="font-bold text-sm mb-1">Pre-training (Original Task)</div>
                 <div className="text-xs opacity-80">Classify ImageNet (1000 categories like Dogs, Cars, Planes).</div>
@@ -64,7 +64,7 @@ export function InteractiveTransferLearning() {
             <div className="flex-1 flex flex-col items-center relative">
               <div className="text-xs font-bold text-white/40 mb-2">Convolutional Base</div>
               <div className={`w-full h-24 rounded-lg border-2 flex items-center justify-center relative overflow-hidden transition-colors duration-500 ${task === "custom" ? "bg-blue-900/20 border-blue-500/30" : "bg-indigo-900/20 border-indigo-500/50"}`}>
-                <span className={`font-mono text-sm font-bold z-10 ${task === "custom" ? "text-blue-400" : "text-violet-400"}`}>ResNet-50</span>
+                <span className={`font-mono text-sm font-bold z-10 ${task === "custom" ? "text-blue-400" : "text-teal-400"}`}>ResNet-50</span>
                 
                 {/* Training Animation */}
                 {task === "imagenet" && (
@@ -82,7 +82,7 @@ export function InteractiveTransferLearning() {
                   </div>
                 )}
               </div>
-              <div className={`mt-2 text-[10px] font-bold px-2 py-0.5 rounded ${task === "custom" ? "bg-blue-900/50 text-blue-300" : "bg-indigo-100 text-violet-400"}`}>
+              <div className={`mt-2 text-[10px] font-bold px-2 py-0.5 rounded ${task === "custom" ? "bg-blue-900/50 text-blue-300" : "bg-indigo-100 text-teal-400"}`}>
                 {task === "custom" ? "FROZEN WEIGHTS" : "TRAINABLE WEIGHTS"}
               </div>
             </div>

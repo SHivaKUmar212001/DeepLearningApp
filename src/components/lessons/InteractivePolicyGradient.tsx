@@ -76,19 +76,19 @@ export function InteractivePolicyGradient() {
               
               <button 
                 onClick={() => handleAction("jump")}
-                className="py-3 bg-indigo-100 hover:bg-violet-600 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-3 bg-indigo-100 hover:bg-teal-700 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Sample: JUMP
               </button>
               <button 
                 onClick={() => handleAction("duck")}
-                className="py-3 bg-indigo-100 hover:bg-violet-600 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-3 bg-indigo-100 hover:bg-teal-700 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Sample: DUCK
               </button>
               <button 
                 onClick={() => handleAction("run")}
-                className="py-3 bg-indigo-100 hover:bg-violet-600 border border-indigo-500/50 text-violet-400 hover:text-white/90 font-bold rounded transition-colors"
+                className="py-3 bg-indigo-100 hover:bg-teal-700 border border-indigo-500/50 text-teal-400 hover:text-white/90 font-bold rounded transition-colors"
               >
                 Sample: RUN
               </button>
@@ -125,15 +125,15 @@ export function InteractivePolicyGradient() {
             </div>
 
             <div className="flex flex-col flex-1 gap-3">
-              <span className="text-[10px] font-bold text-violet-400 uppercase tracking-widest text-center">Action Probabilities</span>
+              <span className="text-[10px] font-bold text-teal-400 uppercase tracking-widest text-center">Action Probabilities</span>
               
               <div className="flex flex-col gap-2">
                 <div className="flex items-center gap-2">
                   <span className="w-10 text-[10px] font-mono text-white/35 text-right">JUMP</span>
                   <div className="flex-1 h-4 bg-white/[0.04] rounded-full overflow-hidden">
-                    <motion.div className="h-full bg-violet-500" animate={{ width: `${probs.jump}%` }} />
+                    <motion.div className="h-full bg-teal-600" animate={{ width: `${probs.jump}%` }} />
                   </div>
-                  <span className="w-10 text-[10px] font-mono text-violet-400 font-bold">{probs.jump.toFixed(0)}%</span>
+                  <span className="w-10 text-[10px] font-mono text-teal-400 font-bold">{probs.jump.toFixed(0)}%</span>
                 </div>
                 
                 <div className="flex items-center gap-2">
@@ -164,7 +164,7 @@ export function InteractivePolicyGradient() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className={`px-4 py-2 rounded-full border font-bold text-sm ${lastReward.value > 0 ? 'bg-emerald-950/50 border-emerald-500/50 text-emerald-400' : 'bg-[#06060e]/50 border-violet-500/40/50 text-white/35'}`}
+                  className={`px-4 py-2 rounded-full border font-bold text-sm ${lastReward.value > 0 ? 'bg-emerald-950/50 border-emerald-500/50 text-emerald-400' : 'bg-[#06060e]/50 border-teal-600/40/50 text-white/35'}`}
                 >
                   {lastReward.action.toUpperCase()} received reward: {lastReward.value > 0 ? `+${lastReward.value}` : lastReward.value}
                 </motion.div>

@@ -101,14 +101,14 @@ export function InteractiveSelfAttention() {
                       )}
 
                       {/* Word Box */}
-                      <div className={`p-2 rounded font-bold text-center w-full transition-all duration-300 text-sm ${isQuery ? 'bg-indigo-900/80 text-violet-400 border-2 border-indigo-500 z-20' : isKey ? `${activeData.color}/20 ${activeData.textColor} border-2 border-[currentColor] z-10` : 'bg-white/[0.04] text-white/35 border border-white/[0.08] z-10'}`}>
+                      <div className={`p-2 rounded font-bold text-center w-full transition-all duration-300 text-sm ${isQuery ? 'bg-indigo-900/80 text-teal-400 border-2 border-indigo-500 z-20' : isKey ? `${activeData.color}/20 ${activeData.textColor} border-2 border-[currentColor] z-10` : 'bg-white/[0.04] text-white/35 border border-white/[0.08] z-10'}`}>
                         {word}
                       </div>
 
                       {/* Tags */}
                       <div className="mt-2 text-[10px] font-mono font-bold">
                         {isQuery ? (
-                          <span className="text-violet-400 bg-indigo-950 px-1 rounded">QUERY</span>
+                          <span className="text-teal-400 bg-indigo-950 px-1 rounded">QUERY</span>
                         ) : isKey ? (
                           <span className={`${activeData.textColor} opacity-80`}>KEY match!</span>
                         ) : null}
@@ -122,7 +122,7 @@ export function InteractiveSelfAttention() {
 
             {/* Contextualized Output */}
             <div className="w-full mt-4 flex flex-col items-center">
-              <h3 className="text-[10px] font-bold text-violet-400 mb-4 uppercase tracking-widest text-center">Contextualized Embedding Output</h3>
+              <h3 className="text-[10px] font-bold text-teal-400 mb-4 uppercase tracking-widest text-center">Contextualized Embedding Output</h3>
               
               <motion.div 
                 key={context} // force re-animate on context change

@@ -97,10 +97,10 @@ export function InteractiveDescent() {
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-white/60 flex items-center justify-between">
               Loss Surface
-              <span className="text-xs text-violet-400 font-normal">Try different terrains</span>
+              <span className="text-xs text-teal-400 font-normal">Try different terrains</span>
             </label>
             <select 
-              className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-violet-500 focus:border-violet-500 block w-full p-2"
+              className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-teal-500 focus:border-teal-600 block w-full p-2"
               value={surfaceType}
               onChange={(e) => setSurfaceType(e.target.value as SurfaceType)}
             >
@@ -174,7 +174,7 @@ export function InteractiveDescent() {
             ) : isConverged ? (
               <div className="text-green-400 font-bold bg-green-500/10 p-2 rounded">Converged!</div>
             ) : (
-              <div className="text-violet-400">Optimizing...</div>
+              <div className="text-teal-400">Optimizing...</div>
             )}
           </div>
         </div>
@@ -183,8 +183,8 @@ export function InteractiveDescent() {
       {/* Visualizations */}
       <div className="w-full flex flex-col gap-2 mt-4">
         {/* Helper Tip */}
-        <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-2 rounded-lg flex items-center justify-center gap-2">
-          <svg className="size-4 text-violet-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+        <div className="text-sm text-teal-400 bg-teal-600/10 border border-teal-600/20 px-4 py-2 rounded-lg flex items-center justify-center gap-2">
+          <svg className="size-4 text-teal-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
           <strong>Tip:</strong> Click and drag the 3D plot below to rotate your view. Use your scroll wheel to zoom in and out.
         </div>
         

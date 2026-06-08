@@ -60,7 +60,7 @@ export function InteractiveGNN() {
           
           <div className="flex gap-4 items-center">
             <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Phase</span>
-            <div className={`px-3 py-1 rounded text-xs font-bold ${step === 0 ? 'bg-indigo-100 text-violet-400' : 'bg-white/[0.06] text-white/40'}`}>1. Init</div>
+            <div className={`px-3 py-1 rounded text-xs font-bold ${step === 0 ? 'bg-indigo-100 text-teal-400' : 'bg-white/[0.06] text-white/40'}`}>1. Init</div>
             <div className={`px-3 py-1 rounded text-xs font-bold ${step === 1 ? 'bg-fuchsia-100 text-fuchsia-600' : 'bg-white/[0.06] text-white/40'}`}>2. Pass</div>
             <div className={`px-3 py-1 rounded text-xs font-bold ${step === 2 ? 'bg-emerald-100 text-emerald-400' : 'bg-white/[0.06] text-white/40'}`}>3. Aggregate</div>
           </div>
@@ -108,7 +108,7 @@ export function InteractiveGNN() {
             <div className="absolute inset-0 w-full h-full">
               {/* Node A */}
               <div 
-                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-indigo-900 border-indigo-400' : 'bg-white/[0.04] border-violet-500/30'}`}
+                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-indigo-900 border-indigo-400' : 'bg-white/[0.04] border-teal-600/30'}`}
                 style={{ left: pos.A.x, top: pos.A.y }}
               >
                 <span className="text-white/90 font-bold">{step === 2 ? '1+2=3' : '1'}</span>
@@ -117,7 +117,7 @@ export function InteractiveGNN() {
 
               {/* Node B */}
               <div 
-                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-fuchsia-900 border-fuchsia-400' : 'bg-white/[0.04] border-violet-500/30'}`}
+                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-fuchsia-900 border-fuchsia-400' : 'bg-white/[0.04] border-teal-600/30'}`}
                 style={{ left: pos.B.x, top: pos.B.y }}
               >
                 <span className="text-white/90 font-bold">{step === 2 ? '2+1+3+4=10' : '2'}</span>
@@ -126,7 +126,7 @@ export function InteractiveGNN() {
 
               {/* Node C */}
               <div 
-                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-emerald-900 border-emerald-400' : 'bg-white/[0.04] border-violet-500/30'}`}
+                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-emerald-900 border-emerald-400' : 'bg-white/[0.04] border-teal-600/30'}`}
                 style={{ left: pos.C.x, top: pos.C.y }}
               >
                 <span className="text-white/90 font-bold">{step === 2 ? '3+2+4=9' : '3'}</span>
@@ -135,7 +135,7 @@ export function InteractiveGNN() {
 
               {/* Node D */}
               <div 
-                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-[#0a0a18] border-violet-500/30' : 'bg-white/[0.04] border-violet-500/30'}`}
+                className={`absolute w-16 h-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-500 z-20 shadow-lg ${step === 2 ? 'bg-[#0a0a18] border-teal-600/30' : 'bg-white/[0.04] border-teal-600/30'}`}
                 style={{ left: pos.D.x, top: pos.D.y }}
               >
                 <span className="text-white/90 font-bold">{step === 2 ? '4+2+3=9' : '4'}</span>

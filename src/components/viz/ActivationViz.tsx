@@ -96,7 +96,7 @@ export function ActivationViz({ type, zValue, className }: ActivationVizProps) {
       </svg>
       
       {/* Readout */}
-      <div className="absolute top-4 right-4 bg-violet-500/10 p-3 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md text-sm">
+      <div className="absolute top-4 right-4 bg-teal-600/10 p-3 rounded border border-white/[0.1] font-mono shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] backdrop-blur-md text-sm">
         <div className="flex gap-4">
           <div className="flex flex-col">
             <span className="text-white/40">Input (z)</span>

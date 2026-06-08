@@ -37,7 +37,7 @@ export function InteractiveEmbeddings() {
             <div className="flex flex-col gap-3">
               <button 
                 onClick={() => setActiveMath("royalty")}
-                className={`p-3 rounded border text-left transition-colors ${activeMath === "royalty" ? 'bg-indigo-900/40 border-indigo-500/50 text-violet-400' : 'bg-[#111128] border-white/[0.08] text-white/35 hover:border-white/[0.1]'}`}
+                className={`p-3 rounded border text-left transition-colors ${activeMath === "royalty" ? 'bg-indigo-900/40 border-indigo-500/50 text-teal-400' : 'bg-[#111128] border-white/[0.08] text-white/35 hover:border-white/[0.1]'}`}
               >
                 <div className="font-mono text-sm font-bold mb-1">King - Man + Woman</div>
                 <div className="text-xs opacity-80">Demonstrates the &quot;Royalty&quot; and &quot;Gender&quot; directional vectors.</div>
@@ -53,7 +53,7 @@ export function InteractiveEmbeddings() {
 
               <button 
                 onClick={() => setActiveMath("none")}
-                className={`p-2 rounded border text-center transition-colors ${activeMath === "none" ? 'bg-white/[0.06] border-violet-500/30 text-white/60' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                className={`p-2 rounded border text-center transition-colors ${activeMath === "none" ? 'bg-white/[0.06] border-teal-600/30 text-white/60' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="text-xs font-bold uppercase tracking-wider">Reset</div>
               </button>

@@ -66,31 +66,31 @@ export function InteractiveSeq2Seq() {
           
           {/* ENCODER */}
           <div className="flex flex-col items-center">
-            <h3 className="text-sm font-bold text-violet-400 mb-6 uppercase tracking-widest">Encoder RNN</h3>
+            <h3 className="text-sm font-bold text-teal-400 mb-6 uppercase tracking-widest">Encoder RNN</h3>
             <div className="flex gap-4">
               {["I", "am", "happy"].map((word, i) => (
                 <div key={i} className="flex flex-col items-center relative group">
-                  <div className={`p-2 rounded font-bold transition-all duration-300 w-16 text-center ${step > i ? 'bg-indigo-100 text-violet-400 border border-indigo-500/50' : 'bg-white/[0.04] text-white/35 border border-white/[0.08]'}`}>
+                  <div className={`p-2 rounded font-bold transition-all duration-300 w-16 text-center ${step > i ? 'bg-indigo-100 text-teal-400 border border-indigo-500/50' : 'bg-white/[0.04] text-white/35 border border-white/[0.08]'}`}>
                     {word}
                   </div>
                   
                   {/* Arrow up to RNN */}
-                  <div className={`w-0.5 h-6 my-1 transition-all duration-300 ${step > i ? 'bg-violet-500' : 'bg-white/[0.06]'}`} />
+                  <div className={`w-0.5 h-6 my-1 transition-all duration-300 ${step > i ? 'bg-teal-600' : 'bg-white/[0.06]'}`} />
                   
                   {/* RNN Node */}
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 z-10 ${step > i ? 'bg-violet-600 text-white/90 shadow-[0_0_15px_rgba(79,70,229,0.5)]' : 'bg-white/[0.04] border-2 border-white/[0.08] text-white/35'}`}>
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 z-10 ${step > i ? 'bg-teal-700 text-white/90 shadow-[0_0_15px_rgba(79,70,229,0.5)]' : 'bg-white/[0.04] border-2 border-white/[0.08] text-white/35'}`}>
                     {`$h_{${i+1}}$`}
                   </div>
 
                   {/* Horizontal line */}
                   {i < 2 && (
-                    <div className={`absolute top-[4.5rem] left-[50%] w-full h-0.5 z-0 transition-all duration-300 ${step > i + 1 ? 'bg-violet-500' : 'bg-white/[0.06]'}`} />
+                    <div className={`absolute top-[4.5rem] left-[50%] w-full h-0.5 z-0 transition-all duration-300 ${step > i + 1 ? 'bg-teal-600' : 'bg-white/[0.06]'}`} />
                   )}
                   {/* Final horizontal line to Context Vector */}
                   {i === 2 && (
                     <div className="absolute top-[4.5rem] left-[50%] w-full h-0.5 z-0">
                       <motion.div 
-                        className="h-full bg-violet-500 origin-left"
+                        className="h-full bg-teal-600 origin-left"
                         initial={{ scaleX: 0 }}
                         animate={{ scaleX: step >= 3 ? 1 : 0 }}
                         transition={{ duration: 0.5 }}

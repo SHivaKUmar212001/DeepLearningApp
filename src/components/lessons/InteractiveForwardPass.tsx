@@ -55,7 +55,7 @@ export function InteractiveForwardPass() {
           </div>
 
           <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08]">
-            <h3 className="text-sm font-medium text-violet-400 mb-4">Weights Matrix (W)</h3>
+            <h3 className="text-sm font-medium text-teal-400 mb-4">Weights Matrix (W)</h3>
             <div className="grid grid-cols-2 gap-x-4 gap-y-4">
               <Slider label="w₁₁" min={-1} max={1} step={0.1} value={w11} onChange={setW11} />
               <Slider label="w₁₂" min={-1} max={1} step={0.1} value={w12} onChange={setW12} />
@@ -72,7 +72,7 @@ export function InteractiveForwardPass() {
           
           <div className="flex items-center gap-2 sm:gap-4 text-white/90 font-mono w-max md:w-full justify-start md:justify-center px-2">
             <div className="flex flex-col items-center">
-              <span className="text-violet-400 mb-2 font-bold">W</span>
+              <span className="text-teal-400 mb-2 font-bold">W</span>
               <MatrixViz data={W} color="indigo" />
             </div>
             

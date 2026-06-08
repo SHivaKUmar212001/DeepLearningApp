@@ -86,7 +86,7 @@ export function InteractiveVanishingTime() {
                 const isSource = i === sourceIndex;
                 const isTarget = i === targetIndex;
                 
-                let barColor = "bg-violet-500";
+                let barColor = "bg-teal-600";
                 if (weight > 1) barColor = "bg-red-500";
                 else if (grad < 1) barColor = "bg-white/[0.08]";
 
@@ -109,7 +109,7 @@ export function InteractiveVanishingTime() {
                     {/* Word Label */}
                     <div className="absolute top-full mt-2 w-full flex justify-center">
                       <span className={`text-[10px] font-mono whitespace-nowrap origin-top-left -rotate-45 translate-y-2
-                        ${isSource ? 'text-violet-400 font-bold' : isTarget ? 'text-emerald-400 font-bold' : 'text-white/40'}`}
+                        ${isSource ? 'text-teal-400 font-bold' : isTarget ? 'text-emerald-400 font-bold' : 'text-white/40'}`}
                       >
                         {word}
                       </span>
@@ -117,7 +117,7 @@ export function InteractiveVanishingTime() {
 
                     {/* Annotations */}
                     {isSource && (
-                      <div className="absolute top-full mt-12 text-[10px] font-bold text-violet-400 whitespace-nowrap hidden md:block">
+                      <div className="absolute top-full mt-12 text-[10px] font-bold text-teal-400 whitespace-nowrap hidden md:block">
                         Long-Term<br/>Dependency
                       </div>
                     )}
@@ -133,7 +133,7 @@ export function InteractiveVanishingTime() {
 
             <div className="mt-20 text-center space-y-2">
               <p className="text-sm font-medium text-white/60">
-                Signal at &quot;France&quot;: <span className={`font-mono font-bold ${getGradient(sourceIndex) < 1 ? 'text-red-400' : 'text-violet-400'}`}>
+                Signal at &quot;France&quot;: <span className={`font-mono font-bold ${getGradient(sourceIndex) < 1 ? 'text-red-400' : 'text-teal-400'}`}>
                   {weight > 1 ? "∞" : `${getGradient(sourceIndex).toFixed(4)}%`}
                 </span>
               </p>

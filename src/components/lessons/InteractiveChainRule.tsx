@@ -66,9 +66,9 @@ export function InteractiveChainRule() {
               </div>
 
               <div className="flex justify-between items-center p-2 rounded bg-indigo-900/30 border border-indigo-500/30 mt-2">
-                <span className="text-violet-400">dy/dx</span>
+                <span className="text-teal-400">dy/dx</span>
                 <span className="text-white/35 text-xs">dy/du × du/dx</span>
-                <span className="text-violet-400 font-bold text-lg">{dy_dx.toFixed(1)}</span>
+                <span className="text-teal-400 font-bold text-lg">{dy_dx.toFixed(1)}</span>
               </div>
             </div>
           </div>
@@ -118,11 +118,11 @@ export function InteractiveChainRule() {
             <div className="flex flex-col items-center gap-2">
               <div className="w-8 h-full bg-white/[0.04] border border-white/[0.08] rounded-full relative overflow-hidden">
                 <div 
-                  className="absolute bottom-0 left-0 right-0 bg-violet-500 transition-all duration-75"
+                  className="absolute bottom-0 left-0 right-0 bg-teal-600 transition-all duration-75"
                   style={{ height: `${y_pct}%` }}
                 />
               </div>
-              <span className="font-mono text-sm text-violet-400 font-bold">y = {y.toFixed(1)}</span>
+              <span className="font-mono text-sm text-teal-400 font-bold">y = {y.toFixed(1)}</span>
               <span className="text-xs text-white/40 uppercase tracking-wider">f(u)</span>
             </div>
 

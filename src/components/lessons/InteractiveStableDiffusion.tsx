@@ -56,7 +56,7 @@ export function InteractiveStableDiffusion() {
             onReset={handleReset}
           />
           
-          <div className="text-xs font-bold text-violet-400 uppercase tracking-widest bg-indigo-50 px-4 py-2 rounded-full border border-indigo-900/50">
+          <div className="text-xs font-bold text-teal-400 uppercase tracking-widest bg-indigo-50 px-4 py-2 rounded-full border border-indigo-900/50">
             Performance Benchmark
           </div>
         </div>

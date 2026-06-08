@@ -75,7 +75,7 @@ export function InteractiveDerivative() {
             <div className="flex flex-col gap-2">
               <label className="text-xs font-semibold uppercase tracking-wider text-white/40">Function Type</label>
               <select 
-                className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-violet-500 focus:border-violet-500 block w-full p-2"
+                className="bg-white/[0.06] border border-white/[0.1] text-white/90 text-sm rounded focus:ring-teal-500 focus:border-teal-600 block w-full p-2"
                 value={funcType}
                 onChange={(e) => setFuncType(e.target.value as "quadratic" | "cubic" | "sin")}
               >

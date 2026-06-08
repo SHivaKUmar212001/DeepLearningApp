@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 export function InteractiveCNN() {
   const architecture = [
     { name: "Input Image", type: "data", shape: "32×32×3", desc: "RGB Pixels", w: 32, h: 32, d: 3, color: "bg-blue-500" },
-    { name: "Conv2D + ReLU", type: "op", desc: "Extracts local features (edges)", color: "text-violet-400" },
-    { name: "Conv Block 1", type: "data", shape: "32×32×16", desc: "Feature Maps", w: 32, h: 32, d: 16, color: "bg-violet-500" },
+    { name: "Conv2D + ReLU", type: "op", desc: "Extracts local features (edges)", color: "text-teal-400" },
+    { name: "Conv Block 1", type: "data", shape: "32×32×16", desc: "Feature Maps", w: 32, h: 32, d: 16, color: "bg-teal-600" },
     { name: "MaxPool (2×2)", type: "op", desc: "Downsamples spatially", color: "text-amber-400" },
-    { name: "Pool 1", type: "data", shape: "16×16×16", desc: "Compressed Features", w: 16, h: 16, d: 16, color: "bg-violet-600" },
+    { name: "Pool 1", type: "data", shape: "16×16×16", desc: "Compressed Features", w: 16, h: 16, d: 16, color: "bg-teal-700" },
     { name: "Conv2D + ReLU", type: "op", desc: "Extracts complex shapes", color: "text-purple-400" },
     { name: "Conv Block 2", type: "data", shape: "16×16×32", desc: "Deep Feature Maps", w: 16, h: 16, d: 32, color: "bg-purple-500" },
     { name: "MaxPool (2×2)", type: "op", desc: "Downsamples spatially", color: "text-amber-400" },

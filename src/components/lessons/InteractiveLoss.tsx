@@ -117,7 +117,7 @@ export function InteractiveLoss() {
             {/* Legend */}
             <div className="absolute top-4 right-4 bg-[#0d0d20]/80 p-2 rounded border border-white/[0.1] text-xs">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-4 border-b-2 border-violet-500/40"></div>
+                <div className="w-4 border-b-2 border-teal-600/40"></div>
                 <span className="text-white/60">Cross-Entropy</span>
               </div>
               <div className="flex items-center gap-2">
@@ -127,7 +127,7 @@ export function InteractiveLoss() {
             </div>
           </div>
 
-          <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-3 rounded-lg">
+          <div className="text-sm text-teal-400 bg-teal-600/10 border border-teal-600/20 px-4 py-3 rounded-lg">
             <strong>Observation:</strong> Move the prediction to the totally wrong answer (e.g., predict 0.0 when truth is 1.0). Notice how MSE barely penalizes the model (loss = 1), but Cross-Entropy fiercely penalizes it (loss rockets to infinity). This makes the model learn much faster when it is confidently wrong!
           </div>
         </div>

@@ -68,7 +68,7 @@ export function InteractiveGPT() {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       className={`px-3 py-1.5 rounded font-mono text-sm font-bold shadow-[0_0_20px_-8px_rgba(139,92,246,0.2)]
-                        ${isPrompt ? 'bg-indigo-100 text-violet-400 border border-indigo-500/50' : 'bg-emerald-100 text-emerald-300 border border-emerald-500/50'}`}
+                        ${isPrompt ? 'bg-indigo-100 text-teal-400 border border-indigo-500/50' : 'bg-emerald-100 text-emerald-300 border border-emerald-500/50'}`}
                     >
                       {token}
                     </motion.div>
@@ -81,7 +81,7 @@ export function InteractiveGPT() {
               <button 
                 onClick={handleGenerate}
                 disabled={isFinished || isGenerating}
-                className="flex-1 py-3 bg-violet-600 hover:bg-violet-500 disabled:bg-white/[0.06] disabled:text-white/35 text-white/90 font-bold rounded-lg transition-colors shadow-lg shadow-indigo-900/20"
+                className="flex-1 py-3 bg-teal-700 hover:bg-teal-600 disabled:bg-white/[0.06] disabled:text-white/35 text-white/90 font-bold rounded-lg transition-colors shadow-lg shadow-indigo-900/20"
               >
                 {isGenerating ? "Predicting..." : isFinished ? "Generation Complete" : "Generate Next Token"}
               </button>
@@ -124,7 +124,7 @@ export function InteractiveGPT() {
                         </div>
                         <div className="flex-1 h-6 bg-white/[0.04] rounded-full overflow-hidden border border-white/[0.08]">
                           <motion.div 
-                            className={`h-full ${i === 0 ? 'bg-emerald-500' : i === 1 ? 'bg-violet-500' : 'bg-[#111128]0'}`}
+                            className={`h-full ${i === 0 ? 'bg-emerald-500' : i === 1 ? 'bg-teal-600' : 'bg-[#111128]0'}`}
                             initial={{ width: 0 }}
                             animate={{ width: `${item.p}%` }}
                             transition={{ duration: 0.5, delay: 0.1 }}

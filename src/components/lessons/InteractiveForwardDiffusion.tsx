@@ -52,9 +52,9 @@ export function InteractiveForwardDiffusion() {
               <div className="text-xs font-bold text-white/35 uppercase tracking-widest">Signal-to-Noise Ratio</div>
               
               <div className="flex items-center gap-4">
-                <div className="w-16 text-right font-mono text-xs text-violet-400 font-bold">Signal</div>
+                <div className="w-16 text-right font-mono text-xs text-teal-400 font-bold">Signal</div>
                 <div className="flex-1 h-2 bg-[#111128] rounded-full overflow-hidden">
-                  <div className="h-full bg-violet-500" style={{ width: `${signalOpacity * 100}%` }} />
+                  <div className="h-full bg-teal-600" style={{ width: `${signalOpacity * 100}%` }} />
                 </div>
                 <div className="w-10 text-right font-mono text-xs text-white/40">{(signalOpacity * 100).toFixed(0)}%</div>
               </div>

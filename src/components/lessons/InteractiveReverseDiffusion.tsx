@@ -98,14 +98,14 @@ export function InteractiveReverseDiffusion() {
 
             {/* Neural Network */}
             <div className="flex flex-col items-center gap-2">
-              <div className="text-[10px] font-bold text-violet-400 uppercase tracking-widest">Neural Network</div>
-              <svg width="40" height="20" className="text-violet-400">
+              <div className="text-[10px] font-bold text-teal-400 uppercase tracking-widest">Neural Network</div>
+              <svg width="40" height="20" className="text-teal-400">
                 <path d="M 0 10 L 35 10 M 25 2 L 35 10 L 25 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <div className="w-32 h-24 bg-indigo-50 border-2 border-indigo-500/50 rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(99,102,241,0.1)] relative overflow-hidden">
-                <div className="text-violet-400 font-bold tracking-widest">U-Net</div>
+                <div className="text-teal-400 font-bold tracking-widest">U-Net</div>
                 {isPlaying && (
-                  <div className="absolute inset-0 bg-violet-500/10 animate-pulse" />
+                  <div className="absolute inset-0 bg-teal-600/10 animate-pulse" />
                 )}
               </div>
               <svg width="40" height="20" className="text-white/35">
@@ -134,7 +134,7 @@ export function InteractiveReverseDiffusion() {
           </div>
 
           <div className="mt-12 w-full max-w-4xl p-4 bg-[#0d0d20]/50 border border-white/[0.08] rounded-lg flex items-start gap-4">
-            <div className="text-violet-400 mt-1">
+            <div className="text-teal-400 mt-1">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             </div>
             <div className="text-xs text-white/35 leading-relaxed">
