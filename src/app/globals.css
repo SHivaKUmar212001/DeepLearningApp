@@ -44,6 +44,51 @@ button, a, input {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ── Custom easing curves (Emil Kowalski) ── */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ── Reduced motion: keep opacity/color, remove movement ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.2s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.2s !important;
+  }
+  .stagger-children > * {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .animate-fade-in-up,
+  .animate-fade-in-scale,
+  .animate-slide-in-left {
+    animation: fadeIn 0.2s ease both !important;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Touch device hover guard ── */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* ── Active press feedback ── */
+.press-scale {
+  transition: transform 160ms var(--ease-out);
+}
+.press-scale:active {
+  transform: scale(0.97);
+}
+
 /* ── Glassmorphism utility ── */
 .glass {
   background: rgba(15, 15, 36, 0.55);
@@ -54,14 +99,16 @@ button, a, input {
 }
 
 .glass-hover {
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out), transform 200ms var(--ease-out);
 }
-.glass-hover:hover {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow:
-    0 20px 50px -15px rgba(15, 15, 36, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .glass-hover:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 20px 50px -15px rgba(15, 15, 36, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+  }
 }
 
 /* ── Subtle text emphasis ── */
@@ -130,15 +177,15 @@ button, a, input {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeInUp 400ms var(--ease-out) both;
 }
 
 .animate-fade-in-scale {
-  animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fadeInScale 400ms var(--ease-out) both;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slideInLeft 350ms var(--ease-out) both;
 }
 
 .animate-glow-pulse {
@@ -153,7 +200,7 @@ button, a, input {
 /* ── Staggered children ── */
 .stagger-children > * {
   opacity: 0;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 350ms var(--ease-out) forwards;
 }
 .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
 .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }

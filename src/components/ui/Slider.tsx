@@ -38,7 +38,7 @@ export function Slider({
         {/* Custom background track */}
         <div className="absolute w-full h-1.5 bg-white/[0.08] rounded-full overflow-hidden pointer-events-none">
           <div
-            className="h-full bg-violet-500 transition-all duration-75 ease-out"
+            className="h-full bg-violet-500 transition-[width] duration-75 ease-out"
             style={{ width: `${percentage}%` }}
           />
         </div>

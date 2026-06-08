@@ -155,7 +155,7 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/lessons/01-scalars-vectors-tensors"
-              className="group relative inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold text-white overflow-hidden transition-all"
+              className="group relative inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-semibold text-white overflow-hidden transition-[opacity,transform] duration-200 active:scale-[0.97]"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 opacity-90 group-hover:opacity-100 transition-opacity" />
               <span className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 opacity-0 group-hover:opacity-50 blur-xl transition-opacity" />

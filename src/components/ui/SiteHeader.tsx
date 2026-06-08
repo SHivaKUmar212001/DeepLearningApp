@@ -19,12 +19,12 @@ export function SiteHeader() {
         {/* Logo */}
         <Link
           href="/"
-          className="group flex items-center gap-3 transition-all"
+          className="group flex items-center gap-3 transition-opacity duration-200"
           aria-label="DeepDive home"
         >
           <span className="relative flex size-9 items-center justify-center rounded-lg text-sm font-black text-white overflow-hidden">
             <span className="absolute inset-0 bg-gradient-to-br from-violet-600 to-cyan-500 opacity-90" />
-            <span className="absolute inset-0 bg-gradient-to-br from-violet-500 to-cyan-400 opacity-0 group-hover:opacity-90 transition-opacity duration-500" />
+            <span className="absolute inset-0 bg-gradient-to-br from-violet-500 to-cyan-400 opacity-0 group-hover:opacity-90 transition-opacity duration-200" />
             <span className="relative z-10">D</span>
             <span className="absolute inset-0 rounded-lg ring-1 ring-white/10" />
           </span>
@@ -46,7 +46,7 @@ export function SiteHeader() {
                 key={href}
                 href={href}
                 className={cn(
-                  "relative px-5 py-2 text-sm font-medium rounded-full transition-all duration-300",
+                  "relative px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200",
                   isActive
                     ? "text-white"
                     : "text-white/40 hover:text-white/70"
