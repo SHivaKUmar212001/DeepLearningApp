@@ -60,7 +60,7 @@ export function InteractivePerceptron() {
           </div>
 
           <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-3 rounded-lg">
-            <strong>Goal:</strong> Adjust $w_1$, $w_2$, and $b$ until the dashed boundary perfectly separates the blue dots from the orange dots, achieving 100% accuracy.
+            <strong>Goal:</strong> Adjust w1, w2, and b until the dashed boundary perfectly separates the blue dots from the orange dots, achieving 100% accuracy.
           </div>
 
         </div>

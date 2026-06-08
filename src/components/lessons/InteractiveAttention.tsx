@@ -74,7 +74,7 @@ export function InteractiveAttention() {
                         {word}
                       </div>
                       <div className="mt-2 text-[10px] font-mono font-bold text-white/40">
-                        {`$h_${i+1}$`}
+                        h<sub>{i+1}</sub>
                       </div>
                       
                       {/* Attention Score Pill */}
@@ -122,7 +122,7 @@ export function InteractiveAttention() {
                 {targetWords.map((word, i) => (
                   <div key={`tgt-${i}`} className="flex flex-col items-center relative z-10 w-20">
                     <div className="mb-2 text-[10px] font-mono font-bold text-white/40">
-                      {`$s_${i+1}$`}
+                      s<sub>{i+1}</sub>
                     </div>
                     <div className={`p-2 rounded-lg font-bold text-center w-full transition-all duration-300 ${activeTarget === i ? 'bg-[#0a0a18]/80 text-white/20 border-2 border-violet-500/40 scale-110 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'bg-white/[0.04] text-white/40 border border-white/[0.08]'}`}>
                       {word}

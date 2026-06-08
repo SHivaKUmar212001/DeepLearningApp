@@ -36,7 +36,7 @@ export function InteractiveRNN() {
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">Recurrent Neural Network (RNN)</h2>
         <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
-          Unrolled across time $t$
+          Unrolled across time
         </div>
       </div>
 
@@ -64,7 +64,7 @@ export function InteractiveRNN() {
             />
             
             <div className="mt-2 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed">
-              Notice how the Hidden State $h_t$ is passed forward in time. This is how the network remembers that the subject of the sentence was a &quot;cat&quot; when it predicts the next word after &quot;sat&quot;.
+              Notice how the Hidden State h(t) is passed forward in time. This is how the network remembers that the subject of the sentence was a &quot;cat&quot; when it predicts the next word after &quot;sat&quot;.
             </div>
           </div>
         </div>
@@ -74,9 +74,9 @@ export function InteractiveRNN() {
           
           <div className="flex items-center gap-4 md:gap-8 relative min-w-[600px]">
             
-            {/* Initial Hidden State $h_0$ */}
+            {/* Initial Hidden State h&#8320; */}
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/[0.06] border-2 border-dashed border-violet-500/30 text-white/40 font-mono text-xs shrink-0 relative">
-              $h_0$
+              h&#8320;
               {step > 0 && (
                 <motion.div 
                   initial={{ width: 0 }} animate={{ width: "2rem" }} transition={{ duration: 0.5 }}
@@ -95,14 +95,14 @@ export function InteractiveRNN() {
                   
                   {/* Time label */}
                   <div className={`text-[10px] font-mono font-bold mb-4 uppercase tracking-wider ${isActive ? 'text-violet-400' : 'text-white/35'}`}>
-                    Time $t_{i+1}$
+                    Time t
                   </div>
 
                   {/* Prediction Output */}
                   <div className={`mb-6 p-2 rounded text-xs font-mono border text-center transition-all duration-500 min-w-[80px]
                     ${isActive ? 'bg-emerald-900/40 border-emerald-500/50 text-emerald-300' : 'bg-[#111128] border-white/[0.08] text-white/35 opacity-50'}`}
                   >
-                    Output $y_{i+1}$
+                    Output
                     <div className="mt-1 font-bold">{isActive ? item.output : "..."}</div>
                   </div>
 
@@ -136,7 +136,7 @@ export function InteractiveRNN() {
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
                       <div className={`absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
-                        $h_{i+1}$
+                        h<sub>{i+1}</sub>
                       </div>
                     </div>
                   )}
@@ -153,7 +153,7 @@ export function InteractiveRNN() {
                       <div className={`absolute right-0 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent border-l-[6px] transition-colors duration-500 ${step > i + 1 ? 'border-l-indigo-500' : 'border-l-gray-800'}`} />
                       
                       <div className={`absolute -top-6 left-4 text-[10px] font-mono transition-opacity duration-500 ${step > i + 1 ? 'text-violet-400 opacity-100' : 'opacity-0'}`}>
-                        $h_{i+1}$
+                        h<sub>{i+1}</sub>
                       </div>
                     </div>
                   )}

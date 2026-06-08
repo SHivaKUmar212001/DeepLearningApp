@@ -32,7 +32,7 @@ export function InteractiveVanishingTime() {
         {/* Controls */}
         <div className="flex flex-col gap-6">
           <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-400">Recurrent Weight ({"$W_{hh}$"})</h3>
+            <h3 className="text-sm font-medium text-cyan-400">Recurrent Weight (W<sub>hh</sub>)</h3>
             
             <div className="flex flex-col gap-2">
               <Slider 
@@ -42,13 +42,13 @@ export function InteractiveVanishingTime() {
                 onChange={(val) => setWeight(val)} 
               />
               <p className="text-xs text-white/40 mt-2">
-                During Backpropagation Through Time (BPTT), the gradient is multiplied by the recurrent weight {"$W_{hh}$"} at every single time step.
+                During Backpropagation Through Time (BPTT), the gradient is multiplied by the recurrent weight W<sub>hh</sub> at every single time step.
               </p>
             </div>
 
             <div className="mt-2 bg-[#111128] p-3 rounded border border-white/[0.08] text-xs text-white/35 leading-relaxed">
-              If {"$W_{hh}$"} &lt; 1, the gradient decays exponentially. <br/><br/>
-              If {"$W_{hh}$"} &gt; 1, the gradient explodes to infinity!
+              If W<sub>hh</sub> &lt; 1, the gradient decays exponentially. <br/><br/>
+              If W<sub>hh</sub> &gt; 1, the gradient explodes to infinity!
             </div>
           </div>
         </div>
@@ -58,7 +58,7 @@ export function InteractiveVanishingTime() {
           
           <div className="w-full max-w-2xl">
             <h3 className="text-xs font-mono text-white/40 uppercase tracking-wider font-bold mb-6 text-center">
-              Gradient Signal Reaching Time $t$
+              Gradient Signal Reaching Step t
             </h3>
 
             <div className="flex items-end justify-between h-48 border-b border-white/[0.1] relative w-full px-2">

@@ -79,7 +79,7 @@ export function InteractiveSeq2Seq() {
                   
                   {/* RNN Node */}
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 z-10 ${step > i ? 'bg-violet-600 text-white/90 shadow-[0_0_15px_rgba(79,70,229,0.5)]' : 'bg-white/[0.04] border-2 border-white/[0.08] text-white/35'}`}>
-                    {`$h_{${i+1}}$`}
+                    h<sub>{i+1}</sub>
                   </div>
 
                   {/* Horizontal line */}
@@ -140,7 +140,7 @@ export function InteractiveSeq2Seq() {
                   
                   {/* RNN Node */}
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 z-10 ${step > i + 3 ? 'bg-emerald-600 text-white/90 shadow-[0_0_15px_rgba(16,185,129,0.5)]' : 'bg-white/[0.04] border-2 border-white/[0.08] text-white/35'}`}>
-                    {`$s_{${i+1}}$`}
+                    s<sub>{i+1}</sub>
                   </div>
                   
                   {/* Arrow down to output */}
