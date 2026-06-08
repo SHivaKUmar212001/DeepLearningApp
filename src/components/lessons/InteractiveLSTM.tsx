@@ -105,12 +105,12 @@ export function InteractiveLSTM() {
             </div>
             
             {/* Labels for Cell State */}
-            <div className="absolute top-[25%] left-4 -translate-y-6 text-sm font-bold font-mono text-white/35">{"$C_{t-1}$"}</div>
-            <div className="absolute top-[25%] right-4 -translate-y-6 text-sm font-bold font-mono text-white/90">{"$C_t$"}</div>
+            <div className="absolute top-[25%] left-4 -translate-y-6 text-sm font-bold font-mono text-white/35">C<sub>t-1</sub></div>
+            <div className="absolute top-[25%] right-4 -translate-y-6 text-sm font-bold font-mono text-white/90">C<sub>t</sub></div>
 
             {/* LOWER TRACK (Hidden State & Input) */}
             <div className="absolute bottom-[20%] left-0 right-0 h-1 bg-white/[0.06] z-0" />
-            <div className="absolute bottom-[20%] left-4 -translate-y-6 text-xs font-bold font-mono text-white/40">{"$h_{t-1}$ + $x_t$"}</div>
+            <div className="absolute bottom-[20%] left-4 -translate-y-6 text-xs font-bold font-mono text-white/40">h<sub>t-1</sub> + x<sub>t</sub></div>
 
             {/* ==================================================== */}
             {/* FORGET GATE */}

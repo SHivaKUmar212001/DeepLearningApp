@@ -82,13 +82,13 @@ export function InteractivePositional() {
         <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 overflow-hidden">
           
           <div className="w-full flex flex-col items-center">
-            <h3 className="text-[10px] font-bold text-white/40 mb-2 uppercase tracking-widest">{"Dimension $i \\rightarrow$"}</h3>
+            <h3 className="text-[10px] font-bold text-white/40 mb-2 uppercase tracking-widest">Dimension i &rarr;</h3>
             
             <div className="flex gap-2">
               {/* Row axis label */}
               <div className="flex flex-col items-end justify-center mr-2">
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest origin-center -rotate-90 whitespace-nowrap">
-                  {"Position $pos \\rightarrow$"}
+                  &larr; Position
                 </span>
               </div>
               
@@ -106,7 +106,7 @@ export function InteractivePositional() {
                         {/* Hover Tooltip */}
                         <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 opacity-0 group-hover/cell:opacity-100 bg-white/[0.04] text-white/90 text-xs p-2 rounded border border-white/[0.1] pointer-events-none z-50 whitespace-nowrap hidden md:block transition-opacity">
                           <div className="font-mono font-bold mb-1 border-b border-white/[0.1] pb-1">
-                            {`$PE_{pos=${pos}, i=${i}}$`}
+                            PE({pos},{i})
                           </div>
                           <div>Value: <span className={val > 0 ? 'text-red-400' : 'text-blue-400'}>{val.toFixed(4)}</span></div>
                           <div className="text-white/40 mt-1">

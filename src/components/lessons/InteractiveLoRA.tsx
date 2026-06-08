@@ -36,7 +36,7 @@ export function InteractiveLoRA() {
                 onChange={(val) => setRank(val)} 
               />
               <p className="text-xs text-white/40 mt-2">
-                The Rank ($r$) determines the &quot;thickness&quot; of the adapter matrices $A$ and $B$. A lower rank means fewer trainable parameters, but less capacity to learn new information.
+                The Rank (r) determines the thickness of the adapter matrices A and B. A lower rank means fewer trainable parameters, but less capacity to learn new information.
               </p>
             </div>
 
@@ -76,7 +76,7 @@ export function InteractiveLoRA() {
         <div className="lg:col-span-8 flex flex-col items-center justify-center bg-[#111128] rounded-xl border border-white/[0.08] p-6 min-h-[400px]">
           
           <div className="w-full max-w-2xl">
-            <h3 className="text-[10px] font-bold text-white/40 mb-8 uppercase tracking-widest text-center">Matrix Math: {"$W_{final} = W_0 + (A \\times B)$"}</h3>
+            <h3 className="text-[10px] font-bold text-white/40 mb-8 uppercase tracking-widest text-center">Matrix Math: W<sub>final</sub> = W<sub>0</sub> + (A x B)</h3>
             
             <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
               
@@ -84,7 +84,7 @@ export function InteractiveLoRA() {
               <div className="flex flex-col items-center gap-2">
                 <div className="w-32 h-32 bg-white/[0.04] border-2 border-white/[0.1] rounded flex items-center justify-center relative overflow-hidden group">
                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-500 to-transparent" />
-                  <span className="font-mono font-bold text-white/40 text-xl z-10">{"$W_0$"}</span>
+                  <span className="font-mono font-bold text-white/40 text-xl z-10">W<sub>0</sub></span>
                   
                   {/* Lock icon */}
                   <div className="absolute top-2 right-2 text-white/35">
@@ -129,7 +129,7 @@ export function InteractiveLoRA() {
             </div>
 
             <div className="mt-12 p-4 bg-[#0d0d20]/50 border border-white/[0.08] rounded-lg text-sm text-white/35 text-center">
-              Instead of updating all 10,000 parameters in {"$W_0$"}, we freeze it completely. We then create two tiny matrices {"$A$"} and {"$B$"}, and only train them! When we multiply {"$A \\times B$"}, it produces a new 100×100 matrix of &quot;updates&quot; that we simply add to {"$W_0$"}.
+              Instead of updating all 10,000 parameters in W<sub>0</sub>, we freeze it completely. We then create two tiny matrices A and B, and only train them! When we multiply A &times; B, it produces a new 100×100 matrix of &quot;updates&quot; that we simply add to W<sub>0</sub>.
             </div>
             
           </div>

@@ -138,7 +138,7 @@ export function InteractiveReverseDiffusion() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
             </div>
             <div className="text-xs text-white/35 leading-relaxed">
-              At $t=1000$, we feed pure random noise into the neural network. The network does <strong>not</strong> try to predict the clean image. Instead, it predicts the <em>noise</em>! We then subtract a tiny fraction of that predicted noise from the image, stepping backward in time to $t=999$. By repeating this loop 1,000 times, a photorealistic image slowly emerges from the static.
+              At t=1000, we feed pure random noise into the neural network. The network does <strong>not</strong> try to predict the clean image. Instead, it predicts the <em>noise</em>! We then subtract a tiny fraction of that predicted noise from the image, stepping backward in time to t=999. By repeating this loop 1,000 times, a photorealistic image slowly emerges from the static.
             </div>
           </div>
           

@@ -33,7 +33,7 @@ export function InteractiveForwardDiffusion() {
         {/* Controls */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <div className="p-4 bg-white/[0.04] rounded-lg border border-white/[0.08] flex flex-col gap-4">
-            <h3 className="text-sm font-medium text-cyan-400">Time Step ($t$)</h3>
+            <h3 className="text-sm font-medium text-cyan-400">Time Step (t)</h3>
             
             <div className="flex flex-col gap-2">
               <Slider 
@@ -43,8 +43,8 @@ export function InteractiveForwardDiffusion() {
                 onChange={(val) => setTimeStep(val)} 
               />
               <p className="text-xs text-white/40 mt-2 leading-relaxed">
-                As $t$ increases from 0 to 1000, we iteratively add a tiny bit of Gaussian noise to the image. 
-                This forms a <strong>Markov Chain</strong>: the image at $t=10$ only depends on the image at $t=9$.
+                As t increases from 0 to 1000, we iteratively add a tiny bit of Gaussian noise to the image. 
+                This forms a <strong>Markov Chain</strong>: the image at t=10 only depends on the image at t=9.
               </p>
             </div>
 
@@ -75,7 +75,7 @@ export function InteractiveForwardDiffusion() {
           
           <div className="flex flex-col items-center gap-8">
             <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest text-center">
-              Image at $x_t$
+              Image at x(t)
             </h3>
             
             <div className="w-48 h-48 bg-black border-2 border-white/[0.1] rounded-xl relative overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.5)] flex items-center justify-center">
@@ -108,7 +108,7 @@ export function InteractiveForwardDiffusion() {
             </div>
 
             <div className="text-[10px] font-mono text-white/40 text-center max-w-sm">
-              At $t=1000$, the image $x_T$ is completely indistinguishable from pure, random Gaussian noise. The original information has been entirely destroyed.
+              At t=1000, the image x(T) is completely indistinguishable from pure, random Gaussian noise. The original information has been entirely destroyed.
             </div>
           </div>
 
