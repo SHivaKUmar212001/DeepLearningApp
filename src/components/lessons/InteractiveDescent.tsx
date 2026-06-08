@@ -184,7 +184,7 @@ export function InteractiveDescent() {
       <div className="w-full flex flex-col gap-2 mt-4">
         {/* Helper Tip */}
         <div className="text-sm text-violet-400 bg-violet-500/10 border border-violet-500/20 px-4 py-2 rounded-lg flex items-center justify-center gap-2">
-          <span className="text-lg">💡</span>
+          <svg className="size-4 text-violet-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
           <strong>Tip:</strong> Click and drag the 3D plot below to rotate your view. Use your scroll wheel to zoom in and out.
         </div>
         

@@ -113,7 +113,7 @@ export default function Home() {
   return (
     <div>
       {/* ══════ HERO — Cinematic intro with particles ══════ */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[100dvh] flex items-center overflow-hidden">
         {/* Particle canvas */}
         <div className="absolute inset-0 z-0">
           <ParticleField className="absolute inset-0" />

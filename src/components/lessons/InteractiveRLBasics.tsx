@@ -150,7 +150,7 @@ export function InteractiveRLBasics() {
 
             {/* Fire (-10) */}
             <div className="absolute w-[33.33%] h-[33.33%] flex items-center justify-center" style={{ left: `${fire.x * 33.33}%`, top: `${fire.y * 33.33}%` }}>
-              <div className="text-3xl filter drop-shadow-[0_0_8px_rgba(244,63,94,0.8)] animate-pulse">🔥</div>
+              <div className="size-8 rounded-full bg-gradient-to-br from-rose-500 to-amber-500 animate-pulse shadow-[0_0_12px_rgba(244,63,94,0.5)]" />
             </div>
 
             {/* Agent */}

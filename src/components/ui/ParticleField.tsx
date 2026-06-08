@@ -150,7 +150,7 @@ export function ParticleField({ className = "" }: { className?: string }) {
     <canvas
       ref={canvasRef}
       className={`pointer-events-auto ${className}`}
-      style={{ width: "100%", height: "100%" }}
+      style={{ width: "100%", height: "100%", willChange: "transform" }}
     />
   );
 }

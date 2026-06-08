@@ -49,38 +49,34 @@ button, a, input {
   background: rgba(15, 15, 36, 0.55);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .glass-hover {
   transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
 }
 .glass-hover:hover {
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
   box-shadow:
-    0 0 30px -10px rgba(139, 92, 246, 0.2),
-    0 0 60px -20px rgba(6, 182, 212, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 20px 50px -15px rgba(15, 15, 36, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
 }
 
-/* ── Neon text glow ── */
+/* ── Subtle text emphasis ── */
 .neon-text {
-  text-shadow:
-    0 0 10px rgba(139, 92, 246, 0.5),
-    0 0 40px rgba(139, 92, 246, 0.2);
+  text-shadow: 0 0 40px rgba(139, 92, 246, 0.15);
 }
 
 .neon-text-cyan {
-  text-shadow:
-    0 0 10px rgba(6, 182, 212, 0.5),
-    0 0 40px rgba(6, 182, 212, 0.2);
+  text-shadow: 0 0 40px rgba(6, 182, 212, 0.15);
 }
 
-/* ── Neon border glow ── */
+/* ── Refined border depth ── */
 .neon-border {
   box-shadow:
-    0 0 15px -5px rgba(139, 92, 246, 0.3),
+    0 20px 40px -15px rgba(15, 15, 36, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 

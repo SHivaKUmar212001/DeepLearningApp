@@ -20,7 +20,7 @@ export function InteractiveFuture() {
     {
       id: "agi",
       title: "Artificial General Intelligence",
-      icon: "🧠",
+      icon: "brain",
       color: "from-fuchsia-600 to-purple-600",
       desc: "The holy grail of AI research: creating a system that can understand, learn, and apply knowledge across any intellectual task that a human can perform.",
       x: 50,
@@ -29,7 +29,7 @@ export function InteractiveFuture() {
     {
       id: "alignment",
       title: "AI Alignment",
-      icon: "⚖️",
+      icon: "scales",
       color: "from-blue-600 to-indigo-600",
       desc: "As models approach AGI, how do we ensure their goals align with human values? Research focuses on scalable oversight and mechanistic interpretability.",
       x: 20,
@@ -38,7 +38,7 @@ export function InteractiveFuture() {
     {
       id: "world",
       title: "World Models",
-      icon: "🌍",
+      icon: "globe",
       color: "from-emerald-600 to-teal-600",
       desc: "Moving beyond predicting the next word, models like Sora learn a physics engine of the real world, allowing them to simulate and plan complex scenarios.",
       x: 80,
@@ -47,7 +47,7 @@ export function InteractiveFuture() {
     {
       id: "mamba",
       title: "State Space Models",
-      icon: "🐍",
+      icon: "code",
       color: "from-rose-600 to-orange-600",
       desc: "Transformers require massive memory to remember long contexts. SSMs like Mamba offer linear scaling, potentially replacing Attention entirely.",
       x: 35,
@@ -56,7 +56,7 @@ export function InteractiveFuture() {
     {
       id: "neuro",
       title: "Neuromorphic Chips",
-      icon: "⚡",
+      icon: "zap",
       color: "from-amber-600 to-yellow-600",
       desc: "Hardware designed to physically mimic the human brain using Spiking Neural Networks, offering 1000x improvements in power efficiency over GPUs.",
       x: 65,
@@ -65,7 +65,7 @@ export function InteractiveFuture() {
     {
       id: "liquid",
       title: "Liquid Neural Nets",
-      icon: "💧",
+      icon: "droplet",
       color: "from-cyan-600 to-blue-600",
       desc: "Continuous-time networks that can dynamically change their underlying equations *after* training, perfect for adapting to unknown environments like drone flight.",
       x: 50,
