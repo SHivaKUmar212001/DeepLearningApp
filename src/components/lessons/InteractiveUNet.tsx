@@ -123,7 +123,7 @@ export function InteractiveUNet() {
 
             {/* Middle (Bottleneck) */}
             <div 
-              className="flex flex-col items-center justify-end h-[85%] z-0 cursor-pointer"
+              className="flex flex-col items-center justify-end h-[85%] z-10 cursor-pointer"
               onMouseEnter={() => setHoverState("bottle")}
               onMouseLeave={() => setHoverState("none")}
             >
@@ -146,7 +146,7 @@ export function InteractiveUNet() {
               {[64, 48, 32].reverse().map((size, i) => (
                 <motion.div 
                   key={`up-${i}`}
-                  className={`border-2 rounded bg-[#06060e]/40 flex items-center justify-center transition-colors ${hoverState === "up" ? 'border-violet-500/30 shadow-[0_0_15px_rgba(251,113,133,0.5)]' : 'border-white/[0.05]/50'}`}
+                  className={`border-2 rounded bg-[#06060e]/40 flex items-center justify-center transition-colors ${hoverState === "up" ? 'border-violet-500/30 shadow-[0_0_15px_rgba(251,113,133,0.5)]' : 'border-white/[0.08]'}`}
                   style={{ width: size, height: size }}
                   animate={{ scale: hoverState === "up" ? 1.05 : 1 }}
                 />
@@ -156,40 +156,37 @@ export function InteractiveUNet() {
               </div>
             </div>
 
-            {/* Skip Connections (SVG Lines) */}
-            <svg 
-              className="absolute inset-0 w-full h-[75%] pointer-events-none z-0"
+            {/* Skip Connections (SVG Lines) — interactive, sit between columns */}
+            <svg
+              className="absolute inset-0 w-full h-[75%] z-[5] cursor-pointer"
               style={{ overflow: 'visible' }}
+              onMouseEnter={() => setHoverState("skip")}
+              onMouseLeave={() => setHoverState("none")}
             >
-              {/* Level 1 */}
-              <motion.line 
-                x1="12%" y1="12%" x2="88%" y2="12%" 
-                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"} 
+              {/* Invisible thick hit areas for each skip line */}
+              <line x1="18%" y1="12%" x2="82%" y2="12%" stroke="transparent" strokeWidth="20" />
+              <line x1="18%" y1="50%" x2="82%" y2="50%" stroke="transparent" strokeWidth="20" />
+              <line x1="18%" y1="88%" x2="82%" y2="88%" stroke="transparent" strokeWidth="20" />
+              {/* Visible dashed lines */}
+              <motion.line
+                x1="12%" y1="12%" x2="88%" y2="12%"
+                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"}
                 strokeWidth="2" strokeDasharray="4 4"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1 }}
               />
-              {/* Level 2 */}
-              <motion.line 
-                x1="12%" y1="50%" x2="88%" y2="50%" 
-                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"} 
+              <motion.line
+                x1="12%" y1="50%" x2="88%" y2="50%"
+                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"}
                 strokeWidth="2" strokeDasharray="4 4"
               />
-              {/* Level 3 */}
-              <motion.line 
-                x1="12%" y1="88%" x2="88%" y2="88%" 
-                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"} 
+              <motion.line
+                x1="12%" y1="88%" x2="88%" y2="88%"
+                stroke={hoverState === "skip" ? "#34d399" : "#1f2937"}
                 strokeWidth="2" strokeDasharray="4 4"
               />
             </svg>
-
-            {/* Skip Connection Interactive Overlay */}
-            <div 
-              className="absolute inset-0 w-full h-[75%] z-20 cursor-pointer"
-              onMouseEnter={() => setHoverState("skip")}
-              onMouseLeave={() => setHoverState("none")}
-            />
 
           </div>
           
