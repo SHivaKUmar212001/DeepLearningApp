@@ -67,7 +67,7 @@ export function InteractiveOptimizers() {
 
   return (
     <div className={cn(
-      "flex flex-col gap-6 transition-all duration-300",
+      "not-prose flex flex-col gap-6 transition-all duration-300",
       isExpanded 
         ? "fixed inset-0 z-[100] bg-[#111128] overflow-y-auto p-4 md:p-8"
         : "my-8 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]"

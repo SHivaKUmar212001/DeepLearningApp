@@ -25,7 +25,7 @@ export function InteractiveChainRule() {
   const y_pct = (y / max_y) * 100;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">The Chain Rule Visualized</h2>
       </div>

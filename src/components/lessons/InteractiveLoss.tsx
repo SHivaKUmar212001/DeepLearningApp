@@ -37,7 +37,7 @@ export function InteractiveLoss() {
   const currentCeY = height - (Math.min(ceMax, ce) / ceMax) * height;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">Loss Functions</h2>
       </div>
@@ -84,8 +84,8 @@ export function InteractiveLoss() {
         </div>
 
         <div className="flex flex-col gap-4">
-          <div className="w-full aspect-video bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative p-4 pb-8 pl-10">
-            <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-full overflow-visible">
+          <div className="w-full aspect-video bg-[#111128] rounded-xl border border-white/[0.08] overflow-hidden relative p-4">
+            <svg viewBox={`-55 -15 ${width + 75} ${height + 60}`} className="w-full h-full">
               {/* Axes */}
               <line x1={0} y1={height} x2={width} y2={height} stroke="#4b5563" strokeWidth={2} />
               <line x1={0} y1={0} x2={0} y2={height} stroke="#4b5563" strokeWidth={2} />

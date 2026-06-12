@@ -22,7 +22,7 @@ export function InteractiveCNN() {
   ];
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] overflow-hidden">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)] overflow-hidden">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">CNN Architecture Pipeline (VGG-style)</h2>
       </div>

@@ -36,7 +36,7 @@ export function InteractiveObjectDetection() {
   const iou = union === 0 ? 0 : intersection / union;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">Bounding Box Regression</h2>
         <div className={`text-sm font-bold px-3 py-1 rounded-full border ${iou > 0.7 ? 'bg-emerald-100 text-emerald-400 border-emerald-500/50' : 'bg-red-900/50 text-red-400 border-red-500/50'}`}>

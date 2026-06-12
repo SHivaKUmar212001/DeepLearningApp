@@ -58,7 +58,7 @@ export function InteractiveStride() {
   const winY = outY * stride;
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">Padding & Stride</h2>
         <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
@@ -74,17 +74,17 @@ export function InteractiveStride() {
             <h3 className="text-sm font-medium text-cyan-400">Hyperparameters</h3>
             
             <div className="flex flex-col gap-4">
-              <div className="flex items-center justify-between p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
-                <span className="text-sm text-white/60 font-medium">Padding (P)</span>
-                <div className="flex gap-2">
-                  <button onClick={() => setPadding(0)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 0 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>0 (Valid)</button>
-                  <button onClick={() => setPadding(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${padding === 1 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1 (Same)</button>
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
+                <span className="text-sm text-white/60 font-medium whitespace-nowrap">Padding (P)</span>
+                <div className="flex shrink-0 gap-2">
+                  <button onClick={() => setPadding(0)} className={`px-3 py-1 rounded text-xs font-bold whitespace-nowrap transition-colors ${padding === 0 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>0 (Valid)</button>
+                  <button onClick={() => setPadding(1)} className={`px-3 py-1 rounded text-xs font-bold whitespace-nowrap transition-colors ${padding === 1 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1 (Same)</button>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
-                <span className="text-sm text-white/60 font-medium">Stride (S)</span>
-                <div className="flex gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 p-3 bg-[#111128] border border-white/[0.08] rounded-lg">
+                <span className="text-sm text-white/60 font-medium whitespace-nowrap">Stride (S)</span>
+                <div className="flex shrink-0 gap-2">
                   <button onClick={() => setStride(1)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 1 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>1</button>
                   <button onClick={() => setStride(2)} className={`px-3 py-1 rounded text-xs font-bold transition-colors ${stride === 2 ? 'bg-violet-600 text-white/90' : 'bg-white/[0.06] text-white/40 hover:text-white/60'}`}>2</button>
                 </div>

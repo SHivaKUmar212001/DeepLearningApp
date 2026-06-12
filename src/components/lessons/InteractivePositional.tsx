@@ -40,7 +40,7 @@ export function InteractivePositional() {
   };
 
   return (
-    <div className="my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
+    <div className="not-prose my-8 flex flex-col gap-6 p-6 bg-[#0d0d20] border border-white/[0.08] rounded-xl shadow-[0_0_30px_-10px_rgba(139,92,246,0.15)]">
       <div className="flex justify-between items-center -mt-2">
         <h2 className="text-xl font-bold text-white/90 tracking-tight">Positional Encoding</h2>
         <div className="text-xs font-mono text-white/40 bg-white/[0.04] px-3 py-1 rounded-full border border-white/[0.08]">
@@ -84,7 +84,7 @@ export function InteractivePositional() {
           <div className="w-full flex flex-col items-center">
             <h3 className="text-[10px] font-bold text-white/40 mb-2 uppercase tracking-widest">Dimension i &rarr;</h3>
             
-            <div className="flex gap-2">
+            <div className="flex gap-2 w-full justify-center">
               {/* Row axis label */}
               <div className="flex flex-col items-end justify-center mr-2">
                 <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest origin-center -rotate-90 whitespace-nowrap">
