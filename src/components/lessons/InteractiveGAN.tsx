@@ -119,7 +119,7 @@ export function InteractiveGAN() {
 
             {/* ================= DISCRIMINATOR ================= */}
             <div className="flex flex-col items-center gap-4 flex-1">
-              <h3 className="text-xs font-bold text-white/35 uppercase tracking-widest border border-white/[0.05]/50 bg-[#111128] px-3 py-1 rounded-full">The Discriminator</h3>
+              <h3 className="text-xs font-bold text-white/35 uppercase tracking-widest border border-white/[0.05] bg-[#111128] px-3 py-1 rounded-full">The Discriminator</h3>
               
               <div className="flex gap-4">
                 <div className="flex flex-col items-center">
@@ -148,7 +148,7 @@ export function InteractiveGAN() {
                 </svg>
               </div>
 
-              <div className="w-full h-32 bg-[#111128] border-2 border-violet-500/40/50 rounded-xl flex flex-col items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.1)] gap-2">
+              <div className="w-full h-32 bg-[#111128] border-2 border-violet-500/40 rounded-xl flex flex-col items-center justify-center relative overflow-hidden shadow-[0_0_20px_rgba(244,63,94,0.1)] gap-2">
                 <div className="text-white/20 font-bold tracking-widest">D(x)</div>
                 <div className="text-[10px] font-mono text-white/35 bg-[#06060e]/50 px-2 py-0.5 rounded">Accuracy: {dAccuracy.toFixed(1)}%</div>
               </div>

@@ -37,7 +37,7 @@ export function InteractiveStride() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setStep(0);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setIsPlaying(false);
   }, [padding, stride]);
 

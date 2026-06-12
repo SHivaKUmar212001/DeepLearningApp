@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Clock, Brain, Eye, Cpu, Layers, Zap } from "lucide-react";
+import { ArrowRight, Clock, Brain, Eye, Cpu, Layers, Zap, type LucideIcon } from "lucide-react";
 
 interface Lesson {
   id: number;
@@ -20,7 +20,7 @@ interface Module {
   neon: string;
   glowColor: string;
   borderAccent: string;
-  icon: React.ElementType;
+  icon: LucideIcon;
   lessons: Lesson[];
 }
 

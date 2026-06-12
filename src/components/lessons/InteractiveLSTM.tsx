@@ -76,7 +76,7 @@ export function InteractiveLSTM() {
 
               <button 
                 onClick={() => setScenario("output")}
-                className={`p-3 rounded border text-left transition-colors ${scenario === "output" ? 'bg-[#0a0a18]/40 border-violet-500/40/50 text-white/20' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
+                className={`p-3 rounded border text-left transition-colors ${scenario === "output" ? 'bg-[#0a0a18]/40 border-violet-500/40 text-white/20' : 'bg-[#111128] border-white/[0.08] text-white/40 hover:border-white/[0.1]'}`}
               >
                 <div className="font-bold text-sm mb-1">Output Prediction</div>
                 <div className="text-xs opacity-80">Needed for classification</div>

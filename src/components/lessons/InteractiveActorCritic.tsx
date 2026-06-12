@@ -117,7 +117,7 @@ export function InteractiveActorCritic() {
 
               <div className="flex flex-col items-center gap-2 flex-1">
                 <div className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Critic Network (Value)</div>
-                <div className="w-32 h-20 bg-[#111128] border-2 border-violet-500/40/50 rounded-lg flex flex-col items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.1)]">
+                <div className="w-32 h-20 bg-[#111128] border-2 border-violet-500/40 rounded-lg flex flex-col items-center justify-center shadow-[0_0_15px_rgba(244,63,94,0.1)]">
                   <span className="text-white/35 font-bold tracking-widest">Evaluate</span>
                   <AnimatePresence>
                     {criticScore !== null && (

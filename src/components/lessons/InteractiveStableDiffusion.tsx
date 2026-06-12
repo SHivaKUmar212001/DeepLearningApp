@@ -79,7 +79,7 @@ export function InteractiveStableDiffusion() {
               <div className="w-48 h-48 bg-white/[0.04] border-2 border-white/[0.05] rounded-lg flex flex-col items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:5%_5%]" />
                 <span className="text-white/40 font-bold tracking-widest z-10 text-xl">512 × 512</span>
-                <span className="text-[10px] font-mono text-white/35/70 z-10">262,144 Pixels</span>
+                <span className="text-[10px] font-mono text-white/35 z-10">262,144 Pixels</span>
               </div>
             </div>
 

@@ -139,7 +139,7 @@ export function InteractivePlayground() {
     mlpRef.current = new SimpleMLP([2, hiddenSize, hiddenSize, 1]);
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setEpoch(0);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+     
     setLoss(1.0);
     if (mlpRef.current) {
       const res = 20;

@@ -65,10 +65,10 @@ export function NeuralNet({
   // Animation variants
   const edgeVariants = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    static: (custom: any) => ({ pathLength: 1, opacity: custom.isDropped ? 0.06 : 0.28, stroke: "#4c0519" }),
+    static: (custom: any) => ({ pathLength: 1, opacity: custom.isDropped ? 0.06 : 0.28, stroke: "#8b8aa8" }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     forward: (custom: any) => {
-      if (custom.isDropped) return { pathLength: 1, opacity: 0.06, stroke: "#4c0519" };
+      if (custom.isDropped) return { pathLength: 1, opacity: 0.06, stroke: "#8b8aa8" };
       return {
         pathLength: [0, 1],
         opacity: [0.2, 0.8, 0.2],
@@ -78,7 +78,7 @@ export function NeuralNet({
     },
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     backward: (custom: any) => {
-      if (custom.isDropped) return { pathLength: 1, opacity: 0.06, stroke: "#4c0519" };
+      if (custom.isDropped) return { pathLength: 1, opacity: 0.06, stroke: "#8b8aa8" };
       return {
         pathLength: [1, 0],
         opacity: [0.2, 0.8, 0.2],

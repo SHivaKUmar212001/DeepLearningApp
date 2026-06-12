@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { ArrowRight, Clock, Sparkles, Zap, Brain, Eye, Cpu, Layers } from "lucide-react";
+import { ArrowRight, Clock, Sparkles, Zap, Brain, Eye, Cpu, Layers, type LucideIcon } from "lucide-react";
 
 const ParticleField = dynamic(
   () => import("@/components/ui/ParticleField").then(m => m.ParticleField),
@@ -13,7 +13,7 @@ const HolographicGrid = dynamic(
   { ssr: false }
 );
 
-const moduleThemes: Record<string, { neon: string; glow: string; icon: React.ElementType }> = {
+const moduleThemes: Record<string, { neon: string; glow: string; icon: LucideIcon }> = {
   Foundations: { neon: "text-violet-400", glow: "shadow-violet-500/20", icon: Brain },
   "Computer Vision": { neon: "text-cyan-400", glow: "shadow-cyan-500/20", icon: Eye },
   "Sequence Models & NLP": { neon: "text-amber-400", glow: "shadow-amber-500/20", icon: Cpu },

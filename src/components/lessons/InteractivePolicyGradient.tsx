@@ -164,7 +164,7 @@ export function InteractivePolicyGradient() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
-                  className={`px-4 py-2 rounded-full border font-bold text-sm ${lastReward.value > 0 ? 'bg-emerald-950/50 border-emerald-500/50 text-emerald-400' : 'bg-[#06060e]/50 border-violet-500/40/50 text-white/35'}`}
+                  className={`px-4 py-2 rounded-full border font-bold text-sm ${lastReward.value > 0 ? 'bg-emerald-950/50 border-emerald-500/50 text-emerald-400' : 'bg-[#06060e]/50 border-violet-500/40 text-white/35'}`}
                 >
                   {lastReward.action.toUpperCase()} received reward: {lastReward.value > 0 ? `+${lastReward.value}` : lastReward.value}
                 </motion.div>

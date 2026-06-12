@@ -113,7 +113,7 @@ export function InteractiveCFG() {
             <div className="flex flex-col items-center gap-2">
               <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest">Final Generation</h3>
               
-              <div className={`w-32 h-32 bg-white/[0.04] border-2 ${cfg > 12 ? 'border-violet-500/40/50 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'border-white/[0.1]'} rounded-xl flex items-center justify-center relative overflow-hidden transition-all duration-300`}>
+              <div className={`w-32 h-32 bg-white/[0.04] border-2 ${cfg > 12 ? 'border-violet-500/40 shadow-[0_0_15px_rgba(244,63,94,0.3)]' : 'border-white/[0.1]'} rounded-xl flex items-center justify-center relative overflow-hidden transition-all duration-300`}>
                 <div 
                   className={`text-8xl transition-all duration-300 ${getEffects()}`}
                 >
